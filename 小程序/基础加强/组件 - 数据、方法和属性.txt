@@ -1,0 +1,50 @@
+1. data 数据
+在小程序组件中，用于组件模板渲染的私有数据，需要定义到 data 节点中，示例如下：
+ data: {
+    count:0
+  },
+
+2. methods 方法
+在小程序组件中，事件处理函数和自定义方法需要定义到 methods 节点中，示例代码如下：
+methods: {
+    addCount() {
+      this.setData({
+        count:this.data.count + 1
+      })
+      this._showCount()
+    },
+    _showCount() {
+      wx.showToast({
+        title: 'count:' + this.data.count,
+        icon:'none'
+      })
+    }
+  }
+
+3. properties 属性
+在小程序组件中，properties 是组件的对外属性，用来接收外界传递到组件中的数据，示例代码如下：
+properties: {
+    // 简化传值
+    // max:Number
+    // 完整定义
+    max:{
+      type:Number,
+      value:10
+    }
+  },
+
+
+4. data 和 properties 的区别
+在小程序的组件中，properties 属性和 data 数据的用法相同，它们都是可读可写的，只不过：
+⚫ data 更倾向于存储组件的私有数据
+⚫ properties 更倾向于存储外界传递到组件中的数据
+
+
+5. 使用 setData 修改 properties 的值
+由于 data 数据和 properties 属性在本质上没有任何区别，因此 properties 属性的值也可以用于页面渲染，
+或使用 setData 为 properties 中的属性重新赋值，示例代码如下：
+ this.setData({
+        count:this.data.count + 1,
+        max:this.properties.max + 1
+      })
+<view>max:{{max}}</view>

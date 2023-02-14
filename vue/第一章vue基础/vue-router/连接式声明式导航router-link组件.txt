@@ -1,0 +1,20 @@
+声明式导航可用组件router-link来代替a标签 
+router-link实质上最终会渲染a链接to属性等价于提供href属性（to无需#）
+router-link替代a
+to替代href
+router-link提供了声明式导航高亮功能自带类名
+-------------------------
+跳转传参
+在router-link上的to属性传值语法如下
+1，to='/path?参数名=值'
+对应页面接收  $route.query.参数名
+？方法query传值
+
+法2，/path/:值   需要路由对象提前配置path:"/path/参数名"
+{
+    path:"/part/:username/:id", //加了冒号就代表接收具体的值
+   component:Part
+  }
+对应页面接收$route.params.参数名
+$route.params.username
+：方法params传值

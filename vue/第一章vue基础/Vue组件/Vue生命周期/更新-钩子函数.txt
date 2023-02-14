@@ -1,0 +1,8 @@
+mounted beforeUpdate updated 是一个循环
+1，当data里面的数据改变，更新DOM之前
+2，deforeUpdate-生命周期钩子函数被执行
+3，Virtual DOM -虚拟DOM重新渲染，打补丁到真实DOM
+4，updated -生命周期钩子函数被执行
+5，当有data数据改变 重复这个循环
+
+只有触发更新才会有这两个钩子函数

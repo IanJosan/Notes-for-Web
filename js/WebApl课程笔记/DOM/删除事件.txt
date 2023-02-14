@@ -1,0 +1,5 @@
+传统删除解绑事件
+xxx.onclick = null
+
+方法监听方式解绑事件
+xxx.removeEventListener('触发事件'，注册事件)

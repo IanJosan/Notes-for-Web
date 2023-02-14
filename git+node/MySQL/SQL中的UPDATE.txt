@@ -1,0 +1,2 @@
+用于修改表中数据
+UPDATE 表名 set 更新 =‘列名 ’ where id =列id

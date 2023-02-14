@@ -1,0 +1,21 @@
+除了state之外，有时候需要从state中派生出一些状态，这些状态时依赖state的，此时会用到getters
+是、类似vuex的计算属性
+1，定义getters
+getters:{
+   filterList:function(state){
+     return state.list.filter(item => item >5)
+    }
+  }
+
+2,调用getters
+原始形式
+{{$store.getters.方法名}}
+辅助函数形式
+引用
+import { mapGetters} from 'vuex'
+使用
+ computed:{
+        ...mapGetters(['方法名t'])
+  }
+挂载
+{{方法名}}

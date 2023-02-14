@@ -1,0 +1,7 @@
+document.write()
+document.write('<div>123</div>') 会导致文档流全部重绘 重新创建新的页面
+element.innerHTML
+document.createElement()
+
+innerHTML 采用数组的形式效率最高  而采用拼接字符串的形式效率最低
+creatElement 创建多个元素效率稍低一些但是结构清晰

@@ -1,0 +1,3 @@
+包必须以单独目录存在
+包的顶级目录下必须包含package.json这个包管理配置文件
+packing.json中必须包含name version main 三个属性代表包的名字 版本号 包的入口

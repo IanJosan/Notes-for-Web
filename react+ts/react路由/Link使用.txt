@@ -1,0 +1,6 @@
+Link与NavLink组件使用
+Link组件会渲染成a连接
+NavLink替换Link组件会添加一个属性active，添加样式当前标签高亮activeClassName=""可以更改高亮类名
+
+NavLink 带 exact属性可以开启精确匹配
+<NavLink  exact>

@@ -1,0 +1,8 @@
+template中定义事件过滤器
+template.defaults.imports.名字 = function(需要处理的数据dtstr) {
+  var dt = new Date(dtstr)
+  年月日
+处理完一定要返回结果 
+}
+调用过滤器
+{{  | 加 过滤器名字 }}

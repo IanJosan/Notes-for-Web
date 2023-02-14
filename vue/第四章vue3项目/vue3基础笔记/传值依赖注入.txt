@@ -1,0 +1,31 @@
+依赖注入使用场景
+父子传值 父孙传值
+
+import {provide} from 'vue'
+
+父传后代
+父组件传下  所有后代组件可用
+provide(名称，传递值)
+ provide('money', money)
+
+后代使用
+import { inject } from 'vue'
+const 变量名 = inject(传递名称对应)
+const money = inject('money')
+
+后代影响父数据
+在父中定义方法，将方法传下给后代调用，再调用时将参数引用到父来修改数据
+
+父
+ provide('changeMoney', changeMoney)
+后代
+ const changeMoney = inject('changeMoney')
+const fn = () => {
+      changeMoney(20)
+    }
+父引用修改
+ const changeMoney = (saleMoney) => {money.value = money.value - saleMoney
+    }
+
+------------------------------------
+依赖注入相比之间的父子传值更加简单，与后代传值不需要用eventbus更加方便，同样遵循单一数据流

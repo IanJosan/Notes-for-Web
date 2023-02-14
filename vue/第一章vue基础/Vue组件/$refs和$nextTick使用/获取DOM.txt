@@ -1,0 +1,11 @@
+在mounted生命周期获取原生DOM
+1，给目标标签添加id/ref
+2，恰当时机，通过id/ref属性获取目标标签
+ mounted(){
+        console.log(document.getElementById("h")); // h1
+        console.log(this.$refs.myH1); // h1
+    }
+
+ref的作用
+1，操作dom
+2，持久化保持某一个对象（类似闭包的使用，但是每次更新不会丢失）

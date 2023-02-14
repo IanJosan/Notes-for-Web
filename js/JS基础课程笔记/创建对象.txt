@@ -1,0 +1,54 @@
+三种创建对象
+
+1，对象字面量：用大括号创建对象
+var obj = {}；创建空对象
+var obj = {
+   uname 冒号：‘名字’逗号，
+   age: 18,
+   sex：‘男’，
+   sayHi：function（匿名函数）{
+        console.log('hi');
+}
+}
+
+使用对象 对象名点 . 属性名
+对象名 中括号[冒号 '属性名' 冒号]
+对象名点 . 方法名（）
+
+
+2，new Object 创建对象
+var obj = new Object（）；创建空对象
+var obj = new Object();
+ obj.uname 等号='张三'; 分号
+ obj.age = 12;
+ obj.sayHi =function (){
+   console.log ('hi');
+}
+
+
+3，构造函数创建对象
+function 构造函数名 首字母大写（）{
+  this.属性 = 值；
+  this.方法 = function （）{}
+}
+new 构造函数名（）； 
+
+构造函数不需要return
+构造函数必须要new
+只要new Star() 调用函数就创建一个对象
+属性和方法前必须要加this.点
+
+new在执行时会执行四步
+在内存中创造空对象
+让this指向这个新对象
+执行构造函数里面的代码，给这个新对象添加属性和方法
+返回新对象 所以不用加return
+
+遍历打印对象属性
+for （变量 in对象）{}
+变量喜欢用key
+for （var k in obj）{
+   console.log( k );   得到的是属性名
+   console.log ( obj[ k ] );  得到的是属性值
+}
+     

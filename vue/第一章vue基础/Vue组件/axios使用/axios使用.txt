@@ -1,0 +1,59 @@
+axios在vue中的使用
+1，下载axios 
+yarn add axios
+2，用变量接收axios引过来的函数
+import axios from 'axios'
+3，发起axios请求
+axios({
+  method: '请求方式', // get post
+  url: '请求地址',
+  data: {    // 拼接到请求体的参数,  post请求的参数
+    xxx后台决定: xxx,
+  },
+  params: {  // 拼接到请求行的参数, get请求的参数
+   xxx后台决定: xxx 
+  }
+}).then(res => {
+  console.log(res.data) // 后台返回的结果
+}).catch(err => {
+  console.log(err) // 后台报错返回
+})
+
+
+---------------------------
+ajax如何给后台传参
+在url拼接 查询字符串
+在url路径上 需要后端特殊处理
+在请求体/请求头 传参给后台
+
+axios    params 配置项把参数自动写道url后面
+post请求方式一般在请求体里传递给后台
+axios 的data选项可以吧参数自动装入到请求体中
+axios 默认发送给后台的数据是json字符串格式
+
+------------------------------
+axios基础地址配置
+axios.defaults.baseURL = '基础url'
+设置后请求的url就不用带前缀地址了会自动拼接
+------------------------------
+axios全局配置
+在main.js中全局配置所有vue都可以调用vue
+//下载axios 全局配置
+yarn add axios
+import axios from 'axios'
+//设置基础地址
+axios.defaults.baseURL = 'https://www.escook.cn'
+//axios添加到vue原型上
+Vue.prototype.$axios = axios
+
+在vue生命周期created钩子函数
+created(){
+    //已经全局封装axios
+    this.$axios({
+      url:'/api/cart'
+      
+    }).then(res => {
+      console.log(res);
+      this.list = res.data.list
+    })
+  }

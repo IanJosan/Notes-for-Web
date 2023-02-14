@@ -1,0 +1,64 @@
+一、动态路由传参(优雅)：
+      1. 配动态路由（路径中携带参数）
+         routes: [
+           { path: '/detail/:id', component: 组件名 }
+         ]
+      2. 跳转
+         <router-link to="/detail/123">去某页面</router-link>
+         this.$router.push('/detail/123')
+         this.$router.push({
+           path: '/detail/123'
+         })
+
+      3. 获取参数
+         this.$route.params.id
+
+      4.动态路由配置props布尔值可以当作props传参
+       routes: [
+           { path: '/detail/:id', component: 组件名   props:true}
+         ]
+      对应组件可以获取props
+     props:['id']
+     5.props配置对象时传参同时保留地址id值
+            routes: [
+           { path: '/detail/:id', component: 组件名   props: route => ({unanme:'zs' , age:12, id: route.params.id}) }
+         ]
+     对应props取值
+     props:['unanme' , 'age','id']
+    二、query传参（查询参数传参）：
+      1. 路由正常配
+         routes: [
+           { path: '/detail', component: 组件名 }
+         ]
+
+      2. 跳转携带参数
+         <router-link to="/detail?id=123"></router-link>
+
+         this.$router.push('/detail?id=123')
+
+         this.$router.push({
+           path: '/detail',
+           query: {
+             id: 123
+           },
+           // 这里的params会被忽略
+         })
+
+      3. 获取参数
+         this.$route.query.id
+
+    三、params传参，基于内存的参数传递 （相对鸡肋，刷新会丢失，不太常用）
+      1. 路由正常配, 额外起个 name
+         routes: [
+           { path: '/detail', name: 'detail', component: 组件名 }
+         ]
+
+      2. 跳转，必须通过 name 跳转
+         this.$router.push({
+           name: 'detail',
+           query: {},
+           params: {}
+         })
+
+      3. 获取参数
+         this.$route.params

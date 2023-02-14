@@ -1,0 +1,100 @@
+表单处理
+react处理表单元素两种方式
+受控组件方式 
+非受控组件方式 dom操作
+
+vue  v-model
+------------------------
+import ReactDOM from 'react-dom'
+import { Component } from 'react'
+
+class App extends Component {
+  state = {
+    msg: 'hello',
+  }
+  render() {
+    return (
+      <div>
+        <h1>受控组件</h1>
+        <input
+          type="text"
+          value={this.state.msg}
+          onChange={this.handleChange}
+        />
+      </div>
+    )
+  }
+  handleChange = (e) => {
+    this.setState({
+      msg: e.target.value,
+    })
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+---------------------------------
+常见受控元素
+import ReactDOM from 'react-dom'
+import { Component } from 'react'
+
+class App extends Component {
+  state = {
+    username: '1',
+    dec: '22',
+    city: 3,
+    agree: false,
+  }
+  render() {
+    return (
+      <div>
+        <h1>常见受控组件</h1>
+        <input
+          type="text"
+          value={this.state.username}
+          onChange={this.changeName}
+        />
+        <textarea
+          name=""
+          id=""
+          value={this.state.dec}
+          onChange={this.changeDes}
+          cols="30"
+          rows="10"
+        ></textarea>
+        <select value={this.state.city} onChange={this.changeCity}>
+          <option value="1">bj</option>
+          <option value="2">sh</option>
+          <option value="3">hz</option>
+          <option value="4">sz</option>
+        </select>
+        <input
+          type="checkbox"
+          checked={this.state.agree}
+          onChange={this.changeAgree}
+        />
+      </div>
+    )
+  }
+  changeName = (e) => {
+    this.setState({
+      username: e.target.value,
+    })
+  }
+  changeDes = (e) => {
+    this.setState({
+      dec: e.target.value,
+    })
+  }
+  changeCity = (e) => {
+    this.setState({
+      city: e.target.value,
+    })
+  }
+  changeAgree = (e) => {
+    this.setState({
+      agree: e.target.checked,
+    })
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))

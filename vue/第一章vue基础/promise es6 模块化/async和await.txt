@@ -1,0 +1,3 @@
+async/await是es8引入的新语法简化promise异步操作 来简化不用使用链式.then方法来获取读取结果
+使用awaite 必须使用async修饰
+*在 async方法中，第一个await之前的代码会同步执行（跳出async方法执行外面的结束后在执行async带await方法以及后续方法），await之后的代码会异步执行

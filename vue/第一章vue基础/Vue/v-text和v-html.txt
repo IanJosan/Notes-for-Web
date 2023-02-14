@@ -1,0 +1,11 @@
+更新dom对象的innerHTML和innerTEXT
+v-text="Vue数据变量“
+v-html="Vue数据变量"
+会覆盖插值表达式
+<p v-text="str"></p>
+
+
+使用插值表达式避免闪烁问题
+
+{{msg}}可以使用v-text来渲染避免闪烁
+v-text='msg'

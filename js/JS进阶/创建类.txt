@@ -1,0 +1,13 @@
+class name首字母大写 {
+     class body
+     constructor（uname） {
+           this.uname = uname;
+    }
+     sing() {}  创建方法不用写function
+}
+new 类名();
+类 constructor构造函数
+可以接受参数 同时返回实列对象
+只要new生成实例就会自动调用这个函数 构造函数不用function   多个函数不要加逗号分割
+
+公用的属性和方法调用要加this

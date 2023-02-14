@@ -1,0 +1,32 @@
+EventBus常用于跨组件通信时使用
+
+
+App.vue| -> Myp.vue -> event.$emit('事件名'，值) -> 空白Vue对象监听和触发事件
+
+App.vue| -> List.vue <- eventBus.$on('事件名'，函数体) <- 空白Vue对象
+
+1，在src下新建 src/EventBus/index.js
+创建空白Vue对象并导出
+import Vue from 'vue'
+//导出空白Vue对象
+export default new Vue()
+2，在要接收值的组件List.vue中接收
+import EventBus from "../EventBus/index.js"
+在
+export default {
+    created(){
+       eventBus.$on( 监听自定义事件名，（事件被触发收到) =>{
+      
+   }）
+}
+3,在要传值的组件MyProduc.vue 中
+import EventBus from '../EventBus/index.js'
+export default {
+   methods:{
+     Fn(){
+        eventBus.$emit()
+      }
+   }     
+}
+
+eventBus本质上只负责$on和$emit

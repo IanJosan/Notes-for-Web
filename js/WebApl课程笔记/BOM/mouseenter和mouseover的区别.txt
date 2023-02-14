@@ -1,0 +1,2 @@
+mouseover 进过自身会触发进过 自身的子盒子也会触发 会冒泡
+mouseenter 进过子盒子不会触发 不会冒泡  搭配使用mouseleave 同样不会冒泡

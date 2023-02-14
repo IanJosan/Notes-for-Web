@@ -1,0 +1,20 @@
+static类的静态实例
+class App extends Component {
+  static propTypes = {
+    // 接受的money必须是数字类型且必填
+    money: PropTypes.number.isRequired,
+    list: PropTypes.array,
+    car: PropTypes.shape({
+      brand: PropTypes.string,
+      price: PropTypes.number,
+    }),
+  }
+  render() {
+    return (
+      <div>
+        <h1>props校验</h1>
+        <Money money={100} car={{ brand: 'benz', price: 10000 }}></Money>
+      </div>
+    )
+  }
+}

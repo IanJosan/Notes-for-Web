@@ -1,0 +1,6 @@
+clickFn = () => {
+    console.log('触发点击', this)
+    this.setState({
+      count: this.state.count + 1,
+    })
+  }

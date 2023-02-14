@@ -1,0 +1,13 @@
+1，vue create demo创建项目
+2，yarn add vuex --save 或 -S
+3，在main.js中引入
+import Vuex from 'vuex'
+4，注册Vue.use(Vuex)
+注册Vuex的功能Vue.use方法实际上是调用了vuex中的一个install方法
+5，Vuex实例化
+const store = new Vuex.Store()
+6，挂载实例化
+new Vue({
+  render: h => h(App),
+  stores
+}).$mount('#app')

@@ -1,0 +1,52 @@
+旧版
+只支持文本数据传输，无法实现读取和上传文件
+传送和接收数据时，没有进度信息，只能提示有没有完成
+
+新功能
+可以设置HTTP请求的时限
+可以使用FormData 对象管理表单数据
+可以上传文件
+可以获得数据传输的进度信息
+
+设置HTTP请求时限
+先要 let xhr = new XMLHttpRequest() new一下这个对象
+xhr.timeout = 3000 毫秒
+xhr.ontimeout = function(){超时则调用这个}
+
+FormData对象管理表单数据
+配合使用xhr对象发起post请求使用
+var fd = new FormData()
+fd.append('uname','zs')
+fd.append('upwd','123)
+var xhr = new XMLHttpRequest()
+xhr.open('post','URL')
+xhr.send(  fd  ) 方便一些
+或者 用FormData对象获取网页表单的值
+将表单元素直接传进
+var fd = new FormData(form表单值 )
+autocomplete = off自动提交关闭
+
+
+上传文件
+1，定义UI结构
+2，验证是否选择文件
+3，向FormData追加文件
+4，使用xhr发起上传文件的请求
+5，监听onreadystatechange事件
+
+获取用户选择文件
+.files 用户上传文件的数组函数
+ let files = document.querySelector('#file1').files
+
+向FormData中追加文件
+var fd = new FormData()
+fd.append('avatar',files[0])
+
+显示文件上传进度
+xhr.upload.onprogress = function (e) {
+  if (e.lengthComputable) 布尔值判断上传资源长度是否可计算{
+      var procentComplete = Math.ceil((e.loaded 已上传/e.total 总上传)*100 百分比)
+  }
+}
+上传成功函数
+xhr.upload.onload = function () {}

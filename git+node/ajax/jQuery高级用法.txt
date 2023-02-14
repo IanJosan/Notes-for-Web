@@ -1,0 +1,18 @@
+jQuery实现文件上传
+
+var files = $('#file1')[0].filse
+首先要将jQuery转换为DOM对象 $('#file1')[0]
+
+使用jQuery发送文件需要post设置
+processData: false, 不对FormData中的数据进行url编码，而是将FormData数据原样发送到服务器
+contentType: false, 不对content-Type属性使用FormData默认的Content-type值
+
+jQuery实现loading效果
+$(document).ajaxStart(function () {
+
+})
+会监听当前文档内所有Ajax请求
+请求结束时
+$(document).ajaxStop(function () {
+
+})

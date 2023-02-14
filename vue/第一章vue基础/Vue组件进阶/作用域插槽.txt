@@ -1,0 +1,19 @@
+使用插槽时，可以使用子组件内的变量。插槽可以携带参数，使用时想用就用
+
+1，在子组件slot上绑定属性和子组件内的值
+<slot name="footer" :row='data'>
+在 row上绑定了defaultObj对象数据，所有被添加的属性会同一收集到一个对象中
+
+2，使用组件，传入自定义标签，用template和v-slot=‘自定义变量名’
+<template v-slot:footer='obj'>
+或者
+<template slot-scope='props'>
+   <div v-if='props.row'>
+</template>
+作用域使用范围仅限于template范围内
+
+
+3，scope变量命名自动绑定slot上所有属性和值
+<template v-slot:footer="obj">
+{{obj.data}}
+<template>

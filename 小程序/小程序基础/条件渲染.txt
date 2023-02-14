@@ -1,0 +1,28 @@
+1. wx:if
+在小程序中，使用 wx:if="{{condition}}" 来判断是否需要渲染该代码块：
+也可以用 wx:elif 和 wx:else 来添加 else 判断：
+<view wx:if="{{type === 1}}">nan</view>
+<view wx:elif="{{type === 2}}">nv</view>
+<view wx:else>nun</view>
+
+
+2. 结合 <block> 使用 wx:if
+如果要一次性控制多个组件的展示与隐藏，可以使用一个 <block></block> 标签将多个组件包装起来，并在
+<block> 标签上使用 wx:if 控制属性，示例如下：
+注意： <block> 并不是一个组件，它只是一个包裹性质的容器，不会在页面中做任何渲染。
+<block wx:if="{{type === 1}}">
+  <view>view1</view>
+  <view>view2</view>
+</block>
+
+3. hidden
+在小程序中，直接使用 hidden="{{ condition }}" 也能控制元素的显示与隐藏：
+<view hidden="{{flag}}">条件为true隐藏</view>
+
+4. wx:if 与 hidden 的对比
+① 运行方式不同
+⚫ wx:if 以动态创建和移除元素的方式，控制元素的展示与隐藏
+⚫ hidden 以切换样式的方式（display: none/block;），控制元素的显示与隐藏
+② 使用建议
+⚫ 频繁切换时，建议使用 hidden
+⚫ 控制条件复杂时，建议使用 wx:if 搭配 wx:elif、wx:else 进行展示与隐藏的切换

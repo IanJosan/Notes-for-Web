@@ -1,0 +1,13 @@
+axios是一个专门用于发送Ajax请求的库
+
+特点：支持客户端发送ajax请求，支持客户端node.js发送请求，支持promise相关语法，支持请求和响应拦截器功能，自动转换json数据
+
+axios底层还是原生js实现，内部通过promise封装的
+
+什么是ajax
+一种前端异步请求后端的技术，局部，不刷新网页
+
+ajax原理：浏览器接口的XMLHTTPRquest
+
+axios
+基于原生ajax promise 技术封装通用于前后端的请求库

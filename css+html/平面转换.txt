@@ -1,0 +1,35 @@
+平面转换
+属性 transform 属性实现位移、旋转、缩放
+
+平移：
+transform:translate(100px，50%）;
+第一个代表水平 逗号隔开第二个代表垂直可取负数  百分比是盒子自身的百分比
+translaX（）；水平方向移动 大写X 只写一个值也可以控制水平移动
+translaY（）；垂直方向移动 大写Y
+
+旋转：
+transform:rotate(角度deg)；
+角度单位deg。角度可取负值，正数顺时针转动，负数逆时针。并且测试时要加上transition才能观察到变化
+默认旋转点位为盒子中心点。通过transform-origin：（）加方位名词，像素单位数值，百分比来改变旋转点
+ <style>
+        img {
+            width: 250px;
+            transition: all 2s;
+        }
+        
+        img:hover {
+            /* 顺 */
+            transform: rotate(360deg);
+
+            /* 逆 */
+            /* transform: rotate(-360deg); */
+        }
+
+
+位移-旋转，复合属性
+transform：translate（）空格 rotate（）；
+有多种位移效果时必须使用复合属性，分开写会导致之前的属性被覆盖。并且最好先写位移再写旋转来保证动作的正常
+
+缩放：
+transform：scale（x轴纯数字，逗号y轴纯数字）；
+来实现从中心轴出发的缩放效果。工作中一般只设置一个值。

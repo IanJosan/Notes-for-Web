@@ -1,0 +1,33 @@
+监听get请求
+通过app.get（）方法可以监听客户端的get请求
+app.get('请求url',function(req,res){})
+req 请求对象，res 响应对象
+res.send()向客户端发送JSON对象
+
+监听post请求
+通过app.post（）方法可以监听客户端的post请求
+app.post('请求url',function(req,res){})
+req 请求对象，res 响应对象
+
+获取url中携带的查询参数
+通过req.query对象访问到客户端通过查询字符串的形式发送服务器参数
+req.query 默认是一个空对象
+客户端使用 ?name=zs&age=20 这种查询字符串形式，发送到服务器的参数
+可以通过req.query访问
+req.query.name
+
+获取url中的动态参数
+通过req.params对象可以访问到url中通过 : 匹配到的动态参数
+req.params默认是空对象
+里面存放通过 ：动态匹配的参数值
+可以有多个动态参数，参数命名合理
+
+托管静态资源
+express.static()创建静态资源服务器
+多次托管多次调用，按照添加顺序查找文件
+app.use(express.static('public'))
+将public目录下的文件对外开放访问
+存放静态文件的目录名不会出现在url地址中
+
+挂载静态资源访问路径路径前缀
+app.use('访问前缀./abc '.express.static('public'))

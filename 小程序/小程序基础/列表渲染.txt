@@ -1,0 +1,25 @@
+1. wx:for
+通过 wx:for 可以根据指定的数组，循环渲染重复的组件结构，语法示例如下：
+默认情况下，当前循环项的索引用 index 表示；当前循环项用 item 表示。
+<view wx:for="{{arr1}}">
+  索引：{{index}},item项：{{item}}
+</view>
+
+
+2. 手动指定索引和当前项的变量名*
+⚫ 使用 wx:for-index 可以指定当前循环项的索引的变量名
+⚫ 使用 wx:for-item 可以指定当前项的变量名
+示例代码如下：
+<view wx:for="{{arr1}}" wx:for-index="idx" wx:for-item="itemname">
+  索引：{{idx}},item项：{{itemname}}
+</view>
+
+
+3. wx:key 的使用
+类似于 Vue 列表渲染中的 :key，小程序在实现列表渲染时，也建议为渲染出来的列表项指定唯一的 key 值，
+从而提高渲染的效率，示例代码如下：
+<view wx:for="{{arr1}}" wx:key="indexs">
+  索引：{{index}},item项：{{item}}
+</view>
+
+wx:key不用加双括号

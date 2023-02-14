@@ -1,0 +1,6 @@
+<HelloWorld v-if='show'/> 某大型组件
+
+ data数据定义 show:false 什么时候需要什么时候改为true
+ components:{
+   HelloWorld：() => import('./组件地址')   实现异步按需加载
+}

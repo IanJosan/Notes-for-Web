@@ -1,0 +1,4 @@
+性能优化 配合memo使用
+useCallback可以记住函数的引用
+
+const memorized = useCallback(() => {被记住地址的函数func()},[依赖项不变函数不变化])

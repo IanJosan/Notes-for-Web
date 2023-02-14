@@ -1,0 +1,8 @@
+ondblclick
+双击默认会选中文字 此时需要禁止选中
+window.getSelection?window.getSelection().removeAllRanges()：document.selection.empty();
+
+思路 
+双击生成文本框然后 失去焦点赋值
+
+select（）；处于选中状态

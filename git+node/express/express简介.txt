@@ -1,0 +1,9 @@
+什么是express
+express是基于Node.js平台快速开放极简的web开发框架
+express和node内置http模块类似，是专门用来创建web服务器的
+express本质是一个npm上的第三方包，提供了快速创建web服务器的便捷方法
+
+可以制作web网站服务器
+api接口服务器
+
+

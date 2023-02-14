@@ -1,0 +1,10 @@
+React.memo 父组件更新子组件一定会更新
+
+如果子组件数据没有变化，会更新的更快
+
+const MemoChild = React.memo(Child组件)
+
+const child1 = memo(() => {被包裹的函数组件})
+得到纯组件，性能高一些只适用在不需要更新的组件
+
+浅层对比地址

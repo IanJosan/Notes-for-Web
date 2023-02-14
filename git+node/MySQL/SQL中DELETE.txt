@@ -1,0 +1,2 @@
+DELETE FROM 表 WHERE id=
+删除表中id为多少的数据

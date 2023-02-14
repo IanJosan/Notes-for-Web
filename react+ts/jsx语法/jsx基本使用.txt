@@ -1,0 +1,23 @@
+// import React from "react"; 新项目自动导入了
+import ReactDOM  from "react-dom";
+
+const element = <div id='box'>
+    <h1>
+        <ul>
+            <li>xxx</li>
+            <li>ccc</li>
+        </ul>
+    </h1>
+</div>
+ReactDOM.render(element,document.getElementById('root'))
+-----------------------
+注意
+只有在脚手架下才能使用jsx语法
+jsx必须要有一个根节点 幽灵节点 <></> 或 <React.Fragment></React.Fragment>
+没有子节点的元素必须使用/结束
+<a href="/"></a>
+<img/>
+jsx语法更接近html 
+class =》 className
+for =》htmlFor
+jsx可以换行，推荐用（）包裹jsx

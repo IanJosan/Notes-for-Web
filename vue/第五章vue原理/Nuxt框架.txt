@@ -1,0 +1,2 @@
+使用nuxt.js创建一个ssr项目
+npm create nuxt-app <项目名>

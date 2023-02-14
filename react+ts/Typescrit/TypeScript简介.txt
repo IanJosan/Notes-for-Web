@@ -1,0 +1,5 @@
+什么是ts
+是js的超集
+TypeScript（简称：TS）是 JavaScript 的超集（JS 有的 TS 都有）。
+TypeScript = Type + JavaScript（在 JS 基础之上，为 JS 添加了类型支持）。
+TypeScript 是微软开发的开源编程语言，可以在任何运行 JavaScript 的地方运行。

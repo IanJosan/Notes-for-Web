@@ -1,0 +1,5 @@
+jsx中img标签的src属性要写成动态
+<img src={logo} alt="" className="login-logo" />
+图片资源在头部引入
+import logo from '../../assets/logo.png'
+

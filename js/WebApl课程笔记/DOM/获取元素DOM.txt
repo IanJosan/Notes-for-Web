@@ -1,0 +1,31 @@
+DOM获取元素  四种
+根据ID获取、根据标签名获取、通过HTML5新增获取、通过元素获取
+
+根据ID获取
+getElementByld('id名字符串')；
+返回的是element元素对象
+没找到就返回null
+
+document.console.dir（）；返回元素对象 更好查看里面的属性和方法
+script要写在文档的下面不然获取不到
+
+
+根据标签名获取
+getElementsByTagName('标签名字');
+document.getElementsByTagName（'div'）
+得到的是带有指定标签名的对象的集合以伪数组的方式储存
+因为是对象的集合所以想要操作对象就需要遍历
+得到元素的对象是动态的
+
+elements.getElementsByTagName('标签名字');可以获得这个元素里的某些标签
+
+通过HTML5新增方法获取
+document.getElementsByClassName('类名'); 更具类名获取元素
+document.querySelector（'选择器写法和CSS一样'）；指定选择器的第一个元素对象
+querySelectorAll 返回指定选择器的所有元素对象 伪数组集合
+
+获取body元素
+document.body获得body元素
+
+获取html元素
+document.documentElement获得html元素

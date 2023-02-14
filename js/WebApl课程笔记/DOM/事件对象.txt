@@ -1,0 +1,28 @@
+事件对象 
+eventTarget.onclick = function(event) {} 
+eventTarget.addEventListener('click',function(event){}) 这个event就是事件对象
+
+必须有事件才会有事件对象 一切与事件相关的都会包含在事件对象中 
+
+常见属性
+e.target   指向触发事件的对象 点击了那个元素就返回那个元素
+this 返回的是谁绑定了这个事件就返回谁
+
+e.type 返回事件类型 比如 click mouseover 不带on
+
+e.preventDefault 阻止默认事件 如组织点击a标签跳转
+return false 没有兼容性问题 特点就是return后面的代码不执行只限于传统注册方式
+禁止鼠标右键菜单  contextmenu
+禁止鼠标选中 selecstart
+
+
+        // 1. contextmenu 我们可以禁用右键菜单
+        document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            })
+            // 2. 禁止选中文字 selectstart
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+
+        })
+    

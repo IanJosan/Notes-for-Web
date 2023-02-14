@@ -1,0 +1,24 @@
+自动批量注册组件
+
+使用require提供的 context函数 加载某个目录下的指定后缀文件
+然后context 函数会返回一个导入函数importFn
+它有一个属性keys（）获取所有文件路径
+通过文件路径数组，遍历数组，在使用importFn根据路径导入组件
+遍历的同时进行全局注册
+
+// 导入library文件夹下的所有组件
+// 批量导入需要使用一个函数 require.context(dir,deep,matching)
+// 参数：1. 目录  2. 是否加载子目录  3. 加载的正则匹配
+const importFn = require.context('./', false, /\.vue$/)
+// console.dir(importFn.keys()) 文件名称数组
+
+export default {
+  install (app) {
+ // 批量注册全局组件
+    importFn.keys().forEach(key => {
+      // 导入组件
+      const component = importFn(key).default
+      // 注册组件
+      app.component(component.name, component)
+    })
+}

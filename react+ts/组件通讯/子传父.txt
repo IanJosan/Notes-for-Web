@@ -1,0 +1,81 @@
+思路：利用回调函数，父组件提供回调，子组件调用，将要传递的数据作为回调函数的参数。
+1. 父组件提供一个回调函数（用于接收数据）
+2. 将该函数作为属性的值，传递给子组件
+3. 子组件通过 props 调用回调函数
+4. 将子组件的数据作为参数传递给回调函数
+
+父组件提供函数并且传递给字符串
+
+
+import ReactDOM from 'react-dom'
+import React, { Component } from 'react'
+import Child from './Child'
+class App extends Component {
+  state = {
+    wife: '',
+    sonWife: '',
+  }
+  render() {
+    return (
+      <div>
+        <h1>App组件</h1>
+        <div>
+          配偶:
+          <input
+            type="text"
+            placeholder="请输入名字"
+            value={this.state.wife}
+            onChange={this.handleChange}
+          ></input>
+          <div>传上来的名字 {this.state.sonWife}</div>
+          <hr></hr>
+          <Child wife={this.state.wife} changeName={this.changeName}></Child>
+        </div>
+      </div>
+    )
+  }
+  handleChange = (e) => {
+    this.setState({
+      wife: e.target.value,
+    })
+  }
+  changeName = (name) => {
+    console.log('接收到', name)
+    this.setState({
+      sonWife: name,
+    })
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+
+
+
+import { Component } from 'react'
+export default class Child extends Component {
+  state = {
+    wife: '',
+  }
+  render() {
+    return (
+      <div>
+        <h3>子组件</h3>
+        <div>输入的名字{this.props.wife}</div>
+        <div>
+          配偶的名字
+          <input
+            type="text"
+            value={this.state.wife}
+            onChange={this.handleChange}
+          />
+        </div>
+      </div>
+    )
+  }
+  handleChange = (e) => {
+    this.setState({
+      wife: e.target.value,
+    })
+    this.props.changeName(e.target.value)
+  }
+}

@@ -1,0 +1,30 @@
+vue中的transition组件中定义动画淡入淡出
+css节点
+进入（显示，创建）
+v-enter 进入前 （vue3.0 v-enter-from）
+v-enter-active 进入中
+v-enter-to 进入后
+离开（隐藏，移除）
+v-leave 进入前 （vue3.0 v-leave-from）
+v-leave-active 进入中
+v-leave-to 进入后
+默认为 v 如果transition组件有名字则为名字
+mode 属性 可以控制动画出和入的先后顺序
+out-in  in-out
+注意
+只有在节点删除和创建时才会触发动画。如何在只改变内容时也触发，可以给组件添加：key 使得变化时需要重新渲染节点来触发动画
+---------------------------------
+<transition name="fade" mode="out-in">
+  <p v-if="show" :key="item.id">100</p>
+</transition>
+
+CSS
+.fade-leave {
+    opacity: 1
+}
+.fade-leave-active {
+    transition: all 1s;
+}
+.fade-leave-to {
+    opcaity: 0
+}

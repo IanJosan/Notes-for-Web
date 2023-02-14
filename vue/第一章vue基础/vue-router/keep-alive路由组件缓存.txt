@@ -1,0 +1,5 @@
+用keep-alive  （include属性可以指定缓存对象）包裹router-view路由出口来缓存
+<keep-alive  include='User  login'>
+   <router-view></router-view>
+</keep-alive>
+

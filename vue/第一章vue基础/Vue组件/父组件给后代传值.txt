@@ -1,0 +1,11 @@
+父组件给所有后代传值，不局限于子组件
+
+在export default {}中 provide 方法下传值
+provide:function(){
+        return {
+            articleId: this.articleId
+        }
+    },
+
+需要接收的后代组件 在inject方法中接收
+inject:['articleId'], 类似props写法

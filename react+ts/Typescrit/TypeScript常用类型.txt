@@ -1,0 +1,66 @@
+
+1. 类型注解
+2. 常用基础类型
+
+let age: number = 18
+冒号后跟具体类型
+1. JS 已有类型
+  - 原始类型：number/string/boolean/null/undefined/symbol`
+  - 对象类型    object（包括，数组、对象、函数等对象）
+数组   let arr:number[] = [1,2,3]数组中只能放数字
+          let str:string[]= ['1','a'] 数组中只能放字符串
+        泛型方式书写
+ const scores: Array<number> = [122, 1331, 232]
+  const flages: Array<Boolean> = [true, false]
+
+2. TS 新增类型
+  - 联合类型、自定义类型(类型别名)、接口、元组、字面量类型、枚举、void、any 等
+
+联合类型：冒号加 竖线|的书写
+let num: string | number = 18 数字既可以是数字也可以是字符串
+  num = 20
+  num = 'abc'
+
+  let arr: (number | string)[] = [1, 'abc', 2]
+数组中有数字和字符串 要用括号括起来
+
+
+3，函数类型
+函数的类型实际上指的是：`函数参数`和`返回值`的类型
+为函数指定类型的两种方式：
+  1. 单独指定参数、返回值的类型
+function add(num1: number参数数字, num2: number参数数字): number 返回数字类型{
+  return num1 + num2
+}
+const addd = (n1: string, n2: string): string => {
+  return n1 + n2
+}
+
+  2. 同时指定参数、返回值的类型
+给函数定义类型
+type Fn = (n1: number, n2: number) => number
+const adddd: Fn给函数指定类型 = (n1, n2) => {
+  return n1 + n2
+}
+
+4，void 类型
+没有返回值的函数
+如果一个函数没有返回值，此时，在 TS 的类型中，应该使用 `void` 类型
+function sayHi(name: string): void {}
+但，如果指定 返回值类型为 undefined，此时，函数体中必须显示的 return undefined 才可以
+const add = (): undefined => {
+  // 此处，返回的 undefined 是 JS 中的一个值
+  return undefined
+}
+
+5，函数可选参数 ？表示
+function add1(n1: number, n2?: number): void {}
+add1(1)
+表示n2可能有可能没有
+？只能写在最后
+
+6，函数默认值 =表示
+function add2(n1: number = 0, n2?: number): void {}
+add2(1)
+
+

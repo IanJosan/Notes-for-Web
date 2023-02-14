@@ -1,0 +1,10 @@
+1. 创建 hello.ts 文件（注意：**TS 文件的后缀名为 `.ts`**）
+2. 将 TS 编译为 JS：在终端中输入命令，`tsc hello.ts`（此时，在同级目录中会出现一个同名的 JS 文件）
+3. 执行 JS 代码：在终端中输入命令，`node hello.js`
+
+1 创建 ts 文件  ===>  2 编译 TS生成JS文件[tsc .\文件名.ts]  ===>  3 执行 JS  [node 文件名.js]
+
+-----------------
+npm i -g ts-node 包的作用
+ts-node .\文件名.ts
+可以运行ts文件

@@ -1,0 +1,5 @@
+useReducer是useState的替代
+
+const [state,dispatch] = useReducer(reducer,initial初始值,init)
+
+

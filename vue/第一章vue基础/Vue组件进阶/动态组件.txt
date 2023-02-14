@@ -1,0 +1,26 @@
+设置内置的<component></component>标签设置变量
+<component :is="comName"></component>
+
+comName就是要显示的组件名
+
+什么是动态组件
+在同一个挂载点，可以切换显示不同的组件
+
+如何使用动态组件
+  vue 内置的component组件配合is属性
+改变is的属性值为要显示的组件名就可以切换显示不同的组件
+显示方式是组建的创建和销毁
+性能不高 解决方法组件缓存
+is后的属性名需要在data中定义，定义的值为引入的组件名称
+-------------------------------
+
+组件缓存
+使用vue内置的keep-alive组件包裹在需要频繁切换的组件外
+<keep-alive>
+  <component :is="comName"></component>
+</keep-alive>
+
+--------------------------
+组件激活和非激活两个生命周期方法
+actived----激活时触发
+deactivated---失去激活状态时触发

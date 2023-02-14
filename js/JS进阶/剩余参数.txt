@@ -1,0 +1,13 @@
+剩余参数语法允许我们将一个不定数量的参数表示为一个数组
+function sum (first,...args){
+ console.log(first);      10
+ console.log(args)     [20,30]
+}
+
+sum(10,20,30)
+10传递给形参first 然而后面多余的实参传递给了 ...args  在形参前加三个点表示接收剩余所有实参为一个数组
+
+可以和解构配合使用
+let ary1 = [10,20,30];
+let [s1,s2] =ary1;     s1 = 10   s2 = 20
+let [s1,...s2] =ary1   s1 = 10  s2 = [20,30s]

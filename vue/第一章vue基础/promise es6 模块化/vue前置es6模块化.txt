@@ -1,0 +1,14 @@
+es6模块化
+在es6之前 社区提出了AMD CMD CommonJS等模块化规范 不统一学习难度大
+
+es6模块化规范
+是浏览器与服务器端通用的模块化开发规范
+定义内容
+每个js文件都是一个独立的模块
+导入其他模块需要使用import关键字
+向外共享模块需要使用export关键字
+
+检查node版本号
+终端 node -v
+
+在package.json的根节点中添加"type":"module"节点就可以使用es6模块 不然默认时commonjs

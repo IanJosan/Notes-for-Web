@@ -1,0 +1,31 @@
+watch函数，是用来定义侦听器的
+需要引入
+监听ref定义的响应式数据
+
+监听多个响应式数据数据
+
+监听reactive定义的响应式数据
+
+监听reactive定义的响应式数据，某一个属性
+
+1，默认监听一个
+ watch(obj, ()=>{
+      console.log('数据改变了')
+    })
+2，监听多个对象
+ watch([count, obj], ()=>{ console.log('监听多个数据改变了')
+ }) 
+3，监听对象中的某个属性
+此时监听的对象要以函数返回值的形式才能监听到
+ watch(()=>obj.name,()=>{
+console.log('监听obj.name改变了')
+ })
+4，深度监听以及立即监听
+第三个参数是一个对象
+{deep: true,immediate: true}
+ watch(()=>obj.brand, ()=>{
+      console.log('brand数据改变了')
+    },{
+      deep: true,
+      immediate: true
+    })

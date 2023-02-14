@@ -1,0 +1,4 @@
+iframe  html标签 可以展示页面中显示不同的页面
+<iframe name="" src=""></iframe>
+例如点击a标签在本页面指定区域显示另一个页面
+<a href="" target="这个值必须等于iframe的name值">

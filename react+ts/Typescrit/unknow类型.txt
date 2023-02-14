@@ -1,0 +1,11 @@
+unknow类型与any类型区别
+unknown类需要加以判断对比使类型变窄才可以继续进行
+
+let num:unknow = 'hello'
+if (typeof num === 'string'){
+   console.log(num.length)
+ }
+
+if(typeof num === 'number'){
+  console.log(num)
+}

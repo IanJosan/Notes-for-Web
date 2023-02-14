@@ -1,0 +1,15 @@
+vue事件中拿到事件对象
+无传参通过形参直接接收
+传参通过$event指代事件对象传递给处理函数，需要在传一个$event才能有e这个形参来调用并且需要一对一对应顺序
+@click="one"
+@click="two(100,$event)"
+ methods:{
+    //没有传值直接调用
+    one(e) {
+      e.preventDefault();
+    },
+    //传值了需要在传一个$event 才有e这个形参一对一
+    two(num,e){
+      e.preventDefault()
+    }
+  }

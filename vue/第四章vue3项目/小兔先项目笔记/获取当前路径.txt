@@ -1,0 +1,9 @@
+ // 当前路由地址
+    // 组件里头：`/user?a=10` $route.path === /user  $route.fullPath === /user?a=10
+    // js模块中：router.currentRoute.value.fullPath 就是当前路由地址，router.currentRoute 是ref响应式数据
+
+需要注意的是 路径的拼接又是会出现特殊字符串问题
+所以需要先进行url转码
+
+ const fullPath = encodeURIComponent(router.currentRoute.value.fullPath)
+ router.push('/login?redirectUrl=' + fullPath)

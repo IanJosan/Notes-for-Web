@@ -1,0 +1,32 @@
+css-loader 允许webpack引入css文件了
+style-loader 把css插入dom中
+
+1,下包命令 yarn add css-loader style-loader -D
+2,配置webpack.config.js
+module.exports={
+  module:{
+      rules:[
+            {
+                 test:/\.css$/i,
+                  use:["style-loader","css-loader"]
+              }
+      ]
+  }
+}
+
+
+
+webpack处理less文件
+less-loader
+1,下载 yarn add less less-loader -D
+2,配置webpack.config.js
+module.exports={
+  module:{
+      rules:[
+            {
+                 test:/\.less$/i,
+                  use:["style-loader","css-loader","less-loader"]
+              }
+      ]
+  }
+}

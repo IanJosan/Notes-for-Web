@@ -1,0 +1,52 @@
+扩展运算符 可以将数组或者对象转为以逗号分割的参数序列
+let ary = [1,2,3]
+...ary
+console.log(...ary)   // 1 2 3 逗号被当作分隔符了 输出不会有逗号
+
+合并数组
+let ary1 = [1,2,3]
+let ary2 = [3,4,5]
+let ary3 = [...ary1,...ary2]
+console.log (ary3) //  1 2 3 3 4 5 
+法二
+ary1.push(...ary2)
+console.log(ary1) // 1 2 3 3 4 5
+
+将伪数组或可遍历的对象转换为真数组
+
+let oDivs = document.getElementsByTagName('div); 返回的是一个元素集合的伪数组
+var ary = [...oDivs];
+法二
+接收到伪数组 oDivs 利用 Array .from()的方法转换为真数组
+let arr2 =  Array .from(oDivs);
+此时arr2就是真数组
+同时方法还可以接受一个参数
+let arr3 =  Array .from(oDivs，item => item*2);
+有几个数就调用几次函数 使得每一个数都乘2返回arr3数组
+
+find（）方法
+用于找出第一个符合条件的数组成员，如果没有找到返回undefined
+let target = ary.find((item,index) => item.id == 2) 返回找到的元素值
+
+findIndex（）方法
+找到第一个符合条件的数组成员的位置，没有则返回-1
+let ary = [1,5,10,13]
+let index = ary.findIndex（value,index） => value>9);
+console.log(index)  // 2 返回的是位置索引号
+
+includes（）方法
+表示某个数组是否包含给定值 返回布尔值
+arr = [1,2,3]
+arr.includes(2) //true
+
+join()
+数组元素根据分隔符拼接为字符串，返回字符串 
+arr = [123,456]
+arr.join('/')    //  123/456
+
+Array.from(Array(10))
+快速生成长度为10的数组，数组元素全为undefin
+Array.from(Array(10)，function(value,index){})
+value为生成数组值，index为索引0~9
+Array.from(Array(10)，function(value,index){return index})
+返回长度为10的数组，[0,1,2,3,4,5,6,7,8,9]

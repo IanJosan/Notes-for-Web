@@ -1,0 +1,8 @@
+修改元素大小 颜色 位置等样式
+element.style   行内样式操作
+element.className 类名样式操作
+element.style.属性名 属性名驼峰命名法 JS修改后的样式是行内样式
+
+element.className 当前元素类名更改 相当于给当前标签覆盖一个类名  适合于样式多且复杂
+想要保留原先的类名 就把原先的名也写出来就行
+element.className = （'one change')

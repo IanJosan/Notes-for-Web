@@ -1,0 +1,3 @@
+ontimeupdate按照视频播放时间变化触发事件
+onloadeddate从本地存储空间取出时间
+video.currentTime 获得当前视频播放时间

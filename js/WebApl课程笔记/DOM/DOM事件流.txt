@@ -1,0 +1,8 @@
+事件流描述的是从页面中接受事件的顺序
+事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程就是DOM事件流
+
+JS代码中只能执行捕获或者冒泡其中一个阶段
+onclick 和 attachEvent只能得到冒泡阶段
+addEveventListener （type,linstener[,useCapture]）第三个数如果是true 表示事件在捕获阶段调用事件处理程序 如果是false或者不写默认false 表示事件冒泡阶段调用事件处理程序
+实际开发一般关注冒泡事件
+有些事件没有冒泡 onblur onfouse onmusenter onmouseleave

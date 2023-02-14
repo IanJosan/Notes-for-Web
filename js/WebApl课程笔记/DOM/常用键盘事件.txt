@@ -1,0 +1,6 @@
+onkeyup 按下键被松开时触发 不区分字母大小写
+onkeydown 按下键时触发 先执行 不区分字母大小写
+onkeypress 按下键时触发 但是不识别ctrl shift等功能键 新方法不用加on 区分大小写
+
+
+keyCode返回按下键的ASCII值

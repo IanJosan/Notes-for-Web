@@ -1,0 +1,3 @@
+BOM browser object model 浏览器对象模型
+由一系列相关对象构成 缺乏标准 最大对象时window
+作用是浏览器窗口的交互

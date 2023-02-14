@@ -1,0 +1,15 @@
+下载
+npm i wangeditor --save
+引入
+import E from 'wangeditor'
+定义方法ref绑定dom，并调用create方法
+methods: {
+    initEditor(){
+        const editor = new E(this.$refs.editorRef)
+        editor.create()
+    }
+},
+在mounted中初始化保证dom是存在的
+mounted(){
+    this.initEditor()
+}

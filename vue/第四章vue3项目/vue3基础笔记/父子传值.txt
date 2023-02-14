@@ -1,0 +1,30 @@
+父传子
+子组件定义props接收传下来的值
+在setup函数中作为参数使用 
+
+setup (props) {
+    // 获取父组件数据money
+    console.log(props.money)
+  }
+}
+
+子传父
+子组件setup函数第二个参数是context。context中有一个emit对象来代替原来vue2的this.$emit
+
+setup(props,{emit}){
+const changeMoney = () => {
+    emit('change',50)
+}
+return {changeMoney}
+父组件接收同vue2
+--------------------------------
+v-model双向多数据绑定用法
+
+
+子组件传值写
+ emit('update:money',50)
+
+父组件从
+<!-- <Son :money="money" @update:money="updateMoney" /> -->
+简写成
+    <Son v-model:money="money" />

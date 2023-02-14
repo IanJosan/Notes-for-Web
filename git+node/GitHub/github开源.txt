@@ -1,0 +1,15 @@
+什么是开源许可协议，开源并不意味着没有完全限制，为了限制使用者的适用范围和保护作者的权利，每个开源项目都应该遵守开源许可协议 5种
+1，BSD Berkeley Software Distribution
+2,Apache Licence 2.0
+3,GPL GNU General Public License
+具有传染性的开源协议，不允许修改后衍生的代码作为闭源和商业软件发布和销售
+Linux项目
+4,LGPL GNU Lesser General Public License
+5,MIT Massachusetts Institute of Technology,MIT
+目前限制最少的协议，唯一条件是修改后的代码或者发行包中必须包含原作者的许可信息
+jQuery node.js 项目
+
+开源项目托管平台
+专门用于存放开源项目源代码的网站
+GitHub  gitlab gitee
+只能托管以git管理的项目源代码

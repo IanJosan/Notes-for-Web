@@ -1,0 +1,13 @@
+Date（）是一个构造函数 必须要用new来调用
+var date = new Date（）；
+如果没有参数返回当前系统的当前时间
+参数写法 2022，7，6 或者 字符串型 '2022-7-6 10：37：6'或者2022/7/6
+
+日期格式化
+date.getFullYear()返回当前年
+date.getMonth()返回当前月0~11 月份需要+1
+date.getDate()返回几号
+date.getDay()返回周几0~6 周日为0
+date.getHours() 返回小时数
+date.getMinutes()返回分钟
+date.getSeconds()返回秒

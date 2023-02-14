@@ -1,0 +1,6 @@
+type User = {
+  name:string
+  age:number
+}
+
+type A = User['name'] 获得到A的类型为string

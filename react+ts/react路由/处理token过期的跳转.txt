@@ -1,0 +1,32 @@
+在token过期后需要跳转，但是在非组件中无法使用Route模块，在非函数组件中无法使用hooks
+
+1，所以需要封装一个方法
+下载history包
+import { createBrowserHistory } from 'history'
+const history = createBrowserHistory()
+export default history
+
+2，将路由规则修改
+import {
+ 原来 的Router改为
+  unstable_HistoryRouter as HistoryRouter自定义,
+} from 'react-router-dom'
+import history from './utils/history' 导入封装的方法指定的history
+
+<HistoryRouter history={history}> 用这个新Router来包裹路由并指定 history方法
+      <div className="app">
+
+        <Suspense fallback={<div>loding</div>}>
+          <Routes>
+            <Route path="/" element={<Navigate to="/home"></Navigate>}></Route>
+            <Route path="/login" element={<Login></Login>}></Route>
+        </Suspense>
+      </div>
+    </HistoryRouter>
+
+3，在非组件页面就可以使用封装的history方法来跳转
+import history from './history'
+
+if (!token || !refresh_token) {
+      history.push('/login')
+}

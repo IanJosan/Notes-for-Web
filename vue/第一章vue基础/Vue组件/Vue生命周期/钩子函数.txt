@@ -1,0 +1,12 @@
+Vue框架内置函数，随着组件的生命周期阶段自动执行
+作用：在特定的时间点执行特定的操作
+常见场景：组件创建完毕后在created生命周期函数中方发起Ajax请求，，从而初始化data数据
+
+四个阶段八个函数
+阶段      方法名                 方法名
+初始化   beforeCreate      created
+挂载       beforeMount     mounted
+更新       beforeUpdate     updated
+销毁       beforeDestroy    destroyed
+
+在代码中写好钩子函数，当vue生命周期到达指定阶段自动触发

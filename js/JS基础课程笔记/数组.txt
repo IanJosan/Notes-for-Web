@@ -1,0 +1,23 @@
+数组的概念
+使用Array 数组将相关的数据一起存放。是一组数据的集合。其中每个数据被称作元素，在数组中可以存放任意类型的元素，数组是将一组数据存储在单个变量名下的方式
+
+数组的创建方式
+利用new创建数组
+var arr = new Array (); 创建了空数组 
+var arr= new Array（2）；括号里面数字表示数组长度
+var arr= new Array（2，2，3）；括号里表示存储元素
+
+利用数组字面量创建数组
+var 数组名 = [，，，  ]；逗号分隔数组元素
+
+获取数组元素
+数组的索引 数组下标都是从0开始的 
+数组名[索引号] 没有数组元素会输出undefined
+
+检测是否为数组 
+1，intanceof Array 运算符
+var arr = [];
+console.log(arr instanceof Array);
+是返回true
+2，Array.isArray(参数)；H5新增
+console.log(Array.isArray(参数));返回true或false

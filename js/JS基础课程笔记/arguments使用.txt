@@ -1,0 +1,8 @@
+ arguments 存贮所有传递过来的实参
+arguments是一种伪数组
+伪数组 ：
+具有数组的length属性
+按照索引的方式进行存储
+没有真正数组的方法 例如pop push
+
+只有函数才内置有arguments对象

@@ -1,0 +1,27 @@
+state数据的修改只能通过mutations并且是同步状态，目的是形成数据快照
+数据快照，一次mutations立刻得到一种视图状态因为是立刻所以必须是同步
+1，定义mutations对象
+const store = new Vuex.Store({
+  state:{
+    count:0
+  },
+  mutations:{
+//放置修改state数据的方法，每一个方法都有对应参数 state当前state对象，payload 载荷，提交mutations时提交的参数
+    addCount(state，payload){
+      state.count +=payload
+    }
+  }
+})
+2，调用mutations
+原始形式
+在组件方法中定义，相当于调用这个方法并传值
+this.$store.commit('mutations方法名称'，'要传递的载荷payload值')
+
+辅助函数调用mapMutations
+1，引入
+import {mapMutations} from 'vuex'
+2，导入方法
+mathods:{
+   ...mapMutations(['addCount方法名'])
+}
+@click='addCount方法名(传入payload值)'

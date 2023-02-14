@@ -1,0 +1,34 @@
+vue-router都三方包
+和vue.js深度集成
+可以定义
+模块化
+内置全局组件
+声明式导航自带激活的css类名
+----------------------------
+基础使用
+1，下载  注意版本@3.5.3 vue2
+yarn add vue-router
+2,引入 
+在main.js中引入
+import VueRouter from 'vue-router'
+3,注册全局组件
+Vue.use(VueRouter)
+4,定义规则数组
+const routes = [
+  {
+    path:'/find',    //路径对应组件
+    component:Find
+  }
+]
+5，生成路由对象
+const router = new VueRouter({
+    routes: routes//是固定的key传入规则数组 可以简写成routes
+  
+})
+6，路由对象注入到vue实例中，this可以访问$route和$router
+new Vue({
+  router,
+  render: h => h(app)
+}).$mount('#app')
+7,在app.vue中设置挂载点,当url中的哈希值路径切换，显示规则里对应的组件到这里components换成router-view
+<router-view></router-view>

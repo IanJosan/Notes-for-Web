@@ -1,0 +1,4 @@
+打开git bash
+git clone 远程仓库地址
+
+git pull 获取最新远程代码

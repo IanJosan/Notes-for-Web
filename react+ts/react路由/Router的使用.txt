@@ -1,0 +1,6 @@
+Router组件包裹整个使用到路由的应用，一个react应用只需要使用一次
+常见Router两种
+HashRouter和BrowserRouter
+HashRouter：使用URL的哈希值实现地址栏带#号，原理监听window的hashchange事件
+
+BrowserRouter：使用H5的historyAPI实现 原理监听window的popstate事件实现（推荐）

@@ -1,0 +1,11 @@
+每次切换路由的时候滚动到顶部 
+在router中设置 这种模式
+vue2是 x:0 ,y:0
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes,
++  scrollBehavior () {
++    return { left: 0, top: 0 }
++  }
+})

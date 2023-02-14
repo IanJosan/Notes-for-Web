@@ -1,0 +1,8 @@
+XML是可扩展标记语言 传输和存储数据
+<note>
+	<to> LS</to>
+	<from>ZS</from>
+	<heading>A</heading>
+	<body>B</body>
+</note>
+缺点 格式臃肿 和数据无关的代码多 体积大传输效率低 JS中解析XML麻烦

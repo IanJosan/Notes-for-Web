@@ -1,0 +1,2 @@
+transform：translate （-50%，-50%）；----括号和translate之间没有空格
+土办法 : 偏移量改为50% 在margin盒子边宽的一半

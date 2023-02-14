@@ -1,0 +1,36 @@
+自定义指令 获取标签扩展额外的功能
+
+全局注册-语法
+Vue.directive(''指令名'',{
+   inserted(el){
+        //可以对el标签扩展额外功能
+    }
+}）
+
+局部注册
+directives:{
+   "指令名字":{
+     inserted(el){
+        //可以对el标签扩展额外功能，指令所在的元素节点被插入到页面中触发
+   }
+}
+--------------------------------
+使用方法：指令 v-指令名
+
+inserted方法在指令所在标签被插入到网页上才触发
+update方法指令对应的数据、标签发生更新时此方法执行
+bind(绑定事件触发)
+
+v-color="'red'"
+可以传入值，获取
+inserted(el，binding){
+        //可以对el标签扩展额外功能
+       //binding.value 为等号后传入的值可以是变量
+        el.style.color = binding.value
+   }
+
+同样
+update(el,binding){
+    // 指令的修改会触发update
+
+}

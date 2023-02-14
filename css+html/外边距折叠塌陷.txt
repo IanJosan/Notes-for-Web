@@ -1,0 +1,5 @@
+相互嵌套的块级元素，在子元素上加margin-top会连带影响父元素导致一起往下移动
+解决：给父级设置border-top或者padding-top来分割父子元素的margin-top
+给父元素设置overflow：hidden
+转换为行内块元素
+设置浮动

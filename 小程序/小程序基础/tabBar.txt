@@ -1,0 +1,44 @@
+1. 什么是 tabBar
+tabBar 是移动端应用常见的页面效果，用于实现多页面
+的快速切换。小程序中通常将其分为：
+⚫ 底部 tabBar
+⚫ 顶部 tabBar
+注意：
+⚫ tabBar中只能配置最少 2 个、最多 5 个 tab 页签
+⚫ 当渲染顶部 tabBar 时，不显示 icon，只显示文本
+
+2. tabBar 的 6 个组成部分
+① backgroundColor：tabBar 的背景色
+② selectedIconPath：选中时的图片路径
+③ borderStyle：tabBar 上边框的颜色
+④ iconPath：未选中时的图片路径
+⑤ selectedColor：tab 上的文字选中时的颜色
+⑥ color：tab 上文字的默认（未选中）颜色
+
+3. tabBar 节点的配置项
+在app.json中和window平级"tabBar":{}
+属性                             类型             必填     默认值        描述
+position                      String           否         bottom      tabBar 的位置，仅支持 bottom/top
+borderStyle                 String           否        black          tabBar 上边框的颜色，仅支持 black/white
+color                            HexColor     否                          tab 上文字的默认（未选中）颜色
+selectedColor              HexColor     否                          tab 上的文字选中时的颜色
+backgroundColor        HexColor     否                          tabBar 的背景色
+list                                Array           是                           tab页签的列表，最少 2 个、最多 5 个 tab "list":[{},{}]
+pagePath                     String          是                           页面路径，页面必须在 pages 中预先定义
+text                             String           是                           tab 上显示的文字
+iconPath                      String          否                          未选中时的图标路径；当 postion 为 top 时，不显示 icon
+selectedIconPath        String           否                        选中时的图标路径；当 postion 为 top 时，不显示 icon
+
+
+ "tabBar": {
+    "list":[
+      {
+        "pagePath": "pages/index/index",
+        "text":"index"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text":"test"
+      }
+    ]
+  },

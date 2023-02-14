@@ -1,0 +1,21 @@
+bind()
+fun.bind(thisArg,arg1,arg2……)
+thisArg:在fun函数运行时指定的this值
+arg1,arg2：传递的其他参数
+返回由指定的this值和初始化参数改造的原函数拷贝
+不会调用函数 返回改变this指向后的新函数
+
+call()
+调用函数
+改变函数this指向
+主要作用可以实现继承
+可以传递参数  
+主要用作继承
+
+apply()
+fun.apply(thisArg,[argsArray])
+thisAry: 在fun函数运行时指定的this值
+argsArray：传递的值。必须包含在数组里面
+打印出来自动去除掉数组，返回值就是函数的返回值
+利用apply（）借助数学内置对象求最大值，最小值
+会调用函数

@@ -1,0 +1,32 @@
+mockjs可以模拟可更快的得到较为真实的数据，且可以拦截axios的接口调用http://mockjs.com/
+
+1安装 npm i mockjs
+2配置src/mock/index.js
+import Mock from 'mockjs'
+
+// mock的配置
+Mock.setup({
+  // 随机延时500-1000毫秒
+  timeout: '500-1000'
+})
+
+3使用src/main.js
+import './mock'
+配置请求拦截，正则字符串形式配置api形式/my/test
+Mock.mock(/\/my\/test/, 'get', () => {
+  return { msg: '请求测试接口成功', result: [] }
+})
+
+4模拟数据一般使用函数形式
+Mock.mock(/\/my\/test/, 'get', () => {
+  // 随机数据逻辑
+  const arr = []
+  for (let i = 0; i < 5; i++) {
+    arr.push(Mock.mock('@id'))
+    arr.push(Mock.mock({
+      id: '@id',
+      name: '@cname'
+    }))
+  }
+  return { msg: '获取数据成功', result: arr }
+})

@@ -1,0 +1,5 @@
+安装必要依赖
+npm install vue vue-server-renderer --save
+
+目标把vue组件的渲染从客户端放到服务端
+既想用vue开发项目高效，还想要首次渲染时间短

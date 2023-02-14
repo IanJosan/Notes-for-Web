@@ -1,0 +1,28 @@
+为什么：因为子元素浮动了，此时子元素不能撑开标准流的块级父元素
+目的：父元素有高度，从而不影响其他网页元素的布局
+方法一：额外标签法
+在父元素内容最后加一个块级元素
+给添加的块级元素设置clear：both
+会在页面中添加额外的标签 结构复杂
+方法二：单伪元素法                                                               
+基本方法---项目中直接给标签加类就行                                    
+.clearfix::after{                                              
+             content:'';
+             display:block;
+             clear:both;
+  补充    height:0;
+            visibility:hidden;
+           }
+方法三
+清除浮动双伪元素
+.clearfix::before，
+.clearfix::after{
+content:'';
+display:table;
+}
+.clearfix::after {
+clear:both;
+}
+
+方法四： 给父元素设置 overflow:hidden
+直接给父元素设置

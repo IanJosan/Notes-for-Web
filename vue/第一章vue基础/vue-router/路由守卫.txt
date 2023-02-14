@@ -1,0 +1,20 @@
+全局前置守卫
+路由跳转之前会触发一个函数
+语法: 在main.js中设定
+router.beforeEach((to,from,next) => {} )
+to 要去的路由页面的对象信息
+from 从哪里跳转的路由的信息
+next 函数体 next() 才会正常跳转
+next(false)原地停留，next（'url'）跳转到另一个路径
+如果不调用next页面停留在原地
+使用场景：对路由权限进行判断时
+
+
+局部路由独享守卫
+在路由配置中
+{ path:'/' ,
+  component:User,
+  beforeEnter(to,from,next) {
+  //独享守卫，对单独的路由进行校验
+  }
+}

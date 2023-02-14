@@ -1,0 +1,16 @@
+泛型是可以在保证类型安全前提下，让函数等与多种类型一起工作，从而实现逻辑复用
+
+// 定义泛型<>Type
+function fn<Type定义>(value: Type): Type {
+  return value
+}
+// 使用泛型<>指定
+let res = fn<number指定>(10)
+let res2 = fn<string>('abc')
+
+简化泛型函数调用可以省略 `<类型>
+let res = id(10)
+let res2 = id('a')
+
+-----------
+泛型参数1 指定传入参数类型，参数2 指定返回值类型

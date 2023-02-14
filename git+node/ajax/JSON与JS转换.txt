@@ -1,0 +1,9 @@
+实现JSON字符串转换为JS对象使用
+JSON的反序列化
+JSON.parse()
+var obj = JSON.parse('{"a":"hello"}')
+//   {a:'hello'}
+
+JSON的序列化
+JS对象转换为JSON字符串
+JSON.stringify()

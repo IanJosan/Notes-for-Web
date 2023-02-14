@@ -1,0 +1,9 @@
+从创建到销毁的整个过程就是 Vue实例的生命周期
+
+11个
+beforeCreate      created
+beforeMount     mounted
+beforeUpdate     updated
+beforeDestroy    destroyed
+actived              deactivated
+errorCaptured

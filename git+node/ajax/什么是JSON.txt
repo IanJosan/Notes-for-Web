@@ -1,0 +1,27 @@
+JS对象和数组的字符串表示方法 即JavaScript对象表示法
+JSON作用 在计算机与网络之间存储和传输数据
+JSON本质是字符串来表示JavaScript对象数据或数组数据
+是一种轻量级的文本数据交换格式 比XML更加轻量效率高使用广
+
+JSON的两种结构
+对象结构 
+{}包裹{key:value,key:value,……}的键值对结构 key必须使用“”双引号包裹的字符串，value数据类型可以是数字，字符串，布尔值，null，数组，对象
+{
+"name":"zs",
+"age":20,
+"address":null,
+"hobby":["eat","play","fight"]
+}
+正确的JSON字符串格式
+res.write('{"ok":true,"msg":"注册成功"}')
+
+数组结构
+[]括起来 ["js","aaa",30,true,……]数组中必须使用“”双引号包裹字符串类型，数据的类型可以是数字，字符串，布尔值，null，数组，对象
+
+注意JSON语法
+属性名必须使用双引号
+字符串类型值必须使用双引号
+JSON不允许使用单引号
+JSON不能写注释
+JSON最外层必须是对象或者数组
+不能使用undefined或函数作为JSON值

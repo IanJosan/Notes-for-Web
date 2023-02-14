@@ -1,0 +1,5 @@
+overflow:属性值；
+visble 默认值，溢出部分可见
+hidden 溢出部分隐藏
+scroll 无论是否溢出，都显示滚动跳
+auto 根据是否溢出显示滚动体

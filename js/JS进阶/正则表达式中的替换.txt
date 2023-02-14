@@ -1,0 +1,10 @@
+replace（）可以实现替换字符串的操作，用来替换的参数可以是一个字符串或是一个正则表达式
+stringObject.replace(regexp或者substr,replacement)
+第一个参数 被替换的字符串或者正则表达式
+第二个参数 替换为的字符串
+返回值是一个替换完毕的新字符串 只替换了第一个
+/表达式/switch
+switch 修饰符三种
+g 全局匹配
+i 忽略大小写
+gi 全局匹配+忽略大小写

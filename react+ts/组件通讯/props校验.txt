@@ -1,0 +1,21 @@
+props校验，能力较弱 typescript较强
+1，需要下载导入props-types包。
+import PropTypes（自命名） from 'prop-types'
+
+2，那个组件需要校验就给那个组件添加属性（propTypes固定写法）
+Money.propTypes = {
+  // 接受的money必须是数字类型且必填
+  money: PropTypes.number.isRequired,
+  list: PropTypes.array,
+}
+
+3，给传递数据添加规则
+对象中{
+  数据：包自命名.数据类型
+}
+---------------------------
+car: PropTypes.shape({
+    brand: PropTypes.string,
+    price: PropTypes.number,
+  }),
+shape方法校验规则可校验对象数据

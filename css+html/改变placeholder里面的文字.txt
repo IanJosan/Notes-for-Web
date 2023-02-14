@@ -1,0 +1,5 @@
+在CSS里面加 input::placeholder{}
+
+改变图片在盒子中的居中位置
+图片居中
+vertical-align:middle

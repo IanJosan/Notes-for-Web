@@ -1,0 +1,20 @@
+三种方式的转换
+
+转换为字符串型 三种
+toString() 转换为字符串  变量  
+点 .tostring() 括号暂且空着
+string（）强制转换  变量放在括号里
+加号拼接字符串（隐式转换） 可以加空字符串
+
+
+转换为数字型 四种
+parselnt(string)函数 将string类型转换成整数数值型取整不进位会去掉数字后的文字  parselnt（'78'）I大写
+parseFloat(string)函数 将string类转换为浮点数数值型 parseFloat('78.1')
+Number()强制转换 将string类型转换为数值型 number（'12'）
+js隐式转换（-*/）利用算数运算隐式转换为数值型 '12'-0
+
+
+转换为boolean型 一种
+Boolean()函数 其他值转换为布尔值 Boolean（'true'）;
+代表空 否定的值会被转换为false, 如 '' 0 NaN null undefined
+其余值都会转换为true

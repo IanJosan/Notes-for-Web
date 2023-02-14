@@ -1,0 +1,11 @@
+在函数组件中有传递的参数需要校验ts只需要定义类型推断加上就行
+export default function Input({extra,onExtraClick,}: Props定义对象类型推断) {
+  const inputRef = useRef<HTMLInputElement>(null)
+  return (
+
+type Props = {
+  extra?: string
+  onExtraClick?: () => void
+  autoFocus?: boolean
+  className?: string
+}

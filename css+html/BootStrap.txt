@@ -1,0 +1,19 @@
+BootStrap
+栅格系统布局响应式网页
+将网页等分成12分
+               响应断点     别名     容器宽度       类前缀     列数    列间隙
+超小屏幕 <768px        xs         100%         col-xs-*     12        30px
+小屏幕     <=768px     sm        750px       col-sm-*    12        30px
+中等屏幕 >=992px      md       970px       col-md-*    12        30px
+大屏幕     >=1200px    lg         1170px     col-lg-*      12        30px
+*代表数字所占份数
+
+.container是表示版心的专用类名 自带15px的padding
+.row 类自带间距-15px的margin
+.container-fluid 一个左右15padding的通栏盒子
+ 栅格式布局不能加间距来改变位置，而应该在子级内容里面来改变
+.container类在屏幕宽度小于等于767px的时候，宽度=屏幕宽度的，也就是100%，container-fluid类不管屏幕宽度大小，一直是100%
+
+插件的使用
+在body最后引入js文件 两个 顺序不能颠倒
+一个是jquery 第二个是 bootstrap.min.js

@@ -1,0 +1,9 @@
+挂载
+1，template选项检查
+有-编译temolate返回render渲染函数
+无-编译el选项对象标签作为template（要渲染的模板）
+2，虚拟DOM挂载成真实DOM之前
+3，beforeMount-生命周期钩子函数被执行
+4，Create-把虚拟DOM和渲染的数据一并挂载到真实DOM上
+5，真实DOM挂载完毕
+6，mounted-生命周期钩子函数被执行

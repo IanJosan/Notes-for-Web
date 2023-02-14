@@ -1,0 +1,7 @@
+@keyup.enter.native
+
+@keyup.**`enter`**属于按键修饰符，如果我们想监听在按回车键的时候触发
+
+@keyup.enter.**`native`** 表示监听组件的原生事件，比如 keyup就是于input的原生事件，这里写native表示keyup是一个原生事件
+
+如果需要调用组件里的原生事件就要加native 不然只是触发了组件，不会到达深处

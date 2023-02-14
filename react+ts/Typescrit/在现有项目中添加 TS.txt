@@ -1,0 +1,9 @@
+创建新的ts项目
+npx create-react-app 项目名 --template typescript
+
+如果要在现有的 JS 项目中，添加 TS，需要以下操作：
+1. 安装包：`yarn add typescript @types/node @types/react @types/react-dom @types/jest`
+2. 把 `jsconfig.json`改成 path.tsconfig.json
+4. 将原来通过 React 脚手架创建的 TS 项目中的 tsconfig.json 中的配置，拷贝到咱们自己的项目中
+5. 创建 `path.tsconfig.json` 文件，将原来 `jsconfig.json` 文件中的内容拿过来
+ "extends": "./path.tsconfig.json",

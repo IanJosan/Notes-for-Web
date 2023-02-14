@@ -1,0 +1,2 @@
+e.stopPropagation() 方法停止往上传播
+e.cancelBubble = true 

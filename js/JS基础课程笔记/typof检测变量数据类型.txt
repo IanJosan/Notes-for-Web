@@ -1,0 +1,4 @@
+console.log(typeof 命名)；
+输出结果为变量类型
+
+prompt 取值为字符型

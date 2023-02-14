@@ -1,0 +1,4 @@
+nodeJS 与 浏览器中的Javascript 的区别
+全局对象——window 与 global
+Javascript 是运行在浏览器上的脚本语言，在浏览器中，有一个顶级对象叫做window，它就是我们常说的全局对象。
+可是在 nodeJS 中，由于 nodeJS 并非在浏览器中运行，而是在我们的服务器上跑，所以它有自己的全局对象，叫做global。

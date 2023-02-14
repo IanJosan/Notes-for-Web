@@ -1,0 +1,14 @@
+引入方法 
+import { useVModel } from '@vueuse/core'
+
+同v-model一样 有值 和方法
+v-model  ====>  :modelValue  和   @update:modelValue
+
+定义checked ，此时这个值就与父传下来的值也就是props中modelValue值一样 
+useVModel（数据，赋值，触发emit）
+const checked = useVModel(props, 'modelValue', emit)
+
+给checked 赋值或者改变值就自动调用了emit方法
+  const newVal = !checked.value
+      // 通知父组件
+      checked.value = newVal

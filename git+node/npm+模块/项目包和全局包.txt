@@ -1,0 +1,13 @@
+项目包
+被安装到项目的node_modules目录中的包都是项目包
+分为
+开发依赖包 记录到devDependencies 只在开发期间使用
+npm i 包名 -D
+
+核心依赖包 dependencies 在开发和上线之后都会使用
+
+全局包
+npm install -g参数就会把安装包变为全局包
+在用户\appdata\roaming\npm\node_modules中
+卸载全局包
+npm uninstall 包名 -g

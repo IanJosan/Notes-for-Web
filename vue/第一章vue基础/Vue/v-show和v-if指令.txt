@@ -1,0 +1,19 @@
+控制标签的隐藏或出现
+v-show="vue变量"
+v-if="vue变量"
+<h1 v-show="iso"></h1>
+变量写在data对象中
+data(){
+ return {
+    iso: true或false
+  }
+}
+
+v-show的显示隐藏方式采用的是display：none；适合频繁切换使用
+v-if 的方式是从dom树上删除
+
+--------------------------------
+v-if高级使用v-else  v-else-if
+可用作变量的判断来决定是否显示
+<h3 v-if="age > 18">成年</h3>
+<h3 v-else>未成年</h3>

@@ -1,0 +1,36 @@
+1. 创建组件
+① 在项目的根目录中，鼠标右键，创建 components -> test 文件夹
+② 在新建的 components -> test 文件夹上，鼠标右键，点击“新建 Component”
+③ 键入组件的名称之后回车，会自动生成组件对应的 4 个文件，后缀名分别为 .js，.json， .wxml 和 .wxss
+注意：为了保证目录结构的清晰，建议把不同的组件，存放到单独目录中，例如：
+
+2. 引用组件
+组件的引用方式分为“局部引用”和“全局引用”，顾名思义：
+⚫ 局部引用：组件只能在当前被引用的页面内使用
+⚫ 全局引用：组件可以在每个小程序页面中使用
+
+3. 局部引用组件
+在页面的 .json 配置文件中引用组件的方式，叫做“局部引用”。示例代码如下：
+{
+  "usingComponents": {
+    "my-test1":"/components/test/test"
+  }
+}
+<my-test1></my-test1>
+
+4. 全局引用组件
+在 app.json 全局配置文件中引用组件的方式，叫做“全局引用”。示例代码如下：
+在app.json window平级下
+ "usingComponents": {
+    "my-test1":"/components/test/test"
+  }
+<my-test1></my-test1>
+
+
+
+6. 组件和页面的区别
+从表面来看，组件和页面都是由 .js、.json、.wxml 和 .wxss 这四个文件组成的。但是，组件和页面的 .js 与
+.json 文件有明显的不同：
+⚫ 组件的 .json 文件中需要声明 "component": true 属性
+⚫ 组件的 .js 文件中调用的是 Component() 函数
+⚫ 组件的事件处理函数需要定义到 methods 节点中

@@ -1,0 +1,26 @@
+Redux 是 react 中最流行的状态管理工具之一  。 
+
+> 起源
+
+React 只是 DOM 的一个抽象层（UI 库），并不是 Web 应用的完整解决方案。因此react在涉及到数据的处理以及组件之间的通信时会比较
+
+- 对于大型的复杂应用来说，这两方面恰恰是最关键的。因此，只用 React，写大型应用比较吃力。
+- 2014 年 Facebook 提出了 Flux 架构的概念，引发了很多的实现。
+- 2015 年，Redux 出现，将 Flux 与函数式编程（reducer）结合一起，很短时间内就成为了最热门的前端架构。 
+- Flux 是最早的状态管理 工具，它提供了状态管理的思想，也提供对应的实现
+- 除了 Flux、Redux 之外，还有：Mobx 等状态管理工具
+
+> 什么时候使用 redux  
+
+- 如果你不知道是否需要 Redux，那就是不需要它。
+- 只有遇到 React 实在解决不了的问题，你才需要 Redux
+
+> 为什么需要 redux
+
+集中的方式统一管理所有的共享数据
+
+> react 技术栈
+
+- react 核心 react hooks
+- react-router（react-router-dom）
+- 状态管理： mobx（简单）/ redux（复杂）  ----中间件： redux-thunk  redux-saga

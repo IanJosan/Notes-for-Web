@@ -1,0 +1,6 @@
+ORDER BY 语句用于根据指定的列对结果进行排序
+ORDER BY语句默认按照升序对记录进行排序
+降序使用DESC关键字 升序关键字ASC
+SELECT * FROM 表名称 ORDER BY 列名称 DESC
+
+多重排序用逗号隔开

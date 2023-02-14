@@ -1,0 +1,10 @@
+offset 偏移量 只读属性 不能赋值
+获取元素距离父元素的位置
+获得元素自身的大小宽度 不带单位
+father.offsetTop 返回元素带有定位父元素上方的偏移  否则以body为准
+father.offsetLeft 返回元素带有定位父元素左边框的偏移 否则以body为准
+father.offsetWidth/Height 得到盒子的宽高 会加上padding和border width
+father.offsetParent 返回带有定位的父亲 否则返回body
+
+offset和style 区别
+style只能获得行内样式 获取值是字符串带单位 不会获得padding和border值 可读写 可赋值

@@ -1,0 +1,2 @@
+拿到项目根据node_models安装所需要的包
+yarn 或者 npm install

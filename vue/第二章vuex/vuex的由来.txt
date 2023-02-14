@@ -1,0 +1,7 @@
+vuex解决非关系型组件间的数据共享问题 vuex状态共享框架
+
+vuex是采用集中式管理组件依赖的共享数据的工具
+三个核心组成部分
+mutations改数据，同步操作  actions异步操作  state存放共享状态数据
+
+state-组件-actions-mutations-state

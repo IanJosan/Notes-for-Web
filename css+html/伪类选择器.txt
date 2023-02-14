@@ -1,0 +1,5 @@
+焦点伪类选择器：标签加上冒号focus
+
+属性选择器
+E[attr] 选择具有attr属性的E元素
+E[attr='val']选择具有attr属性并且属性值等于val的E元素 常用于input标签

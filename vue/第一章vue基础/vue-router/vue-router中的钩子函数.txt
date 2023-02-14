@@ -1,0 +1,19 @@
+关于vue-router中的钩子函数主要分为3类
+
+全局钩子函数要包含beforeEach
+
+  beforeEach函数有三个参数,分别是:
+
+​	to:router即将进入的路由对象
+​    from:当前导航即将离开的路由
+​    next:function,进行管道中的一个钩子，如果执行完了,则导航的状态就是 confirmed （确认的）否则为false,终止导航。
+
+单独路由独享组件
+
+​	beforeEnter,
+
+组件内钩子
+
+   beforeRouterEnter，
+   beforeRouterUpdate,
+   beforeRouterLeave

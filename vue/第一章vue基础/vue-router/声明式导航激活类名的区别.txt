@@ -1,0 +1,2 @@
+router-link-exact-active 精确匹配url中的hash路径值与href属性值完全相同
+router-link-active模糊匹配 url中hash值包含href属性值

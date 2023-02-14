@@ -1,0 +1,9 @@
+express安装
+npm i express@4.17.1
+
+导入express
+const express = require('express')
+创建web服务器
+const app = express()
+调用app.listen(端口号，成功启动后的回调函数)，启动服务器
+app.listen(80,()) => {}

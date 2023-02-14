@@ -1,0 +1,31 @@
+action creator创建函数
+
+1.  直接使用对象来创建action不灵活，参数写死了。一般会使用函数来创建action，我们把创建action的函数叫做actionCreator
+2.  action creator创建函数只是简单的返回一个 action
+3.  action creator创建函数的好处是更容易被移植和测试
+
+const addTodo = (text) => ({
+  type: 'ADD_TODO',
+  text
+})
+---------------------------
+处理异步请求
+异步action返回异步函数，异步函数处理完后需要在异步函数中dispatch
+action始终返回的是一个对象
+export const getList = () => {
+  return async (dispatch固定) => {
+    dispatch固定({
+      type: 'GET_LIST',
+      payload: res.data,
+    })
+  }
+}
+-----------------
+export const buyAsync = (money) => {
+  return (dispatch固定参数) => {
+    // 异步
+    setTimeout(() => {
+      dispatch(minus(money)异步调用action)
+    }, 3000)
+  }
+}

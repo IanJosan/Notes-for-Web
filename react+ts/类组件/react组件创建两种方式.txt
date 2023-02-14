@@ -1,0 +1,125 @@
+一，函数组件基础用法
+// import React from "react"; 新项目自动导入了
+import ReactDOM from 'react-dom'
+// 函数注册组件必须大写开头，并且一定有返回
+function Hello() {
+  return console.log(123)
+}
+const element = (
+  <div>
+    <h1>函数组件</h1>
+    <Hello></Hello>
+  </div>
+)
+ReactDOM.render(element, document.getElementById('root'))
+
+二，类组件的创建
+class Teacher {
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+  }
+
+  sayhi() {
+    console.log('hi')
+  }
+}
+
+const str = new Teacher('zs', 23)
+console.log(str.name)
+str.sayhi()
+
+类的继承
+class Animal {
+  constructor(name, type) {
+    this.name = name
+    this.type = type
+  }
+
+  eat() {
+    console.log('chi')
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, type) {
+    super(name, type)
+    this.leg = 4
+  }
+
+  bark() {
+    console.log('jiao')
+  }
+}
+
+const qiu = new Dog('qiutian', 'gougou')
+console.log(qiu)
+
+class Bird extends Animal {
+  constructor(name, type) {
+    super(name, type)
+    this.leg = 2
+  }
+
+  fly() {
+    console.log('fei')
+  }
+}
+
+const kq = new Bird('kongque', 'dongnanfei')
+console.log(kq)
+
+注意继承添加自己属性时必须要加surper并且传递父级参数
+------------------------------------------------------------
+类组件使用es6的class语法创建
+类组件名称大写开头
+类组件应该继承React.Component父类，使用父类中的方法或属性
+类组件必须提供render方法
+render方法必须有返回值
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+class Hello extends React.Component {
+  render() {
+    return <div>我是hello组件</div>
+  }
+}
+
+const element = (
+  <div>
+    <h1>类组件</h1>
+    <Hello></Hello>
+  </div>
+)
+
+ReactDOM.render(element, document.getElementById('root'))
+
+--------------------------------------------------
+组件的抽离
+---------
+import { Component } from 'react'
+
+class Hello extends Component {
+  render() {
+    return <div>我是hello组件</div>
+  }
+}
+--------
+const Demo = () => <div>函数组件</div>
+export default Demo
+---------
+export default Hello
+import ReactDOM from 'react-dom'
+import Hello from './components/Hello'
+import Demo from './components/Demo'
+
+const element = (
+  <div>
+    <h1>类组件</h1>
+    <Hello></Hello>
+    <Demo></Demo>
+  </div>
+)
+
+ReactDOM.render(element, document.getElementById('root'))

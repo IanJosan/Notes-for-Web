@@ -1,0 +1,9 @@
+移动端click 事件会有300ms延时 是因为双击会缩放页面需要300ms判断
+
+1，禁止缩放 
+在视口标签写上
+<meta name="viewport" content= "user-scabable=no">
+
+2,利用touch事件封装
+
+3，利用js插件

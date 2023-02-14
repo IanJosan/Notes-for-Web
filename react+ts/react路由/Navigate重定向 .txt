@@ -1,0 +1,11 @@
+引入组件Navigate
+import { NavLink, Route, Routes, Navigate } from 'react-router-dom'
+
+配置路由规则
+ <Route
+            path="*"
+            element={<Navigate to={'rank路径'} replace不保留历史></Navigate>}
+          ></Route>
+
+老旧版本使用Redirect
+<Redirect exact from='/' to='/home'>

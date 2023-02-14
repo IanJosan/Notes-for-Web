@@ -1,0 +1,12 @@
+模块中存贮了module对象，里面包含了当前模块的信息
+module.exports()  默认空对象
+在在定义模块中，可以使用module.exports() 对象，将模块内的成员共享，共外界使用，外界使用require（）方法导入自定义模块，得到的就是module.exports() 所指对象，默认为空对象
+
+注意使用require（）方法导入模块时，导入的结果，永远以module.exports指向的对象为准
+
+exports对象和module.exports() 对象相同指向同一个对象但最终结果还是以module.exports() 对象为准
+
+CommonJS 规范
+每个模块内部，module变量代表当前模块
+module 变量是一个对象，他的exports属性即module.exports()是对外的接口
+加载某个模块就是加载该模块的module.exports属性。require()方法用于加载模块

@@ -1,0 +1,15 @@
+通过js编程式导航跳转路由 V6
+1,导入useNavigate钩子函数
+import { useNavigate } from 'react-router-dom'
+
+const navigate = useNavigate()
+2，执行钩子函数跳转
+ <button onClick={goHomeey}>tiaozhuang</button>
+
+3，执行跳转完成函数 
+ const goHomeey = () => {
+    navigate('/Homeey')     -1返回上一页，具体地址跳转到具体页
+  }
+
+如果不想保留历史跳转可以添加参数{replace:true}
+ navigate('/Homeey', { replace: true })

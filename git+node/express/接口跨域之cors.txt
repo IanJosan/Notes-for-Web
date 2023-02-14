@@ -1,0 +1,10 @@
+之前学习的JSONP请求跨域只能解决get请求
+
+安装npm install cors
+在路由之前配置中间件
+使用 const cors = require('cors')
+配置中间件
+app.use(cors())
+
+cors由一系列http响应头组成，决定浏览器是否阻止获取资源
+特点，主要是在服务器端进行配置 有兼容性

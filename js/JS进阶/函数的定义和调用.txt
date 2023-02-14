@@ -1,0 +1,23 @@
+自定义函数
+function fn () {};
+
+函数表达式 匿名函数
+var fun = function () {}
+
+利用 new Function('参数1'，'参数2'，'函数体')；
+var f = new Function ('a','b','console.log(a + b)'  字符串书写);
+
+函数也属于对象
+所有函数都是Function的实例对象
+
+函数的调用方式
+fn()  fn.call();   window
+对象函数 
+obj.fn();   obj对象
+构造函数
+new Fn(); 实例对象
+匿名函数
+btn.onclick = function(){}  函数调用者
+setInterval(function(){},1000) window
+立即执行函数
+(function(){}) (); window

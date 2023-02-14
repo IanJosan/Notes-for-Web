@@ -1,0 +1,14 @@
+空间转换
+同样是transform。Z轴正值指向屏幕外的自己
+语法  transform：translate3d（x,y,z)）;
+同样有  大写XYZ
+transform：translate3dX（）；
+transform：translate3dY（）；
+transform：translate3dZ（）；
+取值同样是可以数字px百分比 负值
+Z轴的移动距离产生的效果要添加perspective属性实现透视效果。添加给父级perspective：数值800~1200px；人眼到屏幕的距离
+
+<style>
+    body {
+      perspective: 1000px;
+    }

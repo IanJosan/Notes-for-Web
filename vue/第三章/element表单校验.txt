@@ -1,0 +1,93 @@
+element的 表单校验依赖于项目
+
+安装element
+开发时依赖 开发环境的依赖在devDependencies
+运行时依赖 项目线上依然需要的依赖 dependencies
+
+npm i element-ui 默认装到运行依赖
+
+在main.js中对elementUI进行注册
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
+----------------------------------------
+使用el-form包裹el-form-item包裹el-input表单，双重包裹
+ <el-form style="margin-top: 50px">
+        <el-form-item>
+          <el-input placeholder="请输入手机号"></el-input>
+        </el-form-item>
+</el-form>
+----------------------------------------
+ data () {
+    // 定义表单数据对象
+    return {
+      loginForm: {
+        mobile: '',
+        password: ''
+      }，
+     rules：{校验规则}
+    }
+  }
+并给el-form绑定数据对象以及校验规则
+<el-form :model="loginForm" :rules="rules">
+---------------------------------------
+给el-form-item绑定校验谁写谁的字段
+<el-form-item prop="mobile">
+-----------------------------------
+给input绑定字段属性
+<el-input v-model="loginForm.mobile"></el-input>
+
+---------------------------------------
+校验规则的书写
+| 规则      | 说明                                                         |
+| --------- | ------------------------------------------------------------ |
+| required  | 如果为true，表示该字段为必填                                 |
+| message   | 当不满足设置的规则时的提示信息                               |
+| pattern   | 正则表达式，通过正则验证值                                   |
+| min       | 当值为字符串时，min表示字符串的最小长度，当值为数字时，min表示数字的最小值 |
+| max       | 当值为字符串时，max表示字符串的最大长度，当值为数字时，max表示数字的最大值 |
+| trigger   | 校验的触发方式，change（值改变） / blur （失去焦点）两种，   |
+| validator | 如果配置型的校验规则不满足你的需求，你可以通过自定义函数来完成校验 |
+
+
+{ key(字段名): value(校验规则) => [{}] }
+例子
+ loginRules: {
+        mobile: [{ required: true, message: '手机号不能为空', trigger: 'blur' },
+          { pattern: /^1[3-9]\d{9}$/, message: '请输入正确的手机号', trigger: 'blur' }],
+        password: [{ required: true, message: '密码不能为空', trigger: 'blur' }, {
+          min: 6, max: 16, message: '密码应为6-16位的长度', trigger: 'blur'
+        }]
+      }
+
+自定义校验
+**`validator`**是一个函数, 其中有三个参数 (**`rule`**(当前规则),`value`(当前值),**`callback`**(回调函数))
+
+var  func = function (rule, value, callback) {
+    // 根据value进行进行校验 
+    // 如果一切ok  
+    // 直接执行callback
+    callback() // 一切ok 请继续
+    // 如果不ok 
+    callback(new Error("错误信息"))
+}
+
+ 自定义校验函数
+    const checkMobile = function (rule, value, callback) {
+      value.charAt(2) === '9' ? callback() : callback(new Error('第三位手机号必须是9'))
+    }
+mobile: [
+          { required: true, message: '手机号不能为空', trigger: 'blur' },
+          { pattern: /^1[3-9]\d{9}$/, message: '请输入正确的手机号', trigger: 'blur' }, {
+            trigger: 'blur',
+            validator: checkMobile
+   }],
+
+--------------------------------------
+整体提交校验 调用validate（）函数
+通过ref得到dom对象调用函数
+this.$refs.dom对象.validate() 返回promise函数
+
+清空数据，移除校验结果
+调用resetFields()方法
+this.$refs.dom对象.resetFields()

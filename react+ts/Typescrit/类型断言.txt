@@ -1,0 +1,15 @@
+有时候你会比 TS 更加明确一个值的类型，此时，可以使用类型断言来指定更具体的类型。
+操作dom上使用
+
+const aLink = document.getElementById('link') as HTMLAnchorElement
+
+1. 使用 `as` 关键字实现类型断言
+  2. 关键字 as 后面的类型是一个更加具体的类型（HTMLAnchorElement 是 HTMLElement 的子类型）
+  3. 通过类型断言，aLink 的类型变得更加具体，这样就可以访问 a 标签特有的属性或方法了
+
+const box = document.getElementById('img') as HTMLImageElement
+
+console.log(box.src)
+-------------------
+查看类型
+技巧：在浏览器控制台，通过 `__proto__` 获取 DOM 元素的类型*

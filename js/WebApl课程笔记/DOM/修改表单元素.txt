@@ -1,0 +1,10 @@
+利用DOM可以操作如下表单属性
+type  value(修改input中value的内容)  checked  selected  disabled
+
+btn.disabled = true; 按钮点击后禁用
+this.disabled = true;
+
+获得焦点  onfocus
+失去焦点 onblur
+鼠标滑入 onmouseover
+鼠标画出 onmouseout

@@ -1,0 +1,10 @@
+classList H5新增 获得元素类名
+
+添加类名
+element.classList.add('类名不用加小点' )不会覆盖类名
+
+删除类名
+element.classList.remove('类名') 移除所选类名
+
+切换类
+element.classList.toggle（'类名'）有这个类名就删除，没有这个类名就添加上

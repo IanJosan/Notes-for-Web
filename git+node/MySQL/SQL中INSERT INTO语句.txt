@@ -1,0 +1,2 @@
+用于向数据中插入新放入数据行
+INSERT INTO table_name (列1，列2) values( 值1，值2) 列和值要一一对应

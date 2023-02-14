@@ -1,0 +1,8 @@
+wx.setNavigationBarTitle(Object object)
+
+需要在onReady调用
+onReady() {
+    wx.setNavigationBarTitle({
+      title: this.data.query.title,
+    })
+  },

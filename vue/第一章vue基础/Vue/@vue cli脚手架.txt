@@ -1,0 +1,55 @@
+@vue/cli是vue官方提供的一个全局模块包，用于创建脚手架项目
+不需要自己配置开发环境了给予他开发项目
+安装全局模块包
+npm install @vue/cli -g 或
+yarn global add @vue/cli
+查看版本 vue -V
+安装完成后得到vue命令
+
+--------------------------
+
+创建脚手架项目
+vue create  vuecli-demo(脚手架项目名） 不能以大写字母中文特殊符号
+上下箭头选择vue版本
+
+cd vuecli-demo进入项目
+yarn serve
+输入端口名看到vue主页即配置成功
+
+---------------
+@vue/cli目录文件夹含义
+vuecli-demo ----------自定义项目目录
+  node_modules-------所有的第三方包
+  public-----------------静态文件目录
+     favicon.ico---------浏览器小图标
+     index.html----------网页浏览的主页
+  src---------------------业务文件夹
+     assets---------------静态资源
+        logo.png----------vue的logo
+     components-------组件目录
+        helloworld.vue----欢迎页vue
+     app.vue-------------整个应用根组件
+     main.js-------------js文件入口
+   .gitignore-----------git提交忽略文件
+   babel.config.js-----babel配置文件
+   package.json-------依赖包列表
+   README.md--------项目说明
+   yarn.lock----------项目包版本确定缓存地址
+
+----------
+main.js 项目打包入口 vue初始化
+app.vue vue主页入口 在这里写vue代码
+index.html 浏览器运行的文件
+app.vue => main.js => index.html
+
+--------------------
+@vue/cli自定义配置
+在src并列文件夹创建vue.config.js
+配置
+module.exports = {
+  //配置打开端口
+  devServer:{
+    port:3000,
+    open:true //浏览器自动打开
+  }
+}

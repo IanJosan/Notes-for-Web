@@ -1,0 +1,37 @@
+webpack处理图片不需要下包
+在webpack5之前需要使用raw-loader 和file-loader
+只需要配置
+ module:{// 加载器
+        rules:[ // 规则
+      {// 匹配图片
+          test:/\.(gif|png|jpg|jpeg)$/i,
+          type:'asset'
+       }
+     ]
+ },
+//匹配上面的文件后webpack会把它，他们当作静态资源打包
+//如果是asset模式
+//以8kb大小区分文件
+//小于8kb的，图片文件转为base64打包进js中,好处是可以直接读取速度快
+//大于8kb的直接输出为文件到dist下，不适合转换应为会变大30%之后变得更大
+
+
+字体图标的打包同样不需要下载包
+直接配置
+module:{// 加载器
+        rules:[ // 规则
+      {// 匹配字体图标
+          test:/\.(eot|svg|ttf|woff|woff2)$/i,
+          type:'asset/resource',
+          generator:{
+                 filename:'font/[name].[hash:6][ext]'
+              }
+       }
+     ]
+ },
+**
+'asset/resource' 发送一个单独的文件并导出url
+ generator:{
+                 filename:'static（文件夹下的名字）/[hash][ext][query]'
+自定义文件名字 定义规则
+[ext]会替换成.eot/.woff

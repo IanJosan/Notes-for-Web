@@ -1,0 +1,9 @@
+光标类型
+cursor：属性值；
+属性值：default 默认值是箭头。pointer 小手效果 可以点击。 text 工字形可以选文字。 move 十字光标可以移动。
+ 
+圆角盒子
+border-radius:数字px或者百分比；
+从左上角顺时针赋值，没有赋值看对角。
+正圆的画法 需要一个正方形盒子 border-radius：50%；
+胶囊形 长方形盒子 border-radius：高的一半；

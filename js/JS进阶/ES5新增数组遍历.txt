@@ -1,0 +1,28 @@
+数组
+遍历数组
+array.forEach(function(currentValue,index,arr){})
+中的return 不会终止 继续遍历
+currentValue: 数组当前项
+index:数组当前索引
+arr:数组对象本身 
+同 map（） 但是map会返回新数组
+
+迭代遍历
+array.filter(function(currentValue,index,arr){})
+filter();;方法创建一个新数组，新数组中的元素是通过检查指定数组中符合条件的所有元素，主要用于筛选数组
+他直接返回一个新数组
+
+array.some(function(currentValue,index,arr){})
+查找数组中的元素是否满足指定条件，是否有满足条件的元素
+返回的是布尔值，如果查找到这个元素就返回true。如果找到第一个满足条件的元素则终止循环不在查找
+every（）必须所有小组内的元素都是这个指定值 返回布尔值
+
+array.reduce(function(累计值，当前元素[,索引号][,源数组]){}，起始值)
+返回函数累计处理的结果，经常用于求和
+索引号，源数组，起始值可以省略
+如果有起始值，则以起始值 为准开始累计 ，如果没有就以数组第一个元素开始累计
+后面每一次遍历都会将后面的累计值累积到之前的累计值里面
+返回的是累计处理完的结果
+array.reduce(function(prev,item){
+return prev + item;
+}，0)

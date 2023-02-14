@@ -1,0 +1,12 @@
+响应式布局
+max-width 最大宽度  数值要从小到大写
+min-width  最小宽度 数值要从大到小写
+
+书写顺序 min-width:100px max-width:100px max-width:80px 
+具有层叠性
+
+外链式CSS引入media
+media=“（视口）”  不加@ 但是要加括号
+
+响应式布局的局限
+只能在内容较少的网页布局，电商站建议开发两个网站

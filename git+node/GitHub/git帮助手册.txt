@@ -1,0 +1,2 @@
+git help config 打开帮助手册在浏览器
+git config -h 在终端里打开帮助

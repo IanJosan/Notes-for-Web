@@ -1,0 +1,29 @@
+1，默认无依赖状态，组件初始化执行一次等到每次修改数据再执行
+
+2，添加空数组依赖，组件初始化的时候执行一次
+
+3，依赖特定项
+组件初始化执行一次，依赖的特定项更新时在执行
+-----------------------
+useEffect 回调函数中用到的数据（比如，count）就是依赖数据，就应该出现在依赖项数组中，如果不添加依赖项就会有bug出现
+
+
+import { useState, useEffect } from 'react'
+function App() {
+  const [count, setCount] = useState(0)
+  const [name, changename] = useState('')
+
+  useEffect(() => {
+    // 定义副作用
+    document.title = count
+    console.log('执行依赖项')
+  }, [count])
+  return (
+    <div className="App">
+      <button onClick={() => setCount(count + 1)}>{count}</button>
+      <button onClick={(name) => changename((name = '123'))}>{name}</button>
+    </div>
+  )
+}
+
+export default App

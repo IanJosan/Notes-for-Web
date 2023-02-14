@@ -1,0 +1,49 @@
+actions异步动作
+1，定义actions对象
+const store = new Vuex.Store({
+  state:{
+    count:0
+  },
+  mutations:{//修改state的方法
+    addCount(state,payload){
+      state.count += payload
+    } 
+  },
+  actions:{//里面同样是一条一条异步方法，actions参数，第一个是执行的上下文对象context，相当于this.$store 。store的运行实例
+    getAsyncCount(context){
+      setTimeout(function() {
+        context.commit('addCount',123)
+      },1000)
+    }
+  }
+})
+2，调用actions
+原始形式
+text1(){
+   this.$store.dispatch('actions的名称')
+}
+
+传参调用
+text1(){
+   this.$store.dispatch('actions的名称'，需要传入的参数)
+}
+接收参数
+getAsyncCount(context，params){
+      setTimeout(function() {
+        context.commit('addCount',params)
+      },1000)
+    }
+  }
+辅助函数调用
+mapActions
+1,引入mapActions
+import  {mapActions} from ’vuex‘
+2，调用
+...mapActions(['actions方法名'])
+3，传递参数
+@click=’actions方法（传入参数）‘
+
+------------------------------------------------------------
+子模块actions调用有命名空间的子模块的mutations
+因为子模块与子模块之间没有父子关系无法通过路径调用。所以有第三个参数 {root:true}
+ context.commit('父模块名/另一子模块方法名',参数，{root:true})

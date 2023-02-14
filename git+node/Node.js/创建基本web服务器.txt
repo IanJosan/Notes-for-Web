@@ -1,0 +1,28 @@
+创建web服务器
+1，导入http模块
+const http = require('http')
+2，创建web服务器实例
+const server = http.creatServer()
+3，为服务器实例绑定request事件，监听客户端请求
+server.on('request',(req,res) => {
+  console.log('Some visit our web server.')
+})
+
+req请求对象
+req.url 是客户端请求的url地址 是端口号之后的地址
+req.method是客户端的method请求类型
+
+res响应对象
+res.end() 向客户端发送指定内容并结束这次请求的处理过程
+用end发送中文内容会发生乱码，此时需要手动设置编码格式
+res.setHeader('Content-Type', 'text/html; charset=utf-8')
+4，启动服务器
+调用服务器实例的.listen()方法
+server .listen(端口号80，(回调函数) => {
+  console.log('http server running at http://127.0.0.1:80')
+}
+
+
+vscode 终端
+新建终端
+

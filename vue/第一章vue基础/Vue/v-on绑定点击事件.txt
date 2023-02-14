@@ -1,0 +1,27 @@
+v-on:事件名 = ‘要执行的少量代码’
+v-on:事件名 = ‘methods中的函数名’
+v-on:事件名 = ‘methods中的函数名(实参)’
+methods函数写在并列data（）{}函数对象后面。函数的调用this指向export default的对象，必须用this
+    //data 函数会把对象挂到当前组件对象上
+<button v-on:click="count = count +1"></button>
+<button v-on:click=""addFn>
+<button v-on:click="addCountFn(5)">
+
+v-on:可以简写成 
+@事件名="methods中的函数"
+
+--------------------------------------
+v-on修饰符
+语法   @事件名：修饰符=“methods里的函数”
+修饰符列表
+.stop    阻止事件冒泡
+.prevent  阻止默认行为
+.once  程序运行期间只触发一次事件处理函数,但是事件还是会执行
+@click.stop = "btn"
+@click.prevent
+@click.prevent.stop
+
+给键盘事件添加修饰符
+绑定的keyup 或者 keydown事件
+语法   @keyup.enter  检测回车按键
+           @keyup.esc    检测返回按键

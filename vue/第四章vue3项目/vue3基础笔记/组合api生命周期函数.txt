@@ -1,0 +1,30 @@
+认识vue3.0生命周期钩子函数
+
+setup 创建实例前
+
+onBeforeMount 挂载DOM前
+onMounted 挂载DOM后
+
+onBeforeUpdate 更新组件前
+onUpdated 更新组件后
+
+onBeforeUnmount 卸载销毁前
+onUnmounted 卸载销毁后
+
+
+import { onBeforeMount, onMounted } from 'vue'
+ setup () {
+    onBeforeMount(()=>{
+      console.log('DOM渲染前',document.querySelector('.container'))
+    })
+    onMounted(()=>{
+      console.log('DOM渲染后1',document.querySelector('.container'))
+    })
+    onMounted(()=>{
+      console.log('DOM渲染后2',document.querySelector('.container'))
+    })
+  },
+}
+
+-----------------------------
+使用生命周期钩子函数需要先引入，同样的钩子函数可以多次使用按照书写顺序执行

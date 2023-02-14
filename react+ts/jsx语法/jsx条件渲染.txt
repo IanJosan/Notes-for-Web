@@ -1,0 +1,13 @@
+// import React from "react"; 新项目自动导入了
+import ReactDOM from 'react-dom'
+
+const loading = true
+function render() {
+  if (loading) {
+    return <div>数组在加载。。。</div>
+  } else {
+    return <div>数据加载完毕</div>
+  }
+}
+const element = <>{render()}</>
+ReactDOM.render(element, document.getElementById('root'))

@@ -1,0 +1,33 @@
+什么是表达式 能够给console.log打印出结果的都是表达式，不能打印出结果的为语句
+有返回值的叫表达式
+// import React from "react"; 新项目自动导入了
+import ReactDOM from 'react-dom'
+const username = 'zl'
+const address = 'prison'
+const car = {
+  brand: '小黄车',
+}
+const friends = ['1111', '222']
+const age = 18
+const fn = () => {
+  return (
+    <div>
+      <p>123123123</p>
+    </div>
+  )
+}
+const element = (
+  <>
+    <h1>jsx的表达式</h1>
+    <div>{username + 'ssss'}</div>
+    <div>{address}</div>
+    <div>{car.brand}</div>
+    <div>{friends[1]}</div>
+    <div title={car.brand}>{age > 18 ? '大于18' : '小于18'}</div>
+    {/* 注释的写法 */}
+    <div>{fn()}</div>
+  </>
+)
+ReactDOM.render(element, document.getElementById('root'))
+-----------------------
+与vue的插值表达式的区别  vue是{{}}  react是{}

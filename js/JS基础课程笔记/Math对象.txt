@@ -1,0 +1,5 @@
+Math.max 最大值
+Math.abs 绝对值 会隐式转换 NaN
+Math.floor向下取整
+Math.ceil 向上取整
+Math.round四舍五入，但是.5往大取1.5取2   -1.5取-1

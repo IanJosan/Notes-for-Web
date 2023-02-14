@@ -1,0 +1,4 @@
+节流 throttle
+就是连续触发事件但是在n秒中只执行一次函数
+function throttle(fn, time){
+}

@@ -1,0 +1,32 @@
+1，导入useEffect函数
+import { useState, useEffect } from 'react'
+2，在函数组件中执行 传入回调
+useEffect(() => {
+    // 定义副作用
+    document.title = count
+  })
+
+3，当通过修改状态更新组件时，副作用也会执行
+
+
+
+import { useState, useEffect } from 'react'
+function App() {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    // 定义副作用
+    document.title = count
+  })
+  return (
+    <div className="App">
+      <button onClick={() => setCount(count + 1)}>{count}</button>
+    </div>
+  )
+}
+
+export default App
+
+-------------------------------------
+useEffect参数是一个函数，组件渲染好就会执行一次
+useEffect（函数），发起ajax请求，手动修改dom，存储数据等操作使用
+使用场景，处理副作用

@@ -1,0 +1,2 @@
+删除对象属性，如果对象是响应式的，确保删除能触发更新视图
+Vue.delete(target,propertyName)

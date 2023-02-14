@@ -1,0 +1,7 @@
+改变flex的主轴方向
+使用flex-direction改变元素排列方向
+修改主轴方向属性  flex-direction:row;行，默认值
+column;列，垂直
+row-reverse；行，从右往左
+column-reverse；列，从下往上
+主轴改到垂直后侧轴自动改到水平 

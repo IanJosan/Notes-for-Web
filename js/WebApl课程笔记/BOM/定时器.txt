@@ -1,0 +1,22 @@
+两种定时器
+1,setTimeout()
+window.setTimeout(调用函数,[延迟毫秒数])
+window在调用时可以省略
+setTimeout(function（）{},[延迟毫秒数 默认0])
+只能调用一次
+还可以写函数名 来调用函数 提倡
+或者‘函数名（）’不提倡
+页面中可能有多个定时器 我们经常给定时器添加标识符
+
+停止setTimrout()定时器
+window.clearTimeout(timeoutID)
+
+2,setInterval() 定时器
+window.setInterval(回调函数，[间隔的毫秒数]);
+setInterval() 方法重复调用一个函数，每隔这个时间就调用一次回调函数。 
+可以调用很多次
+
+先调用一次计时函数以防刷新空白
+停止定时器
+window.clearInterval(函数名)
+注意全局变量和局部变量的关系 可以先声明一个空null全局变量

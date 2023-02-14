@@ -1,0 +1,4 @@
+原来使用this.$emit来通知父组件调用函数
+可以使用this.$parent来直接获取父组件的实例，包括data methods等。
+this.$parent.show = false 
+注意：子组件要在父组件的原生vue中，不能在组件中使用会调不到父组件

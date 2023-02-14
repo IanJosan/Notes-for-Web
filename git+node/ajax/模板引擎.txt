@@ -1,0 +1,40 @@
+可以根据提供的 模板结构和数据 自动生成一个完整的HTML页面
+减少字符串拼接 更利于维护
+
+art-template模板引擎
+1，导入art-template  会增加一个template(模板id ，渲染数据对象) 函数
+2，定义数据
+3，定义模板
+模板的HTML结构必须定义在script 中
+<script type='text/html' id='tpl'></script>中
+4，调用template函数
+template('tpl',data)
+{{ }}做占位符
+5，渲染HTML结构
+
+输出标准语法
+{{value}}
+{{obj.key}}
+{{obj['key']}}
+{{a?b:c}}
+{{a||b}}
+{{a+b}}
+
+原文输出 如果包含了html结构就要使用原文输出才能保证html正常渲染
+{{@ value}}
+
+条件输出
+{{if value}}成立输出的内容{{/if}}
+{{if vl}}成立输出的内容{{else if v2}} 成立输出的内容{{/if}}
+
+循环输出
+{{each arr循环那个数组}}
+{{ $index循环索引}} {{$value循环项}}
+{{/each}}
+
+过滤器
+{{value | filtarName}} 返回新的值
+定义过滤器函数
+固定写法：
+template.defaults.imports.filterName模板函数名 = function(value) return 一个结果
+调用：{{value | filtarName}}  竖线加名字

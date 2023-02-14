@@ -1,0 +1,14 @@
+通过调用 RegExp对象的构造函数创建
+var 变量名 = new RegExp (/123表达式/)
+通过字面量创建
+var 变量名 = /表达式/
+var re = /1123/
+
+检测是否复合正则表达式规范
+text() 返回true则符合
+regexobj.test(str)
+rg.test(123);测试true
+rg.tesr('abc');false
+regexobj是写的正则表达式
+str是要测试的文本
+检测str文本是否符合写的正则表达式规范

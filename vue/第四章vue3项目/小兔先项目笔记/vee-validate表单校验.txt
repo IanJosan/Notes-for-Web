@@ -1,0 +1,31 @@
+第一步：安装 npm i vee-validate@4.0.3
+第二步：导入 import { Form, Field } from 'vee-validate' 将Form替换form，Field替换input  ，Field需要加上name用来指定校验规则函数，加上v-model进行双向数据绑定
+第三步：定义校验规则Form提供好的validation-schema接收定义好的校验规则是对象，将定义好的规则交给Form使用
+<Form :validation-schema="schema" autocomplete="off" v-slot="{errors}">
+autocomplete="off" 关闭自动填充
+v-slot="{errors}" 错误信息
+
+
+验证规则
+ account (value) {
+    // value是将来使用该规则的表单元素的值
+    // 1. 必填
+    // 2. 6-20个字符，需要以字母开头
+    // 如何反馈校验成功还是失败，返回true才是成功，其他情况失败，返回失败原因。
+    if (!value) return '请输入用户名'
+    if (!/^[a-zA-Z]\w{5,19}$/.test(value)) return '字母开头且6-20个字符'
+    return true
+  },
+
+组件配合Field的使用
+<Field as='组件名字'>可以将组件当成Field
+
+清除校验结果resetForm()函数
+定义ref选取dom元素
+给dom元素调用resetForm()
+const formCom = ref(null)
+ formCom.value.resetForm()
+
+点击登录对整体校验
+validate函数作为整体校验 返回promise
+formCom.value.validate()

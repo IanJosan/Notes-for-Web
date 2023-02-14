@@ -1,0 +1,19 @@
+Object.keys(); 获取对象自身所有属性名
+Object.keys(obj)
+效果类似 for……in
+返回一个由属性名组成的数组
+Object.value();获得属性值 返回一个数组
+
+Object.defineProperty()定义新增属性或修改属性 
+Object.defineProperty(obj,prop,descriptor)
+obj 目标对象 必须
+prop 需要定义或修改的属性名字 必须
+descriptor 目标属性所拥有的特性 必须
+
+第三个参数descriptor 说明以对象的形式书写{}
+value: 设置属性的值 默认为 undefined
+writable: 值是否可以重写 默认false
+enumerable:目标属性是否可以被枚举 默认false
+configurablie :目标属性是否可以被删除或者再次修改特性 默认false
+
+Object.defineProperty(obj,‘num’,{value: 1000})

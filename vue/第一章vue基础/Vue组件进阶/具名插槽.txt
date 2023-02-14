@@ -1,0 +1,21 @@
+如果有多个不确定内容的位置，可以使用具名插槽
+
+slot使用name属性区分名字
+template配合v-slot：名字来区分对应标签 v-slot: 名字  可以简写成 #名字
+template是内置模板，不会解析只做区分占位
+
+ <Pannel>
+        <template v-slot:title>
+            我是标题
+        </template>
+        <template #content>
+            我是内容
+        </template>
+        <template slot='foot'>
+            我是底部
+        </template>
+ </Pannel>
+--
+<slot name="title"></slot>
+ <slot name="content"></slot>
+ <slot name="foot"></slot>

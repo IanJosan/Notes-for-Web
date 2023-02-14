@@ -1,0 +1,21 @@
+ 模板中的 $event 是事件参数，等于子组件传出来的参数
+当我们传递给子组件的数据既要使用还要修改。
+传递：props:is-followed="article.is_followed"
+修改：自定义事件@update-is_followed="article.is_followed = $event"
+
+简写方式：在组件上使用 v-model
+v-model相当于这两个步骤，自带value变量传递给子组件，响应子组件的input方法，子组件input方法传递的参数自动赋值给v-model参数值
+    value="article.is_followed"
+子组件定义prop 为 value接收父组件传下来的值
+    this.$emit('input',值)
+子组件传递给父组件input固定事件一个值
+    隐性赋值相当于： @input="article.is_followed = $event"
+父组件隐星自动将input方法传递的值附给一开始传递的值(article.is_followed)更新
+
+类似sync修饰符使用
+
+---------------------------------
+v-model语法糖
+v-model            :value        @input
+v-model.lazy     :value        @change
+v-model复选框  :checked   @change 

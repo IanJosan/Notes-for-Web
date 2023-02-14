@@ -1,0 +1,8 @@
+background-size: 高度 宽度；
+取值  数字加px
+百分比 相当于当前盒子自身的宽高百分比
+contain 包含，将图片等比例缩放，直到不会超出盒子的最大
+cover 覆盖 将图片背景图等比例缩放，刚好填满整个盒子没有空白
+连写
+background: color image repeat position/size;
+background-size和background连写同时设置时要注意覆盖。用/连接位置和缩放。单独样式写在连写下面或里面

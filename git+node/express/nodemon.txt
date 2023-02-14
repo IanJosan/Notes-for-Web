@@ -1,0 +1,9 @@
+在编写调试node.js项目时如果修改了项目代码需要频繁手动close掉然后再重新启动，很繁琐
+nodemon小程序能够自动监听项目文件变动自动重启项目
+
+安装全局nodemon
+npm install -g nodemon
+
+使用nodemon
+将node命令替换为nodemon命令来启动项目 这样就可以自动重启被修改项目
+node 文件路径 改为 nodemon 文件路径来启动项目

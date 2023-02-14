@@ -1,0 +1,8 @@
+不使用app.use()定义的中间件，那个局部需要使用，就在那个局部调用。多个局部中间件用逗号分割
+
+定义中间件
+const mw = (req,res,next) => {next()}
+
+创建路由
+app.get('/',mw,(req,res) => {})
+app.get('/user',(req,res) => {})

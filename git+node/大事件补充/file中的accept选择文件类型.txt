@@ -1,0 +1,2 @@
+<!-- 通过accept允许用户选择什么类型图片 -->
+        <input type="file" id="file" accept="image/png,image/jpeg">

@@ -1,0 +1,10 @@
+import React, { Suspense } from 'react'
+
+const Home = React.lazy(()=> import('@/pages/Home'))
+
+Suspense包裹加载的路由组件
+ <Suspense fallback={<div>loding</div>}>
+        <Routes>
+          <Route path="/home" element={<Home></Home>}></Route>
+        </Routes>
+</Suspense>

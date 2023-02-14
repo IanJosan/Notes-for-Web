@@ -1,0 +1,25 @@
+Set数据结构，类似数组但是成员的值都是唯一的，没有重复的值
+set是构造函数
+const s = new Set()
+Set函数可以接受一个数组为作为参数，用来初始化
+const set = new Set([1,2,3,4,4])
+
+size属性
+当前数据结构中包含多少值
+const s1 = new Set ()
+s1.size // 0
+
+利用Set数组去重
+const s3 = new Set([1,1,2,3,4,4])
+s3.size // 4
+将set数据结构转换为以逗号分隔的零散量
+const arry = [...s3] // 1 2 3 4
+
+Set实例方法
+add(value):添加某个值，返回Set结构本身
+delete(value):删除某个值，返回一个布尔值，表示删除是否成功
+has(value): 返回一个布尔值表示是否是 set的成员
+clear():清除所有成员，没有返回值
+
+Set遍历
+和数组一样可以使用forEach方法

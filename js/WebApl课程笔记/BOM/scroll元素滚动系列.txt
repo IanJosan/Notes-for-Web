@@ -1,0 +1,10 @@
+scroll 得到元素的大小 滚动距离
+element.scrollTop 返回被卷上去的上侧距离 不带单位
+element.scrollLeft 返回被卷上去的左侧距离 不带单位
+element.scrollWidth 返回自身实际宽度 不含边框 不带单位
+element.scrollHeight 返回实际高度 不含边框 包含padding 不带单位
+
+和client 的区别是 scroll 得到的是内容的大小 内容超出盒子了也会计算
+
+元素计算卷去的长度用scroll
+而整个页面则是 window.pageX/YOffset来计算

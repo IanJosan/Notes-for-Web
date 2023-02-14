@@ -1,0 +1,51 @@
+react路由有更新，学习视频落后
+react-router库
+安装 npm install react-router-dom
+导入组件 import { HashRouter, Route, Link，Routes } from 'react-router-dom'
+必须用 <HashRouter></ HashRouter>或者其他Router标签包裹整个使用react-router的项目
+
+Route配合path和element来渲染组件，且所有Route需要在Routes元素内
+<Routes>
+  <Route path="/home" element={<Home></Home>}></Route>
+</Routes>
+Link和to来跳转路径
+
+<Link to="/my">my</Link>
+
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import Home from './Pages/Home'
+import My from './Pages/My'
+import Friends from './Pages/Friends'
+import { HashRouter, Route, Link, Routes } from 'react-router-dom'
+class App extends Component {
+  render() {
+    return (
+      <HashRouter>
+        <div>
+          <h1>App路由</h1>
+          <ul>
+            <li>
+              <Link to="/home">首页</Link>
+            </li>
+            <li>
+              <Link to="/my">my</Link>
+            </li>
+            <li>
+              <Link to="/friends">friend</Link>
+            </li>
+          </ul>
+
+          <Routes>
+            <Route path="/home" element={<Home></Home>}></Route>
+            <Route path="/my" element={<My></My>}></Route>
+            <Route path="/friends" element={<Friends></Friends>}></Route>
+          </Routes>
+        </div>
+      </HashRouter>
+    )
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+

@@ -1,0 +1,5 @@
+定义在子组件上的事件在父组件中是不会有效触发的。
+除非 加上.native
+ <Hbutton @click.native="clickHandler">click</Hbutton>
+
+或者当成自定义事件通过$emit方法

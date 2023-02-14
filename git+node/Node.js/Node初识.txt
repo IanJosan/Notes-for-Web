@@ -1,0 +1,20 @@
+Node.js是一个基于chrome v8引擎的JavaScript运行环境
+浏览器是JavaScript的前端运行环境
+Node.js是JavaScript后端运行环境
+Node.js无法调用DOM BOM等浏览器内置API
+
+一. NodeJS的特点
+
+它是一个Javascript运行环境
+依赖于Chrome V8引擎进行代码解释
+事件驱动
+非阻塞I/O
+轻量、可伸缩，适于实时数据交互应用
+单进程，单线程
+跨平台
+
+终端是专门为开发人员设计的用于实现人机交互的一种方式
+
+打开终端 win + R 输入cmd
+
+在文件所处位置空白区 按住shift 加右键 打开power shell中断 输入 node空格 加文件名node 1.js

@@ -1,0 +1,3 @@
+ <!-- 隐藏域 -->
+ <input type="hidden" name="id" value="">
+一个隐藏起来的表单

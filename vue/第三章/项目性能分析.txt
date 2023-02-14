@@ -1,0 +1,1 @@
+npm run preview -- --report 得到网站可以看到包的大小等信息来确定优化方向

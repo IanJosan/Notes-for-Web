@@ -1,0 +1,8 @@
+    document.addEventListener('scroll', onScroll)
+
+
+ const onScroll = () => {
+      const rect = authorRef.current?.getBoundingClientRect()!
+}
+
+dom对象调用getBoundingClientRect()方法获得对象的滚动信息xyz

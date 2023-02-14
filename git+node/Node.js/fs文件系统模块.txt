@@ -1,0 +1,42 @@
+fs模块是Node.js官方提供的用来操作文件的模块
+fs.readFile() 用来读取指定文件中的内容
+fs.writeFile() 用来向指定文件中书写内容
+
+在js中使用fs模块需要先导入模块固定写法
+const fs（随意） = require('fs')
+
+
+fs.readFile() 用来读取指定文件中的内容
+fs.readFile(path[,options],callback)
+path 必选 字符串 表示文件路径
+options 可选 字符串 表示什么编码格式来读取参数
+callback 必选 文件读取完之后通过回调函数拿读取结果
+const fs = require('fs')
+fs.readFile('./files/11.txt','utf8',function(err,dataStr) {
+  console.log(err)
+  console.log(dataStr)
+})
+如果读取成功，则 err 的值为 null
+如果读取失败，则 err 的值为 错误对象，dataStr 的值为 undefined
+
+fs.writeFile() 用来向指定文件中书写内容
+fs.writeFile(file,data[,options],callback)
+file  必选 文件路径字符串
+data 必选 写入的内容
+options 默认utf8 可选
+callback 文件写入完成的回调函数
+const fs = require('fs')
+fs.writeFile('./files/11.txt','hello！',function(err) {
+  console.log(err)
+})
+如果文件写入成功则err值为null
+写入失败则返回错误对象
+
+
+
+同步与异步
+fs中 带Sync的就是同步方式 不带的就是异步
+在这先对同步和异步进行区别
+同步:前面的代码先执行 后面的代码需要等待前面的代码执行完毕才会执行
+异步:代码的执行不分先后 也就是说前面的代码执行 不会导致后面的代码阻塞 所以异步代码的执行结果的顺序是不一定的
+在fs中对于文件的操作有异步和同步两种方式，异步中又分为普通异步和Promise异步两种

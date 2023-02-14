@@ -1,0 +1,11 @@
+var searchParams = new URLSearchParams(地址)
+
+地址:q=URLUtils.seearchParams&topic=api
+
+searchParams .has('topic') 判断有无键true
+searchParams .get('topic') 返回值 api
+searchParams .getAll('topic') 多个返回数组
+searchParams .append('a','b') 添加键值对a=b
+searchParams .toString() 返回完整params
+searchParams .set('topic','c') 设置键为另一个值
+searchParams .delete('topic') 删除键

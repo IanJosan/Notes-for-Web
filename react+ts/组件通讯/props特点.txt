@@ -1,0 +1,14 @@
++ 可以给组件传递任意类型的数据
++ props是只读的，不允许修改props的数据
+
++ 注意：在类组件中使用的时候，**需要把props传递给super()**，否则构造函数无法获取到props
+
+class Hello extends React.Component {
+    constructor(props) {
+        // 推荐将props传递给父类构造函数
+        super(props)
+    }
+    render() {
+    	return <div>接收到的数据：{this.props.age}</div>
+    }
+}

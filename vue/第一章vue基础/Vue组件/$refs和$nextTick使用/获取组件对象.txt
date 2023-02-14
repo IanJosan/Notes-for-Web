@@ -1,0 +1,10 @@
+通过ref组件对象
+1，创建Demo组件，写一个方法
+2，App.vue使用Demo组件，给ref属性-名字随意
+<Demo ref='de'></Demo>
+3，恰当时机，通过ref属性获取组件对象，可以调用组件对象里方法
+mounted(){
+   this.$tefs.de.fn()
+}
+
+通过ref属性调用子vue里的一切

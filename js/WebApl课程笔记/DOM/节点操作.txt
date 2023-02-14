@@ -1,0 +1,46 @@
+利用父子兄弟节点关系获取元素
+
+一般节点至少拥有nodeType 节点类型  nodeName节点名称 nodeValue节点值
+
+元素节点 nodeType 为1
+属性节点 为2
+文本节点 为 3 文本节点包含 文字空格 换行等
+主要操作元素节点
+
+父节点 parentNode（‘父级’）
+xxx.parentNode() 得到的是最近父级，没有父级返回null
+
+子节点 childNode（‘子级’）
+xxx.childNode 所有子节点包含元素节点和文本节点 （繁琐）
+xxx.children ('子级') 获取子元素节点 （非正式的改进版 常用）
+
+xxx.firstChild 获取第一个子节点 不管是文本节点 还是元素节点
+xxx.lastChild
+
+xxx.firstElementChild  返回第一个子元素节点
+xxx.lastElementChild 返回最后一个子元素节点
+实际开发写法
+xxx.children[0] 来取第一个
+xxx.children[xxx.children.length - 1]最后一个
+
+兄弟节点 nexSibling
+xxx.nextSibling  包含元素节点和文本节点
+previousSibling 上一个兄弟节点
+
+xxx.nextElementSibling 下一个兄弟元素节点
+xxx.previousElementSibling 上一个元素节点
+
+
+1，创建节点
+document.creatElement('创建什么元素')
+2，添加节点 配合使用
+node（‘父级’）.appendChild(子级不用引号) 创建的新元素会追加到原有的后面
+node.insertBefore(child,指定元素前) 将一个节点添加到父节点的指定子节点前面 
+
+
+删除节点
+node（父节点）.removeChild(子节点)
+链接中写 javascript:void(0); 或者javascript：；来阻止链接跳转 取代# 
+
+复制节点
+node.clonNode() 克隆节点 需要配合添加节点 括号内默认false 空是浅拷贝 只复制标签不复制内容。需要全部复制 在括号内写true

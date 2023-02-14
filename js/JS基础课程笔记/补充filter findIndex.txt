@@ -1,0 +1,27 @@
+var arr = [1,2,3,45,65,87,456]
+        var str = arr.filter(function(v) {
+            return v > 45
+            
+        })
+        console.log(str)     -->输出[65,87,456]
+但最终return的数组中自动把0,’’,false,NaN,undefined,null这些元素给过滤掉了，而这六个值通过隐式转换都为false
+
+find
+该方法主要应用于查找第一个符合条件的数组元素，即返回通过测试（函数内判断）的数组的第一个元素的值。
+它的参数是一个回调函数,为数组中的每个元素都调用一次函数执行。在回调函数中可以写你要查找元素的条件，当条件成立为true时，返回该元素，之后的值不会再调用执行函数。如果没有符合条件的元素，返回值为undefined。
+ 它的回调函数有三个参数。value：当前的数组元素。index：当前索引值。arr：被查找的数组。
+var v=myArr.find((value,index,arr)=>{
+    return index===5;
+});
+
+findIndex
+array.findIndex(function(currentValue, index, arr), thisValue);
+var arr = ['a','b','c','d'];
+   var flag = arr.findIndex(item => {
+        return item === 'c';
+    })
+    console.log(flag) // 得到： 2
+
+当数组中的元素在测试条件时返回 true 时, findIndex() 返回符合条件的元素的索引位置，之后的值不会再调用执行函数
+如果没有符合条件的元素返回 -1
+findIndex() 不会改变原始数组。

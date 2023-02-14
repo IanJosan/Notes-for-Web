@@ -1,0 +1,4 @@
+keep-alive实现缓存组件
+<keep-alive>
+  <需要缓存的组件> 频繁切换不需要渲染
+</keep-alive>

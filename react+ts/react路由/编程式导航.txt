@@ -1,0 +1,9 @@
+js方式路由
+ handleClick = () => {
+    // 五编程式导航
+    // console.log(this.props)
+    // console.log('登录')
+    // this.props.history.push('/home')
+  }
+
+

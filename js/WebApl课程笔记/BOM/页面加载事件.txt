@@ -1,0 +1,14 @@
+window.onload = function() {}
+但是只能写一次如果有多个会以最后一个window.onload为准
+
+window.addEventListener("load",function() {})
+没有次数限制任何位置都可以
+pageshow也可
+
+是当页面加载事件全部完毕后触发函数里面的事件
+有了window.onload就可以把JS代码写在元素上方 
+
+窗口加载事件
+document.addEventListener("DOMContentLoaded",function() {}) 
+事件触发时 仅当DOM加载完毕 不包括样式表 图片 flash等
+如果页面图片很多此时这种方法比较合适 更快

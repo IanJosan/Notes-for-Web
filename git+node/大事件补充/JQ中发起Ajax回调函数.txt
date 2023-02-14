@@ -1,0 +1,4 @@
+响应成功有success回调函数
+失败有error函数
+无论成功还是失败都有complete回调函数
+complete回调函数中使用res.responseJSON拿到服务武器响应回来的数据

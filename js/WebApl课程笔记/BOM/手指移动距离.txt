@@ -1,0 +1,6 @@
+手指滑动的位置减去开始的位置
+targetTouches[手指0]里面的pageX和pageY
+
+e.targetTouches[].pageX - startX
+
+手指移动会触发屏幕滚动事件 要阻止默认屏幕滚动e.preventDefault();

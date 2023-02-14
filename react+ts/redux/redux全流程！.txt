@@ -1,0 +1,90 @@
+1，安装插件 4个
+npm i redux // 安装redux
+react-redux // 关联react和redux
+redux-thunk // 处理异步action中间件
+redux-devtools-extension // 调试工具
+
+2，目录结构，store文件夹下
+index.js
+---
+// 创建store
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import reducer from './reducers'
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
+
+export default store
+---
+
+actions文件夹
+--
+import axios from 'axios'
+// 获取任务列表 异步
+export const getList = () => {
+  return async (dispatch) => {
+    const res = await axios.get('http://localhost:3000/todos')
+    dispatch({
+      type: 'GET_LIST',
+      payload: res.data,
+    })
+  }
+}
+--
+
+reducers文件夹
+--
+总reducer文件包含其他reducer
+import { combineReducers } from 'redux'
+import login from './login'
+
+const reducer = combineReducers({
+  login的处理文件,
+})
+export default reducer
+
+处理login的reducer分文件
+const initvalue = {
+  token: '',
+  refresh_token: '',
+}  定义初始state
+export default function reducer(state = initvalue, action) {
+  const { type, payload } = action 解构action的值
+  if (type === 'login/token') { 判断type值以返回不同的新数据
+    return payload
+  }
+  return state 没有任何匹配则返回原数据
+}
+
+--
+
+3，将store数据提供给项目使用
+找到根index.js
+import { Provider } from 'react-redux'
+import store from './store'
+
+将根组件用Provider包裹store={数据库}
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
+
+4，使用actions中的方法
+在需要使用redux中action方法的组件中引入
+import { useDispatch } from 'react-redux'  引入actions库
+import { sendCode } from '../../store/actions/login' 引入actions方法
+
+const dispatch = useDispatch()
+函数触发调用方法
+const onExtraClick = () => {
+    dispatch(sendCode(mobile)) 调用方法传值
+  }
+
+5，使用redux中state的数据
+import {  useSelector } from 'react-redux'
+拿到数据库中profile数据下的user数据
+  const user = useSelector((state) => state.profile.user)
+

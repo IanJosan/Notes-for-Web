@@ -1,0 +1,132 @@
+js中处理响应式数据的两种方案
+vue2  对象属性拦截 Object.defineProperty
+vue3 对象整体代理
+Proxy
+-----------------------------
+Object.defineProperty 参数：对象 属性名 {set,get方法}
+let data1 = {}
+        Object.defineProperty(data1,'name',{
+            // 访问data1中的name属性就会自动调用get方法
+            // get函数的返回值就是拿到的值
+            get() {
+                console.log('访问到name属性');
+                return '3'
+            },
+            // 设置修改name属性时自动调用函数
+            // 属性最新的值会被当做实参传入进来
+            set(newValue) {
+                console.log('修改name属性值',newValue);
+                // 只要修改了name属性就会自动执行
+                // 可以在这里执行ajax() , 操作dom
+            }
+        })
+        // 以上是js中对象定义的另外一种方案，可以在访问属性和设置属性的时候自动调用对应函数
+        // 访问属性: data.name   data['name']
+        // 设置属性：data.name = 'pink' data['name'] = 'pink'
+-----------------------------------
+出现set函数和get函数的联动问题
+给set赋值新值后再次调用还是返回的旧值
+问题产生原因get返回的值设置死了，新值set没有做任何赋值操作。
+解决方法设置中间变量 来取值赋值
+  let data1 = {}
+         let _name = '原来'
+        Object.defineProperty(data1,'name',{
+            get() {
+                console.log('访问到name属性');
+                return _name
+            },
+            set(newValue) {
+                console.log('修改name属性值',newValue);
+                _name = newValue
+            }
+        })
+        // 问题产生原因：get中直接返回一个固定值，并且set函数中新值拿到了但是没有做任何处理
+        // 解决方案：声明一个中间变量，让get函数中的return出去这个变量
+        // 并且在set函数中吧最新的值设置道这个中间变量上，起到set和get操作数据效果
+-------------------------------------------------
+实际常用拦截方式
+ // 开发vue项目的时候，都是提前把响应式数据都放到了data配置中
+    /*
+      data(){
+        return {
+          name:'cp',
+          height: 180
+        }
+      }
+    */
+    // 所以一般情况下，响应式数据提前写好，并且对象的属性很多，不止一个
+    let data = {
+      name: 'cp',
+      height: 180,
+      age: 29
+    }
+    // 如何把这个提前申明好的对象,把里面的所有的属性都变成我们刚才讲过的 set和get的形式？
+    // 可以做到不管是访问data中的任何一个属性还是设置data中的任何一个属性我们都能知道
+    // 1. 由于有多个属性 对象的遍历
+    Object.keys(data).forEach((key) => {
+      console.log(key, data[key])
+      // key代表data对象的每一个属性名
+      // data[key]代表data对象每一个属性对应的value值
+      // data 源对象
+      // 处理每一个对象key转变成响应式
+      defineReactive(data, key, data[key])
+    })
+    // 2. 把对象的属性转成get和set的形式
+    /**
+     * @description: 把对象的属性转成get和set的形式
+     * @param {*} data  要处理的对象
+     * @param {*} key  要处理的对象属性名
+     * @param {*} value  要处理的对象属性名对应的初始值
+     * @return {*}
+     */
+
+    // 1. 函数定义形参相当于在内部 申明了和形参名字对应的变量 并且初始值为undefined
+    // 2. 函数调用传入实参的时候 相当于给内部申明好的变量做了赋值操作 （首次遍历举例）
+    // 3. defineReactive函数调用完毕 本来应该内部所有的变量都会被回收 但是如果内部有其它函数使用了当前变量则形成了闭包 不会被回收
+    // 4. 内部由于有其它方法引用了value属性  所以defineReactive函数的执行并不会导致value变量的销毁 会一直常驻内存
+    // 5. 由于闭包的特性 每一个传入下来的value都会常驻内存  相当于我们上一节讲的中间变量_name 目的是为了set和get的联动
+    // 
+    function defineReactive(data, key, value) {
+      // let data = data
+      // let key = 'name'
+      // let value = 'cp'
+      // 进行转换操作
+      Object.defineProperty(data, key, {
+        get() {
+          console.log('您访问了属性', key)
+          return value
+        },
+        set(newValue) {
+          console.log('您修改了属性', key)
+          value = newValue
+        }
+      })
+    }
+    // 总结：
+    // 1. 尽量不要在一个函数中书写大量的逻辑，而是应该按照功能拆分成多个小函数
+    //    然后再通过传参组合起来
+
+    // 2. 对象遍历的时候 每遍历一次 调用一次defineReactive函数  形成了多个独立的
+    //    函数作用域  在每一个独立的函数作用域中 set和get联动操作的都是独立的value值(闭包)
+    //    一块操作 name  一块操作height  一块操作age
+
+-----------------------------------------------------------
+响应式数据总结
+所谓的响应式其实就是拦截对象属性的访问和设置，插入一些我们自己想要做的事情
+在Javascript中能实现响应式拦截的方法有俩种，Object.defineProperty方法和Proxy对象代理
+回归到vue2.x中的data配置项，只要放到了data里的数据，不管层级多深不管你最终会不会用到这个数据都会进行递归响应式处理，所以要求我们如非必要，尽量不要添加太多的冗余数据在data中
+需要了解vue3.x中，解决了2中对于数据响应式处理的无端性能消耗，使用的手段是Proxy劫持对象整体 + 惰性处理（用到了才进行响应式转换）
+let data={
+   msg:'hello',
+   count:0 
+}
+let vm = new Proxy(data,{
+   get(target,key){
+     return target[key]
+  }
+  set(target,key,newValue){
+     if(target[key] === newVaule)return
+      target[key] = newValue
+     document.querySelect('#app').textContent=target[key]
+  }
+})

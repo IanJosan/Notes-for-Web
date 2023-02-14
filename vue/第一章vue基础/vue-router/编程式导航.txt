@@ -1,0 +1,37 @@
+使用js代码 编程式导航来进行跳转路由
+语法 this.$router.push({
+   path:"路由路径"
+或者
+   name:"路由名"
+
+})
+
+使用场景 方便修改使用name
+
+-------------------------------------
+编程式导航传参
+语法：
+this.$router.push({
+   path:"路由路径"
+或者
+   name:"路由名"
+   query:{ 
+      参数名：值
+   }
+  或者
+   params:{
+     参数名：值
+   }
+})
+接收参数
+$route.query.name  --接收query方法
+$route.params.username
+注意使用path方法会忽略params传递的值，params不会显示在地址栏刷新丢失
+推荐name+query
+
+如果当前url的hash值和？后参数与要跳转到的hash值和？的值一致，就会爆出冗余导航不会跳转路由
+
+-------
+编程式导航(js方式)和连接式(声明式)导航的区别
+声明式导航自带选择高亮和激活时的类名
+编程式导航使用this.$router.push方式添加路由

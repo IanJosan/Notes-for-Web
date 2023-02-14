@@ -1,0 +1,29 @@
+跨域认证机制JWT JSON Web Token
+用户信息通过Token字符串的形式保存在客户浏览器中，服务器通过还原Token字符串的形式来认证用户身份 用户的信息是保存在字符串上的
+
+JWT组成部分
+header头部 payload有效荷载 signature签名用点分割
+payload才是真正的用户信息是加密后的字符串
+header和signature是加密安全部分保证Token安全性
+
+JWT使用方式 
+客户端收到服务器返回的JWT之后会存储在local storage或session storage中，此后与服务器通信就需要带上这个JWT字符串，从而进行身份认证，推荐将JWT放在http请求头的authorization字段中
+Authorization：Bearer <Token>
+
+安装JWT相关包
+npm install jsonwebtoken express-jwt 
+jsonwebtoken生成JWT字符串
+express-jwt 将JWT解析还原成JSON对象
+导入这两个包
+const jsonwebtoken = require('jsonwebtoken')
+const express-jwt  = require('express-jwt ')
+
+定义secret密钥
+防止JWT字符串破解需要专门定义一个用于加密和解密的secret密钥
+当生成JWT字符串的时候需要使用secret密钥加密得到JWT
+当把JWT字符串解析还原成JSON时，需要使用同一个密钥解密
+const secretKey = '任意字符串'
+
+在登录成功后生成JWT字符串Token
+jwt.sing(用户信息对象，加密密钥，配置对象可配置token有效期{expiresIn:'30s'})
+

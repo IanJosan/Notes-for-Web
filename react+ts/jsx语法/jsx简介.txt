@@ -1,0 +1,1 @@
+jsx是javasxml的简写 表示在JavaScript代码中写xml格式的代码，声明式语法更加直观。是js语法的拓展，脚手架内置包解析语法

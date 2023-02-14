@@ -1,0 +1,15 @@
+axios是专注于网络数据请求的库
+相比于原生XMLHttpRequest对象 axios更简单 需要导入
+
+axios发起get
+axios.get('url',{params:{/*参数*/} } ).then(callback)
+axios发起post
+axios.post('url',{/*参数*/} ).then(callback)
+
+直接使用axios发起请求
+axios({
+   method:'post/get类型',
+   url: '',
+   data: {post数据},
+   params:{get数据}
+}).then(callback)

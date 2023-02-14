@@ -1,0 +1,13 @@
+开发上线之后需要服务器端的支持，否则找的是文件夹
+只需要在mode后面将默认的hash切换
+const router = new VueRouter({
+  mode:'history' 
+})
+就能切换到history 路由模式，还需要服务器提供支持
+
+
+hash模式：在浏览器中符号“#”，#以及#后面的字符称之为hash，用 window.location.hash 读取。
+通过锚点值作为路由地址，地址发生变化触发onhashchange事件
+特点：hash虽然在URL中，但不被包括在HTTP请求中；用来指导浏览器动作，对服务端安全无用，hash不会重加载页面。
+
+history模式：history采用HTML5的新特性；且提供了两个新方法： history.pushState()， history.replaceState()可以对浏览器历史记录栈进行修改，以及popState事件的监听到状态变更

@@ -1,0 +1,8 @@
+数据类型
+简单数据类型  值类型
+在存储中存储的是值本身 string number Boolean undefined null
+放在栈中
+
+复杂类型 引用类型
+再存储时仅仅是地址 new关键字创建的对象 object array date
+在栈中存放地址用16进制表示 指向堆 数据在堆

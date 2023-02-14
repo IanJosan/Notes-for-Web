@@ -1,0 +1,25 @@
+问题 ：每次修改代码需要重新yarn build打包才能看到效果 费时间
+原因 ：从0开始构建依赖，磁盘读取对应文件存到内存，webpack开始加载，再用对应的loader进行处理，将处理完的内容输出到磁盘的指定目录
+
+解决：起一个开发服务器，缓存一些已经打包过的内容，只重新打包修改过的文件，最终运行在内存中给浏览器使用
+
+打包到内存中速度快，自动更新代码返回到服务器
+——————
+1，下载模块包
+yarn add webpack-dev-server -D
+2，自定义webpack开发服务器启动命令server 在package.json文件里修改
+"scripts":{
+  "build":"webpack",
+  "serve":"webpack serve"
+},
+3,启动开发服务器 
+yarn serve
+
+也可以指定打开端口
+ 在配置文件webpack.config.js中第一层添加
+module.exports = {
+devServer:{
+  port:打开的端口号3000，
+ }
+}
+然后重启 yarn serve

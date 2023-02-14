@@ -1,0 +1,15 @@
+ES6 新增声明变量的关键字 let
+let声明的变量只在所处块级有效 具有块级作用域 能够防止变量的覆盖
+let只能在大括号中能访问
+在一个大括号中使用let声明的变量才具有块级作用域，var不具备
+let还可以防止循环变量变成全局变量
+
+使用let声明的变量不存在变量提升
+console.log(a)
+let a =100;  返回打印 a is not defined 报错
+具有暂时性死区
+var tmp = 123
+if(true){
+ console.log(num); 会打印is not defined 报错
+ let num = 20;
+}

@@ -1,0 +1,9 @@
+vite基本使用
+
+它是一个更加轻量（热更新速度快，打包构建速度快）的vue项目脚手架工具。
+相对于vue-cli它默认安装的插件非常少，随着开发过程依赖增多，需要自己额外配置。
+所以： 在单纯学习vue3语法会使用它，后面做项目的时候我们还是使用vue-cli
+
+创建项目 npm init vite-app 项目名称 或者 yarn create vite-app 项目名称
+安装依赖 npm i 或者 yarn
+启动项目 npm run dev 或者 yarn dev

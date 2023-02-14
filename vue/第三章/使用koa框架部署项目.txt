@@ -1,0 +1,72 @@
+部署 自动化部署 /手动部署
+
+第一步，建立web服务文件夹  **`hrServer`**
+
+```bash 
+$ mkdir hrServer #建立hrServer文件夹 
+```
+
+第二步，在该文件夹下，初始化npm
+
+```bash
+$ npm init -y
+```
+
+第三步，安装服务端框架koa(也可以采用express或者egg)
+
+```bash
+$ npm i koa koa-static
+```
+
+第四步，拷贝上小节打包的dist目录到**`hrServer/public`**下
+
+第五步，在根目录下创建app.js，代码如下
+
+```js
+const Koa  = require('koa')
+const serve = require('koa-static');
+
+const app = new Koa();
+app.use(serve(__dirname + "/public")); //将public下的代码静态化
+app.listen(3333, () => {
+     console.log('人资项目启动')
+})
+```
+
+> 此时，我们可以访问，http://localhost:3333
+
+页面出来了
+
+![image-20200805012430884](assets/image-20200805012430884.png)
+
+### 解决history页面访问问题
+
+但是，此时存在两个问题，
+
+1. **当我们刷新页面，发现404**
+
+>   这是因为我们采用了history的模式，地址的变化会引起服务器的刷新，我们只需要在app.js对所有的地址进行一下处理即可
+
+安装 koa中间件 
+
+```bash 
+$ npm i koa2-connect-history-api-fallback #专门处理history模式的中间件
+```
+
+**注册中间件**
+
+```js
+const Koa  = require('koa')
+const serve = require('koa-static');
+const  { historyApiFallback } = require('koa2-connect-history-api-fallback');
+const path = require('path')
+const app = new Koa();
+// 这句话 的意思是除接口之外所有的请求都发送给了 index.html
+app.use(historyApiFallback({ 
+     whiteList: ['/prod-api']
+ }));  // 这里的whiteList是 白名单的意思
+app.use(serve(__dirname + "/public")); //将public下的代码静态化
+
+app.listen(3333, () => {
+     console.log('人资项目启动')
+})

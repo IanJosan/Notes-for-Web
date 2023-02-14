@@ -1,0 +1,13 @@
+获取params传参
+ navigate(`/Homeey/${Date.now()}`, { replace: true })
+路由需要配置占位符
+<Link to="/Homeey/:id">homeey</Link>
+<Route path="/Homeey/:id" element={<Homeey />}></Route>
+
+
+import { useParams } from 'react-router-dom'
+
+
+const params = useParams()
+
+<div>Homeey page id---{params.id}</div>

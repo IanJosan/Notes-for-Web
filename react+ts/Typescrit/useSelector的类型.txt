@@ -1,0 +1,8 @@
+获取
+export type RootState = ReturnType<typeof store.getState>
+
+import { RootState } from '@/store'
+const user = useSelector(state:RootState => state.profile)
+
+或
+const user = useSelector<RootState,RootState['profile']>(state => state.profile)

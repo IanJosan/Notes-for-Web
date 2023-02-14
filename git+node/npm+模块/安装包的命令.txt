@@ -1,0 +1,24 @@
+在中端中输入 npm install 包的名称
+简写 npm i 包的名称
+npm i moment
+安装完成后导入，require(安装包的名称)字符串
+
+
+初次安装包后多的文件
+node_modules 存放所有已安装到项目中的包，require导入第三方包时，就是从这个目录中查找并加载包
+package-lock.json 用来记录node_modules目录下的每一个包的下载信息
+
+安装指定版本的包
+使用npm install 命令后自动安装最新版本的包，加@指定版本
+npm i moment@2.22.2
+
+版本号的语义化点分十进制 三位数字
+第一位大版本
+第二位功能版本
+第三位bug修复版本
+提升规则，前面的提升后面的归零
+
+---------------------------
+npm install name -save-dev 简写（npm install name -D） 自动把模块和版本号添加到devdependencies。是在开发环境中要用到的。项目上线不跟随
+
+npm install name -save 简写（npm install name -S） 自动把模块和版本号添加到dependencies。是在生产环境中要用到的。一直保留到上线

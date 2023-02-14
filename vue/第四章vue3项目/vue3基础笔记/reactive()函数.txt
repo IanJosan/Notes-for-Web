@@ -1,0 +1,20 @@
+reactive是一个函数，它可以定义一个复杂数据类型，成为响应式数据。
+使用前需要引入
+import { reactive } from 'vue'
+ // 普通数据
+    // const obj = {
+    //   name: 'ls',
+    //   age: 18
+    // }
+    const obj = reactive({
+      name: 'ls',
+      age: 18
+    })
+将普通数据用reactive包裹之后就变成响应式 可以通过方法来改变
+ const updateName = () => {
+      console.log('updateName')
+      obj.name = 'zs'
+    }
+一般包裹对象  数组
+
+从响应式数据对象中解构出的属性数据，不再是响应式数据

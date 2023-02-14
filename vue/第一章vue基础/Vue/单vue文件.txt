@@ -1,0 +1,7 @@
+vue推荐采用.vue单文件开发项目
+template里只能有一个根标签!
+js独立作用域互不影响
+style配合scoped属性，保证样式只针对当前template内标签生效
+vue文件配合webpack把他导报起来插入index.html
+
+独立作用域不用担心类名重复

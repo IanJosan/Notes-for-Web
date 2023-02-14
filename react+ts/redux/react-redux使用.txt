@@ -1,0 +1,25 @@
+react项目使用redux 
+yarn add react-redux 来关联react和redux
+
+导入组件Provide
+import {Provider} from 'react-redux'
+
+使用Provider组件包裹App组件
+ReactDom.render(
+  <Provider store={store}>
+     <App/>
+  </Provider>
+)
+
+在任意子组件中都可以获取到store
+import {useStore} from 'react-redux'
+const store = useStore() //得到store对象
+ store.dispatch()
+ store.getState()得到方法
+-------------------
+import {useSelector} from 'react-redux' // 得到数据渲染
+const count = useSelector((state) => state.xxx)
+----------------------
+import { useDispatch} from 'react-redux' // 调用action方法
+const dispatch = useDispatch()
+dispatch(方法名字())

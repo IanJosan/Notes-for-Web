@@ -1,0 +1,25 @@
+value属性和vue数据变量双向绑定到一起
+v-model ="vue数据变量"
+双向数据绑定  value属性--vue变量
+变量变化 》 视图自动同步
+视图变化 》 变量自动同步
+
+v-model关联下拉菜单写在select上而不是内容的option上，option上加value属性
+
+如果v-model关联的是复选框
+写在每一个checkbox上，不能再套一个div盒子上
+则如果变量是非数组则关联的是复选框的checked属性
+如果是数组则关联的是复选框的value值
+
+v-model遇到单选和文本域则直接写在input上并且可以是非数组属性
+
+-------------------------------------
+
+vue变量初始值会改变表单默认状态
+从表单上同步到变量的数字是字符串类型
+
+v-model修饰符
+.number  以parseFloat转成数字类型，输入的数字转换为数字型输入文字就不变
+.trim   去除首尾空白字符
+.lazy   在change时触发而非input时,失去焦点内容改变才同步
+v-model.number='age'

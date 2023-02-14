@@ -1,0 +1,4 @@
+arr.toString()
+
+join(分隔符) 分隔符默认逗号
+arr.join('-');

@@ -1,0 +1,9 @@
+点击dom元素外部出发事件
+引入
+import { onClickOutside } from '@vueuse/core'
+
+ onClickOutside(target, () => {
+      closeDialog()
+    })
+参数一 所选择dom 通过target获取
+参数二 点击外部时触发的函数

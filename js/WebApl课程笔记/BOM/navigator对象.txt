@@ -1,0 +1,1 @@
+navigator.userAgent包含浏览器的相关信息

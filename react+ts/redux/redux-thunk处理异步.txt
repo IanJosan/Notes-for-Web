@@ -1,0 +1,21 @@
+redux-thunk中间件处理异步
+1下载，yarn add redux-thunk
+
+2导入，import thunk from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux'
+
+3运用，const store = createStore(reducer, applyMiddleware(thunk))
+第一个参数指定reducer，第二个参数指定中间件
+
+4，创建异步action
+export const buyAsync = (money) => {
+  return (dispatch) => {
+    // 异步
+    setTimeout(() => {
+      dispatch(minus(money))
+    }, 3000)
+  }
+}
+
+5，触发异步action
+      <button onClick={() => dispatch(buyAsync(500))}>异步</button>

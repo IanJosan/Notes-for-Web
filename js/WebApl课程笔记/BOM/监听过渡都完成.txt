@@ -1,0 +1,2 @@
+transitionend 事件判断过渡完成
+addElenmentListener('transitionend')

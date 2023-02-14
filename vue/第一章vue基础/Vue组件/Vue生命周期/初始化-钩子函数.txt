@@ -1,0 +1,19 @@
+初始化
+1，new Vue()     Vue实例化 组件也是一个Vue实例
+2，Init Event & Lifecycle - 初始化事件和生命周期函数
+3，beforeCreate - 生命周期钩子函数被执行
+4，Init injection&reactivity -Vue内部添加data和methods等
+5，created - 生命周期钩子函数被执行，实例创建
+6，接下来是编译模板阶段 开始分析模板
+7，Has el option？ 是否有el选项  检查要挂在哪里，没有就调用$mount()方法，有，继续检查template选项
+
+---------------------------------------
+el的作用
+new Vue({
+  el:"#app",//vue实例编译后的模板挂载到index.html的id叫app的标签上
+  render: h => h(App),
+})
+手动调用的方式
+new Vue({
+  render: h => h(App),
+}).$mount("#app")

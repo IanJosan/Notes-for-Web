@@ -1,0 +1,30 @@
+利用sync修饰符关闭新增弹层
+
+> 这里我们学习一个新的技巧，**`sync修饰符`**
+
+ 按照常规，想要让父组件更新**`showDialog`**的话，需要这样做 
+
+```js
+// 子组件
+this.$emit('changedialog', false) //触发事件
+// 父组件
+<child @changedialog="method" :showDialog="showDialog" />
+ method(value) {
+    this.showDialog = value
+}
+```
+
+> 但是，vuejs为我们提供了**`sync修饰符`**，它提供了一种简写模式 也就是
+
+```js
+// 子组件 update:固定写法 (update:props名称, 值)
+this.$emit('update:showDialog', false) //触发事件
+// 父组件 sync修饰符
+<child  :showDialog.sync="showDialog" />
+
+showDialog被自动赋值传过来的false
+```
+
+只要用sync修饰，就可以省略父组件的监听和方法，直接将值赋值给showDialog
+
+类似v-model使用

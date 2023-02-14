@@ -1,0 +1,10 @@
+使用useMouseInElement方法
+
+引入import { useMouseInElement } from '@vueuse/core'
+
+利用target为null方法获取目标dom
+ const { elementX, elementY, isOutside } = useMouseInElement(target)
+
+得到三个响应式数据 左上角为原点 elementX 在dom中x坐标 
+elementY y坐标
+isOutside  是否离开dom

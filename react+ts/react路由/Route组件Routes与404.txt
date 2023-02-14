@@ -1,0 +1,11 @@
+Route组件必须全部包裹在Routes组件中
+Route组件path如果是'/' 则会匹配到任意组件（模糊匹配） 添加exact精确匹配渲染组件
+V6版本内部算法改变，它默认就是匹配完整路径，先后顺序不再重要，它能够自动找出最优匹配路径
+
+组件写在element中
+<Route path="/my" element={<My></My>}></Route>
+
+v6switch组件已被Routes代替
+  <Routes>
+ <Route path="*" element={<NotFound></NotFound>}></Route>
+  </Routes>

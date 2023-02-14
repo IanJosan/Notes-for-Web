@@ -1,0 +1,10 @@
+它的值不能变化只能是字面量，一般配合联合类型使用
+
+ const str1: 'hi' = 'hi'
+  let num: 1 = 1
+
+type Direction = 'up' | 'down' | 'left' | 'right'
+
+function changeDirection(direction: Direction) {
+  console.log(direction)
+}

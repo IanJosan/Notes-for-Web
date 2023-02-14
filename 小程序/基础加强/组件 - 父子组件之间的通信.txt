@@ -1,0 +1,58 @@
+1. 父子组件之间通信的 3 种方式
+① 属性绑定
+⚫ 用于父组件向子组件的指定属性设置数据，仅能设置 JSON 兼容的数据
+② 事件绑定
+⚫ 用于子组件向父组件传递数据，可以传递任意数据
+③ 获取组件实例
+⚫ 父组件还可以通过 this.selectComponent() 获取子组件实例对象
+⚫ 这样就可以直接访问子组件的任意数据和方法
+
+2. 属性绑定
+属性绑定用于实现父向子传值，而且只能传递普通类型的数据，无法将方法传递给子组件。父组件的示例代码
+如下：
+<view>父组件:{{count}}</view>
+<my-test5 count="{{count}}"></my-test5>
+
+properties: {
+    count:Number
+  },
+<view>子组件:{{count}}</view>
+
+子组件在 properties 节点中声明对应的属性并使用。示例代码如下：
+
+3. 事件绑定
+事件绑定用于实现子向父传值，可以传递任何类型的数据。使用步骤如下：
+① 在父组件的 js 中，定义一个函数，这个函数即将通过自定义事件的形式，传递给子组件
+② 在父组件的 wxml 中，通过自定义事件的形式，将步骤 1 中定义的函数引用，传递给子组件
+③ 在子组件的 js 中，通过调用 this.triggerEvent('自定义事件名称', { /* 参数对象 */ }) ，将数据发送到父组件
+④ 在父组件的 js 中，通过 e.detail 获取到子组件传递过来的数据
+syncCount(e) {
+    console.log('syncCount');
+    console.log(e);
+    this.setData({
+      count:e.detail.value
+    })
+  },
+<my-test5 bind:sync="syncCount" count="{{count}}"></my-test5>
+methods: {
+    addCount() {
+      this.setData({
+        count:this.properties.count + 1
+      })
+      this.triggerEvent('sync',{value:this.properties.count})
+    }
+  }
+
+4. 获取组件实例
+可在父组件里调用 this.selectComponent("id或class选择器") ，获取子组件的实例对象，从而直接访问子组
+件的任意数据和方法。调用时需要传入一个选择器，例如 this.selectComponent(".my-component")。
+<my-test5 class="customA" id="cA" bind:sync="syncCount" count="{{count}}"></my-test5>
+<button bindtap="getChild">获取子组件实例</button>
+getChild() {
+    const child = this.selectComponent('.customA')
+    console.log(child);
+    child.setData({
+      count:child.properties.count + 1
+    })
+    child.addCount()
+  },

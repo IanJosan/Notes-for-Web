@@ -1,0 +1,51 @@
+在 v6 中，所有路由路径始终是完全匹配，不再像v4/5中那样匹配路径前缀。父/根路径需要指定 * 通配符，以便它们现在可以进行"前缀"匹配,所以解决办法是在App.tsx加上通配符*
+
+父路由一级路由注意点：加/*
+<Route path="/my/*" element={<My></My>}></Route>
+此路由表示有二级嵌套路由
+/my/rank  和 /my/song  
+
+二级路由配法：
+v5版本  二级路由，path必须包含一级路由
+v6版本不需要
+<NavLink to="/my/songlist">歌单</NavLink>
+或者
+<NavLink to="./songlist">歌单</NavLink>
+或者
+<NavLink to="songlist">歌单</NavLink>
+
+路由规则配法
+<Route path="songlist" element={<SongList></SongList>}></Route>
+重定向
+ <Route
+            path="*"
+            element={<Navigate to={'rank'} replace></Navigate>}></Route>  
+
+-----------------------------------
+结构形式二级路由
+父路由和二级路由在一个组件中
+在一级路由中嵌套二级路由
+ <Route path="/home" element={<Home></Home>}>
+            <Route index  element={<Home2></Home2>}></Route> 子路由默认页面index
+          <Route path="login" element={<Login></Login>}></Route>
+</Route>
+-----------------------
+路由出口
+选择组件需要渲染到的区域添加 相当于路由规则<Routes>,在别的页面配置Routes然后在父页面配置outlet。或者直接在父页面配置routes不需要配置outlet
+在一级路由组件中引入
+import { Outlet } from 'react-router-dom'
+配置路由出口
+ <Outlet></Outlet>
+
+配置默认渲染的二级路由，去掉自己的path 添加一个index属性
+---------------------------
+v6版本
+父路由和二级路由不在一个组件配置二级路由  
+举例 /home路由下 的 /home/qa  /home/video  /home/profile
+在配置路由时
+父路由            <Route path="/home/*" element={<Home></Home>}>
+子路由 <Route index element={<Home></Home>}></Route>
+          <Route path="qa" element={<QA></QA>}></Route>
+          <Route path="video" element={<Video></Video>}></Route>
+          <Route path="profile" element={<Profile></Profile>}></Route>
+         </Route>

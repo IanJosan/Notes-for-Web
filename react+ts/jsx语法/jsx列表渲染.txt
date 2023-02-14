@@ -1,0 +1,18 @@
+// import React from "react"; 新项目自动导入了
+import ReactDOM from 'react-dom'
+
+const list = ['zx', 'mc', 'zy']
+// const arr = list.map((item) => {
+//   return <li>{item}</li>
+// })
+const element = (
+  <>
+    <h1>列表渲染</h1>
+    <ul>
+      {list.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  </>
+)
+ReactDOM.render(element, document.getElementById('root'))

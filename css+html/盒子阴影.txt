@@ -1,0 +1,6 @@
+box-shadow:属性名；
+h-shadow 必须项，水平偏移量，允许负值
+v-shadow 必须项，垂直偏移量，允许负值
+blur 可选模糊度
+spread 可选阴影扩大
+inset 可选将阴影改编为内部阴影

@@ -1,0 +1,5 @@
+window.onresize = function() {}
+window.addEventListener("resize",function(){})
+调整窗口大小加载事件，当触发时就调用处理函数
+只要窗口大小像素发生变化就会触发事件  响应式布局
+window.innerWidth 拿到当前屏幕宽度

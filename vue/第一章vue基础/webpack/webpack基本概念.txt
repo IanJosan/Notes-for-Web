@@ -1,0 +1,62 @@
+为什么学习webpack 为了压缩代码体积 减少文件数量 提高浏览器打开速度
+
+webpack是一个node第三方模块包，用于分析打包代码。支持所有文件打包
+less/sass => css翻译分析运行   es678 => es5兼容降级
+
+webpack模块包下载
+1，初始化包环境 npm init -y 改进为 yarn init 更加快速
+卸载包 yarn remove
+2，安装包 yarn add webpack  webpack-cli -D 同时下载这两个包并记录在开发环境
+3，配置scripts自定义命令
+“scripts”: {
+  "build" : "webpack"
+},
+
+
+webpack基础使用
+需求2个JS文件打包成一个
+
+新建src 文件夹 一定叫src
+在src文件夹建立index.js 默认叫index 打包入口
+在src中建立add文件夹
+创建add.js 定义求和函数并导出
+index.js 引入add模块并使用函数输出结果
+执行yarn build 自定义命令 进行打包 （确保终端路径在src的父级文件夹）
+会自动生成一个dist文件夹里面一个main.js文件里面包含压缩完成后的代码
+
+webpack再次打包
+代码更新变多后需要再次打包
+案例
+src下新建立tool文件夹 tool文件夹里有tool.js
+定义数组和函数导出
+index.js 引入tool模块的函数并使用
+执行yarn build 自定义命令打包
+
+能更改webpack打包默认出口入口
+1，在src并列下新建webpack.config.js配置文件
+2，填入配置 
+
+const path = require('path')
+module.exports = {
+    entry: './src/main.js',//入口
+    output:{ // 出口
+        path:path.resolve(__dirname,'dist'),//出口文件夹名字
+        filename:'bundle.js',//出口文件名
+    },
+};
+3，修改入口文件名
+
+
+yarn build 执行流程
+自定义命令真正执行的是webpack命令
+是否有webpack.comfig.js配置文件配置文件，有则根据配置文件配置参数。否则，默认src下的index.js作为入口 。dist下main.js作为出口
+找到入口先构建依赖关系编译各个模块文件后输出
+
+
+
+***需要打包代码必须将代码引导到入口
+
+webpack插件Plugin 更多的功能 例如自动生成html自动引入打包后的一切
+
+webpack加载器Loader 处理更多类型的文件
+解析css文件 把css插入到dom

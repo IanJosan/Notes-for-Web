@@ -1,0 +1,10 @@
+下载插件 yarn add html-webpack-plugin -D
+webpack.config.js添加配置
+
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+module.exports = {
+ plugins:[new HtmlWebpackPlugin({ //插件
+        template:'./public/index.html' // 告诉webpack以这个文件为模板生成dist/html文件
+    })],
+};

@@ -1,0 +1,26 @@
+默认情况下，泛型函数的类型变量 Type 可以代表多个类型，这导致无法访问任何属性
+此时，就需要为泛型添加约束来收缩类型(缩窄类型取值范围)
+
+添加泛型约束收缩类型，主要有以下两种方式：
+1 指定更加具体的类型  传什么类型就写什么类型
+2 添加约束
+interface length {
+  length: number
+}
+function id<Type extends Ilength>(value: Type): Type {
+  console.log(value.length)
+  return value
+}
+通过 `extends` 关键字使用该接口，为泛型(类型变量)添加约束
+该约束表示：**传入的类型必须具有 length 属性**
+- 注意:传入的实参(比如，数组)只要有 length 属性即可（类型兼容性)
+
+多个类型变量
+
+泛型的类型变量可以有多个，并且**类型变量之间还可以约束**(比如，第二个类型变量受第一个类型变量约束)
+**keyof 关键字接收一个对象类型，生成其键名称(可能是字符串或数字)的联合类型**。
+function getProp<Type, Key extends keyof Type>(obj: Type, key: Key) {
+  return obj[key]
+}
+let person = { name: 'jack', age: 18 }
+getProp(person, 'name')

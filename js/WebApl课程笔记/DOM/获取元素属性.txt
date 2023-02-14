@@ -1,0 +1,15 @@
+获取属性
+element.属性获取属性值  获取内置属性值
+element.id 获取id名字
+element.getAttribute('属性') 可以获取自定义属性
+
+自定义属性 ：程序员自己定义的属性
+
+更改属性值
+element.属性 = ’更改值‘
+div.id = 'text';
+element.setAttribute('属性'，'更改值') 主要针对自定义属性
+div.element.setAttribute('index'，2);
+removeAttribute('属性') 移除属性值
+
+H5新规范 自定义属性 命名要以 data-开头

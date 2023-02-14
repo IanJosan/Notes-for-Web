@@ -1,0 +1,9 @@
+使用场景：当同一类型（复杂）被多次使用时，可以通过类型别名
+
+type语法 类型别名 = 类型    别名建议大写在开头
+使用
+const list 冒号：类型别名 = 格式数据
+
+type MyArry = (number | string)[]
+  const list1: (number | string)[] = [1, '1']
+  const list2: MyArry = [1, 2, 'asd']

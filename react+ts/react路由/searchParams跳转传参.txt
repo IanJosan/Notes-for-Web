@@ -1,0 +1,12 @@
+获取传参 
+navigate(`/Homeey?id=${Date.now()}&name=cp`, { replace: true })
+
+
+1，import { useSearchParams } from 'react-router-dom'
+
+2， const [params] = useSearchParams()
+ 3， const id = params.get('id')
+  const name = params.get('name')
+
+params对象包含get(参数名)方法来获取传递参数
+

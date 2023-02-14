@@ -1,0 +1,22 @@
+组件性能优化
+1，减轻state：只储存和组件渲染有关的数据。
+无关的数据，多个地方需要的数据放在this中
+this.xxx = xxx
+vue 中无关数据不要放在data中
+
+2，避免不必要的渲染
+钩子函数 （不常用）
+shouldComponentUpdate(nextProps,nextState){
+返回true或false 来决定是否更新
+this.props之前的props
+nextProps 即将要变化的props
+nextState 组件自己将要变化的state
+}
+
+3，纯组件 
+React.PureComponent 与 React.Component功能相似
+纯组件 自动实现了shouldComponentUpdate钩子函数
+原理纯组件内部通过对比前后两次props和state值来决定是否渲染组件
+
+只需要导入 {PureComponent} from 'react'
+继承PureComponent

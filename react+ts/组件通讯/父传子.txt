@@ -1,0 +1,33 @@
+import ReactDOM from 'react-dom'
+import React, { Component } from 'react'
+import Child from './Child'
+class App extends Component {
+  state = {
+    wife: '',
+  }
+  render() {
+    return (
+      <div>
+        <h1>App组件</h1>
+        <div>
+          配偶:
+          <input
+            type="text"
+            placeholder="请输入名字"
+            value={this.state.wife}
+            onChange={this.handleChange}
+          ></input>
+          <hr></hr>
+          <Child wife={this.state.wife}></Child>
+        </div>
+      </div>
+    )
+  }
+  handleChange = (e) => {
+    this.setState({
+      wife: e.target.value,
+    })
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))

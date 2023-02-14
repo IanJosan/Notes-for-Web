@@ -1,0 +1,4 @@
+visibility：hidden;
+display:none;
+元素隐藏，第一种虽然隐藏了但是还占位，第二种不会
+鼠标悬停显示 在hover里加CSS属性display：block

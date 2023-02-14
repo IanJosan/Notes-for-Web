@@ -1,0 +1,88 @@
+将大文件与小文件分散打包，加快访问速度
+
+**使用方式**
+
+先找到 `vue.config.js`，在打包属性`configureWebpack` 中添加 添加 `externals` 
+ externals ： {
+
+    // key(包名) / value(这个值 是 需要在CDN中获取js, 相当于 获取的js中 的该包的全局的对象的名字)
+
+    'vue': 'Vue', // 后面的名字不能随便起 应该是 js中的全局对象名
+    'element-ui': 'ELEMENT', // 都是js中全局定义的
+    'xlsx': 'XLSX' // 都是js中全局定义的
+  }
+
+然后用CDN方法再页面中预引入刚刚排除的包，有顺序要求
+定义cdn
+const cdn = {
+  css: [
+    // element-ui css
+    'https://unpkg.com/element-ui/lib/theme-chalk/index.css' // 样式表
+  ],
+  js: [
+    // vue must at first!
+    'https://unpkg.com/vue/dist/vue.js', // vuejs
+    // element-ui js
+    'https://unpkg.com/element-ui/lib/index.js', // elementUI
+      'https://cdn.jsdelivr.net/npm/xlsx@0.16.6/dist/jszip.min.js',
+    'https://cdn.jsdelivr.net/npm/xlsx@0.16.6/dist/xlsx.full.min.js'
+  ]
+}
+
+-----------------------------------------------
+但是请注意，这时的配置实际上是对开发环境和生产环境都生效的，在开发环境时，没有必要使用CDN，此时我们可以使用环境变量来进行区分
+只有再生产环境才需要优化性能排除打包
+let cdn = { css: [], js: [] }
+// 通过环境变量 来区分是否使用cdn
+const isProd = process.env.NODE_ENV === 'production' // 判断是否是生产环境 development开发环境 production生产环境
+let externals = {}  // 然后再configureWebpack中引入
+if (isProd) {
+  // 如果是生产环境 就排除打包 否则不排除
+  externals = {
+    // key(包名) / value(这个值 是 需要在CDN中获取js, 相当于 获取的js中 的该包的全局的对象的名字)
+    'vue': 'Vue', // 后面的名字不能随便起 应该是 js中的全局对象名
+    'element-ui': 'ELEMENT', // 都是js中全局定义的
+    'xlsx': 'XLSX' // 都是js中全局定义的
+  }
+  cdn = {
+    css: [
+      'https://unpkg.com/element-ui/lib/theme-chalk/index.css' // 提前引入elementUI样式
+    ], // 放置css文件目录
+    js: [
+      'https://unpkg.com/vue/dist/vue.js', // vuejs
+      'https://unpkg.com/element-ui/lib/index.js', // element
+      'https://cdn.jsdelivr.net/npm/xlsx@0.16.6/dist/xlsx.full.min.js', // xlsx 相关
+      'https://cdn.jsdelivr.net/npm/xlsx@0.16.6/dist/jszip.min.js' // xlsx 相关
+    ] // 放置js文件目录
+  }
+}
+
+最后将cdn注入到html模板
+
+再chainWebpack中的config.plugin下添加
+config.plugin('html').tap(args => {
+  args[0].cdn = cdn
+  return args
+})
+
+
+找到 `public/index.html`。通过你配置的`CDN Config` 依次注入 css 和 js。
+
+```vue
+<head>
+  <!-- 引入样式 -->
+  <% for(var css of htmlWebpackPlugin.options.cdn.css) { %>
+    <link rel="stylesheet" href="<%=css%>">
+  <% } %>
+</head>
+
+<!-- 引入JS -->
+<% for(var js of htmlWebpackPlugin.options.cdn.js) { %>
+  <script src="<%=js%>"></script>
+<% } %>
+```
+
+最后，进行打包 
+
+```bash
+$ npm run build:prod

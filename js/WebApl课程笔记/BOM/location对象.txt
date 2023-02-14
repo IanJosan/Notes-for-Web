@@ -1,0 +1,20 @@
+URL
+组成
+protocol 通信协议常用的http maito ftp等
+host 主机域名
+port 端口号 可选 http默认端口号为80
+path 路径 由零个或多个/符号隔开的字符串 表示主机上的目录或文件地址
+query 参数 &分隔
+fragment 片段 #号后面内容常见于链接锚点
+
+location对象属性
+location.href 获取或者设置整个URL
+location.host 返回主机域名
+location.port 返回端口号 没有返回空字符串
+location.pathname 返回路径
+location.search 返回参数
+location.hash 返回片段#后面内容常见于锚点链接 
+
+location.assign('浏览地址') 跳转页面可以后退
+location.replace('浏览地址') 无法后退 不记录浏览历史
+location.relode(); 为空重新刷新加载页面  为true 强制刷新

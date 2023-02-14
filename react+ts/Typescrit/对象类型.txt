@@ -1,0 +1,61 @@
+ts中 接口用于提供对象的类型
+
+1，interface 接口名字 {对象描述}
+可以实现继承
+interface User {
+  name: string
+  age: number
+  sayHi(): void
+}
+
+const user: User = {
+  name: 'zs',
+  age: 18,
+  sayHi() {},
+}
+interface 的继承
+interface IP {
+  x: number
+  y: number
+}
+
+interface IP2 extends IP {
+  z: number
+}
+const point: IP = {
+  x: 123,
+  y: 234,
+}
+
+const point3: IP2 = {
+  x: 1,
+  y: 2,
+  z: 3,
+}
+
+类似type自定义指定
+
+2，type指定类型
+ type Teacher = {
+    name: string
+    age: number
+  }
+  let tea1: Teacher = {
+    name: 'zs',
+    age: 1,
+  }
+
+3，用{}来指定对象类型
+let person: { name: string } = {
+  name: '同学'
+}
+
+？的可选属性
+type Config = {
+  url: string
+  method?: string
+}
+
+function myAxios(config: Config) {
+  console.log(config)
+}

@@ -1,0 +1,10 @@
+ useEffect(() => {
+    const getlist = async () => {
+      const res = await axios.get('http://geek.itheima.net/v1_0/channels')
+      setList(res.data.data.channels)
+    }
+    getlist()
+  }, [])
+
+----------------------------
+effect只能是同步函数，不能使用async，要使用需要另外创建async函数并调用

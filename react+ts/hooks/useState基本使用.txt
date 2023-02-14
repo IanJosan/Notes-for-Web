@@ -1,0 +1,13 @@
+1，导入useState
+import { useState } from 'react'
+
+2，调用useState函数
+ const [count, setCount] = useState(0)
+
+3，从函数返回值中拿到状态和修改参数函数
+useState(初始值) 返回的是一个数组，数组结构，第一个是状态值，第二个是修改状态的函数。函数参数是状态值的初始值
+      <button onClick={() => setCount(count + 1)}>{count}</button>
+--------------------------------
+调用setCount修改状态会触发dom更新
+useState函数可以执行多次，各自独立
+不能嵌套在if for 其他函数中。必须在函数组件的最外层执行

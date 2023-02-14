@@ -1,0 +1,18 @@
+将弹性盒子换行显示
+给大盒子本身添加
+flex-wrap:wrap;属性实现盒子多行排列效果
+默认状态下是no-wrap
+
+换行盒子调整对齐方式
+align-content:center;
+space-around;
+space-between;
+
+
+超出盒子部分显示省略号
+文字部分添加 text-overflow:ellipsis;
+                      white-space:nowrap; 不换行
+                       overflow:hidden;
+
+然后给父级添加宽度为0，flex:1;
+               

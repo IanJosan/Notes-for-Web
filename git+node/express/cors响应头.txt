@@ -1,0 +1,13 @@
+cors响应头部-Access-Control-Allow-Origin
+响应头部中携带Access-Control-Allow-Origin:<origin>|*语法
+其中<origin>指定允许访问该资源的外域URL
+res.setHeader('Access-Control-Allow-Origin','*')
+*号代表允许来自任何域的请求
+
+Access-Control-Allow-Headers
+默认情况下cors仅支持客户端向服务器发送如下9个请求头
+
+Access-Control-Allow-Methods
+默认情况下cors仅支持客户端发起GET POST HEAD请求
+如果需要通过PUT DELETE等方法的请求则需要在服务器端指明实际允许的http方法
+res.setHeader('Access-Control-Allow-Methods','POST,DELETE')

@@ -1,0 +1,18 @@
+安装客户端版
+npm i socket.io-client
+
+导入
+import io from 'socket.io-client'
+
+连接通讯服务器 连接上之后是一个对象
+ const client = io('http://geek.itheima.net/', {
+      query: {
+        token: getTokenInfo().token,
+      },
+      transports: ['websocket'],
+    })
+
+
+client.close()   close方法关闭连接
+client.connect()  连接成功 
+client.emit('后台规定名字','传递消息')  主动给服务器发消息

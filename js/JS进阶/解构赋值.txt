@@ -1,0 +1,20 @@
+ES6中允许从数组中提取值，按照对应位置，对变量赋值，对象也可以实现解构
+let [a,b,c] = [1,2,3]
+console.log(a) = 1
+console.log(b) = 2
+console.log(c) = 3
+[]在等号左边 中的变量是解构与右边[]中的值一一对应
+如果左右数量不相等 解构失败返回undefined
+
+
+在对象中
+let person = {name: 'jack',age: 20}
+let {name,age} = person;
+console.log(name)   'jack'
+console.log(age)  20
+等号左边是解构的对象属性名  右边是解构的目标对象
+
+let person = {name: 'jack',age: 20}
+let {name:myname,age:myage} = person;
+console.log(myname)   'jack'
+console.log(myage)  20

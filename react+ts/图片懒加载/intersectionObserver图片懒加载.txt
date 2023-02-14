@@ -1,0 +1,25 @@
+intersectionObserver图片懒加载
+
+const Obserser =new IntersectionObserver(function(entries){
+
+})
+
+Obserser.observe(观察对象) 开启监听
+Obserser .unobserve(观察对象)停止监听加载
+-------------------------------
+ const observer = new IntersectionObserver(([{ isIntersecting }]) => {
+      if (isIntersecting在可视区) {
+        imgRef.current.src = imgRef.current.dataset.src
+        observer.unobserve(imgRef.current) 监听过了取消监听
+      }
+    })
+ observer.observe(imgRef.current) 使用这个创建好的监听对象
+--------------------------------
+
+<img
+        data-src={src}
+        alt={alt}
+        ref={imgRef}
+        onLoad={onLoad}  正在加载中触发
+        onError={onError}  加载失败触发
+      />

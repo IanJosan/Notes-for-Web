@@ -1,0 +1,25 @@
+1. 什么是数据监听器
+数据监听器用于监听和响应任何属性和数据字段的变化，从而执行特定的操作。它的作用类似于 vue 中的
+watch 侦听器。在小程序组件中，数据监听器的基本语法格式如下：
+在methods平级
+observers:{
+    'n1,n2':function(newn1,newn2) {
+      this.setData({
+        sum:newn1+newn2
+      })
+    }
+  }
+
+
+2. 数据监听器的基本用法
+组件的 UI 结构如下：
+
+3. 监听对象属性的变化
+数据监听器支持监听对象中单个或多个属性的变化，示例语法如下：
+observers:{
+    'rgb.**':function(rgb) {
+      this.setData({
+        fullColor:`${rgb.r},${rgb.g},${rgb.b}`
+      })
+    }
+  }

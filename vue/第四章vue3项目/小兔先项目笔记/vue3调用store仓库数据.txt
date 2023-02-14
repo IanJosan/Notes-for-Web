@@ -1,0 +1,4 @@
+import {useStore} from 'vuex'
+调用使用仓库的方法，
+在setup中定义
+const store = useStore()

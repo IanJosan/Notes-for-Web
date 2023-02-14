@@ -1,0 +1,12 @@
+使用跨组件通讯数据使用
+
+实现步骤
+1. 使用createContext 创建Context对象
+const Context* = React.createContex()
+这个Context需要导出
+
+2. 在顶层组件通过Provider 提供数据
+<Context.Provider value={传递数据color}>
+
+3. 在底层组件通过useContext函数获取数据
+const color = useContext(Context*定义的传递名)

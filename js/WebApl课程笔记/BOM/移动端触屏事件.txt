@@ -1,0 +1,10 @@
+触屏事件 touch
+touchstart  手指摸到一个DOM元素触发
+touchmove 在DOM滑动触发
+touchend  在DOM移出触发
+
+触摸事件对象 TouchEvent
+touches 正在触摸屏幕的手指列表
+targetTouches 正在触摸当前DOM元素的手指列表
+如果侦听的是同一个dom两者是相同的
+changedTouches 手指状态发生改变时的列表 从无到有 从有到无

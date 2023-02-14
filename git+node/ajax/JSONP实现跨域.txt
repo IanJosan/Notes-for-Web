@@ -1,0 +1,17 @@
+实现原理 通过<script>标签src属性请求跨域数据接口，通过调用函数的形式接收跨域接口响应回来的数据
+
+1，定义回调函数
+2，通过<script>标签src属性请求跨域数据接口 通过查询字符串调用函数 ?callback = abc
+3，服务器返回数据
+
+jQuery中的JSONP
+$.ajax{}
+dataType:'jsonp'
+默认情况下使用jQuery发起JSONP请求会自动携带一个随机生成的callback=jQueryxxxx的参数
+或者可以自定义
+jsonp:'cv112121'
+jsonpCallback:'函数名称'
+在发起JSONP请求时会动态的向<header>中添加一个script标签
+在请求完成后动态的将加入的标签移除
+
+用 JSONP 抓到的资料并不是 JSON，而是任意的JavaScript，用 JavaScript 直译器执行而不是用 JSON 解析器解析。返回的不是JSON对象，是包含JSON对象的javaScript脚本。

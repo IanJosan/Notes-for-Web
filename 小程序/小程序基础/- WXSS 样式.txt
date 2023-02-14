@@ -1,0 +1,16 @@
+1. 什么是 WXSS
+WXSS (WeiXin Style Sheets)是一套样式语言，用于描述 WXML 的组件样式，类似于网页开发中的 CSS。
+
+
+2. WXSS 和 CSS 的区别
+① 新增了 rpx 尺寸单位
+⚫ CSS 中需要手动进行像素单位换算，例如 rem
+⚫ WXSS 在底层支持新的尺寸单位 rpx，在不同大小的屏幕上小程序会自动进行换算
+② 提供了全局的样式和局部样式
+⚫ 项目根目录中的 app.wxss 会作用于所有小程序页面
+⚫ 局部页面的 .wxss 样式仅对当前页面生效
+③ WXSS 仅支持部分 CSS 选择器
+⚫ .class 和 #id
+⚫ element
+⚫ 并集选择器、后代选择器
+⚫ ::after 和 ::before 等伪类选择器

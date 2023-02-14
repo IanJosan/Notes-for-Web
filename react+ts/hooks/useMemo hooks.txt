@@ -1,0 +1,5 @@
+保证在更新时任意类型数据地址，直到数据变化才更新
+
+const memorized = useMemo(()=> 需要记住的数据,依赖项）
+
+可以替代useCallback

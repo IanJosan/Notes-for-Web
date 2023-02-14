@@ -1,0 +1,13 @@
+有时候定义一个对象类型不能涵盖所有类别，一个一个添加类别十分麻烦
+
+interface的继承性
+例：
+定义一个类似input的功能拥有input的属性
+可以定义对象类型继承input的类型
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  extra?: string
+  onExtraClick?: () => void
+  autoFocus?: boolean
+  className?: string
+  type?: 'text' | 'password'
+}

@@ -1,0 +1,5 @@
+一般情况下 switch 和 if else if 可以互换
+switch case 语句通常处理比较确定值的情况，而 if  else 更加灵活常用于范围判断
+switch 语句进行条件判断后直接执行程序的条件语句效率高而 if else 语句有几种条件就判断多少次
+分支较少时 if else 执行效率高
+分支多时 switch结构清晰

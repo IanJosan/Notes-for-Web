@@ -1,0 +1,7 @@
+Ajax的全称是 Asynchronous Javascript And XML 异步JavaScript 和XML
+在网页中利用XMLHttpRequest 对服务器进行数据交互的方式，就是ajax
+网页与服务器之间的数据传输
+可以实现页面无刷新更新数据
+
+应用场景
+用户名的检测，搜索提示，数据的分页显示，数据的增删改查

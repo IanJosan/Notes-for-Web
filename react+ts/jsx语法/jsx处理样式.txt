@@ -1,0 +1,34 @@
+/// import React from "react"; 新项目自动导入了
+import ReactDOM from 'react-dom'
+import './index.css'
+import classname from 'classname'
+const color = 'red'
+const bgColor = 'pink'
+const isred = true
+const ispink = true
+const element = (
+  <div>
+    <h1 style={{ backgroundColor: bgColor, width: 400, height: '100px' }}>
+      通过style控制样式
+    </h1>
+    <p style={{ color }}>一段文字</p>
+    <p className="box red pink">类名控制样式</p>
+    <p className={classname('box', { red: isred, pink: ispink })}>
+      classname库控制类名
+    </p>
+  </div>
+)
+ReactDOM.render(element, document.getElementById('root'))
+
+
+-------------------------------
+想要动态控制样式应该使用对象的形式
+{ {} } 外面的括号表示动态，里面的表示对象
+----------------------------------
+classname库的使用
+安装
+yarn add classname
+import classname from 'classname'
+ <p className={classname('box', { red: isred, pink: ispink })}>
+      classname库控制类名
+    </p>

@@ -1,0 +1,17 @@
+空间旋转
+同样使用  transform：rotateZ（值deg）；和平面一样围绕中心点旋转
+X轴旋转
+ transform：rotateX（值deg）；
+添加perspective属性会好看一些
+同理Y轴旋转
+
+左手法则
+左手握住旋转轴，拇指方向为正值，手指弯曲方向为旋转正值方向
+
+旋转立体呈现
+给父级添加   transform-style：preserve-3d；
+ .cube {
+transform-style: preserve-3d;
+        }
+然后构建立方体盒子，使用transform:translateZ();来构建3d空间
+最后使用旋转和过渡来观察是否是立体模型

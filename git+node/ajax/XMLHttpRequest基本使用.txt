@@ -1,0 +1,58 @@
+什么是 XMLHttpRequest
+简称xhr是浏览器提供的JS对象通过它可以请求服务器上的数据资源
+jQuery中的Ajax函数就是基于xhr对象封装出来的
+在使用XMLHttpRequest对象之前需要将XMLHttpRequest对象实例化，因为各个浏览器对这个实例化过程的实现不同，所以针对不同的浏览器实例化XMLHttpRequest对象的方式也不尽相同。
+
+
+使用xhr对象发起get请求
+1，创建xhr对象
+let xhr = new XMLHttpRequest()
+2，调用xhr.open()函数
+xhr.open('GET','URL地址')
+3，调用xhr.send()函数
+xhr.send()
+4，监听xhr.onreadystatechange事件
+xhr.onreadystatechange = function(){}监听xhr对象的请求状态readyState和服务器响应状态status 固定写法
+if(xhr.readyState === 4 && xhr.status === 200 数据获取成功){
+xhr.responseText 服务器返回的数据
+}
+
+
+xhr的readyState属性
+0 UNSENT XMLHttpRequest对象已被创建，但尚未调用open方法
+1 OPENED open()方法已被调用
+2 HEADERS_RECEIVED send()方法已被调用，响应头已经被接收
+3 LOADING 数据接受中，此时response属性以及包含部分数据
+4 DONE Ajax请求完成，这意味着数据传输已经彻底完成或失败
+
+
+使用xhr对象发起带参数的get
+使用xhr对象发起带参数的GET请求时只需要在调用xhr.open期间为URL地址指定参数即可
+xhr.open('GET','URL地址?id=1')
+这种在URL地址后面拼接的参数叫做查询字符串
+
+
+查询字符串
+本质就是加在URL末尾的变量
+格式：?开始放在URL末尾，加上 参数 = 值，多个参数用&符号分割
+
+URL编码
+URL中只允许出现英文数字符号 中文是以三组百分号 编码
+encodeURL（）编码函数
+decodeURL（）解码函数
+
+
+使用xhr对象发起post请求
+1，创建xhr对象
+let xhr = new XMLHttpRequest()
+2，调用xhr.open()函数
+xhr.open('post','URL')
+3，设置Content-Type属性 固定写法
+xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+4，调用xhr.send()属性，同时指定要发送的数据
+xhr.send('name=水浒&author=施耐庵')
+5，监听xhr.onreadystatechange事件
+xhr.onreadystatechange = function(){}
+if(xhr.readyState === 4 && xhr.status === 200 数据获取成功){
+xhr.responseText 服务器返回的数据
+}

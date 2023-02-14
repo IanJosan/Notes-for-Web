@@ -1,0 +1,27 @@
+在项目根目录中，必须提供package.json包管理配置文件，记录项目名称版本号，项目用了那些包，那些包只在开发期间用到，那些包在开发和部署时都用到
+开发中要把node_modules文件添加到.gitignore忽略文件中
+
+快速创建包管理配置文件
+npm init -y
+注意项目文件夹不要有中文和空格
+
+dependencies节点
+记录使用npm install 命令安装了那些包
+以对象形似，属性名是包名，值是版本
+npm install直接运行会读取所有包并安装到项目中
+
+npm uninstall 包名称 卸载包，同时在dependencies节点中也会删除
+
+devDependencies节点
+只在开发阶段用到，上线不用就放在这个节点中
+npm install 包名 -D
+
+npm config get registry 
+获得当前下包地址
+npm config set registry =https://registry.npm.taobao.org/
+修改下包地址
+
+安装nrm小工具
+npm i nrm -g
+nrm ls 查看所有可用镜像源
+nrm use taobao

@@ -1,0 +1,6 @@
+COUNT（*）函数
+select count（*）from 表名称  where 列 = 0
+统计数据条数
+
+使用AS为列设置别名
+select count（*）as 命名 from 表名称  where 列 = 0

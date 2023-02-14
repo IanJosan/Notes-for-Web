@@ -1,0 +1,11 @@
+props深入
+children属性
+children属性表示组件子节点，只要组件有子节点，props就会有children属性
+
+传递
+ <Header title="首页">children属性</Header>
+
+获取
+{this.props.children}
+
+类似vue中slot插槽

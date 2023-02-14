@@ -1,0 +1,47 @@
+import ReactDOM from 'react-dom'
+import { Component } from 'react'
+
+class App extends Component {
+  state = {
+    msg: 'hello',
+    count: 0,
+  }
+  render() {
+    return (
+      <div>
+        <h1>我是跟组件</h1>
+        <div>{this.state.msg}</div>
+        <div>{this.state.count}</div>
+        <button onClick={this.clickFn} onMouseEnter={this.mouseFn}>
+          ++++
+        </button>
+        <a href="http://www.baidu.com" onClick={this.clickFn}>
+          百度
+        </a>
+      </div>
+    )
+  }
+  clickFn(e) {
+    e.preventDefault() // 阻止默认行为
+    console.log('触发点击')
+  }
+  mouseFn() {
+    console.log('鼠标进入')
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+
+事件采用 on+事件命名 使用驼峰命名法
+
+---------------------------------------------------
+解决注册事件this指向问题
+1，将函数调用包裹在箭头函数中
+<button onClick={() => this.clickFn()} >
+2,通过bind绑定this
+ <button onClick={this.clickFn.bind(this)}>++++</button>
+3，修改成箭头函数方法
+ clickFn = () => {
+    console.log('触发点击', this)
+  }
+<button onClick={this.clickFn}>++++</button>

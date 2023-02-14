@@ -1,0 +1,19 @@
+小程序根目录下的 app.json 文件是小程序的全局配置文件。常用的配置项如下：
+① pages
+⚫ 记录当前小程序所有页面的存放路径
+② window
+⚫ 全局设置小程序窗口的外观
+③ tabBar
+⚫ 设置小程序底部的 tabBar 效果
+④ style
+⚫ 是否启用新版的组件样式
+
+了解 window 节点常用的配置项
+属性名                                                   类型                    默认值                说明
+navigationBarTitle                                Text                   String             字符串 导航栏标题文字内容
+navigationBarBackgroundColor             HexColor          #000000          导航栏背景颜色16进制，如 #000000
+navigationBarTextStyle                         String              white              导航栏标题颜色，仅支持 black / white
+backgroundColor                                HexColor              #ffffff          窗口的背景色16进制
+backgroundTextStyle                          String                    dark         下拉 loading 的样式，仅支持 dark / light
+enablePullDownRefresh                      Boolean             false           是否全局开启下拉刷新
+onReachBottomDistance                    Number             50                 页面上拉触底事件触发时距页面底部距离，单位为px

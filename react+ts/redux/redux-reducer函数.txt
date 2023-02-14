@@ -1,0 +1,19 @@
+reducer是一个函数，用于处理action函数。
+reducer必须是一个纯函数，不管调用多少次传入参数一样，输出结果一样就是纯函数。
+如何保证是纯函数--
+不要改传入参数
+不用全局变量
+不调用Date.now() Math.random()等方法
+纯函数因为不变所以可以缓存
+
+reducer的state需要有默认值作为初始值
+reducer内容需要判断action的type，根据type处理不能修改原来的数据
+遇到不认识的type要返回原来的state 
+function reducer(state,action) {
+   
+}
+
+const store = createStore(reducer)
+console.log(store.getState())//获取redux中的数据
+store.dispatch(add()) //分发任务dispatch
+store.subscribe(()=>{state发生变化回调函数执行订阅})

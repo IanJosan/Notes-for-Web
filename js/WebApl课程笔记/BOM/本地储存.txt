@@ -1,0 +1,23 @@
+window.sessionStorage
+生命周期为关闭浏览器窗口 在同一个窗口下可以共享数据
+存储值
+sessionStorage.setItem（key名字,value值）;
+获取值
+sessionStorage.getItem(key名字)
+删除数据
+sessionStorage.removeItem（key名字）
+sessionStorage.clear（） 清除所有数据
+
+只能存字符串
+
+
+window.localStorage
+生命周期永久有效除非自己删除，可以多窗口共享 同一浏览器共享
+存储值
+localStorage.setItem（key名字,value值）;
+获得数据
+localStorage.getItem(key名字)
+删除数据
+localStorage.removeItem（key名字）
+localStorage.clear（） 清除所有数据
+只能存字符串

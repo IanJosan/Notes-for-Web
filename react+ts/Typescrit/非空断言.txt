@@ -1,0 +1,6 @@
+TS 中提供一个运算符：`!` `非空断言`
+  - 如果一个值，它的类型可能是 null 或 undefined，但是，我们在使用时又很确定它的值一定不是 null 或 unde，此时，就可以通过 `非空断言` 来告诉 TS 听哥的，哥很确定它的不是 null 或 undefined
+- 注意：**这个操作是风险的**，非空断言，仅仅是让 TS 中的类型检查不再校验 null 或 undefined，但是，如果它的值真的是 null 或 undefined，代码会在运行时报错！！！
+
+user?.name  可选
+user!.name  非空断言。！前不可能为空

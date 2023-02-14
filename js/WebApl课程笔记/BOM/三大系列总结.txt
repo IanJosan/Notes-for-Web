@@ -1,0 +1,13 @@
+offsetWidth包含padding border 不带单位
+client 只包含padding 不带单位 盒子内容区域宽度
+scroll 包含padding 实际自身宽度 超出盒子也算不带单位
+
+主要使用方法
+offset 经常用于获得元素位置
+client 获取元素大小
+scroll 获取元素滚动距离
+
+页面的滚动距离通过 window.pageX/YOffset来获取
+
+offset和style 区别
+style只能获得行内样式 获取值是字符串带单位 不会获得padding和border值 可读写 可赋值

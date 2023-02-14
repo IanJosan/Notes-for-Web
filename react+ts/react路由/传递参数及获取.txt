@@ -1,0 +1,83 @@
+v5版本：push跳转携带params参数
+props.history.push(`/b/child1/${id}/${title}`)
+
+push跳转携带search参数
+props.history.push(`/b/child1?id=${id}&title=${title}`);
+
+push跳转携带state参数
+props.history.push(`/b/child1`, { id, title });
+
+前进 
+this.props.history.goForward();
+后退 .goBack();
+前进或回退 ( go ) .go(-2); //回退到前2条的路由
+
+replace跳转携带params参数
+this.props.history.replace(`/home/message/detail/${id}/${title}`)
+
+replace跳转携带search参数
+this.props.history.replace(`/home/message/detail?id=${id}&title=${title}`)
+
+replace跳转携带state参数
+this.props.history.replace(`/home/message/detail`, { id, title });
+
+在一般组件中使用编程式路由导航 (非路由组件)
+import {withRouter} from 'react-router-dom'
+
+class Header extends Component {
+    // withRouter(Header)后，就可以在一般组件内部使用 this.props.history 
+    //...
+}
+
+export default withRouter(Header)
+---------------------------------------
+---------------------------------------
+---------------------------------------
+V6
+// v6版本编程导航使用 useNavigate  函数声明的组件
+import {  useNavigate } from "react-router-dom";
+export default function A() {
+  const navigate = useNavigate();
+  //...
+}
+
+push跳转携带params参数
+navigate(`/b/child1/${id}/${title}`);
+
+push跳转携带search参数
+navigate("/b/child2", { state: { id, title }});
+
+前进/后退/以及走多少 1/-1/2
+<button onClick={() => navigate(1)}>Go Forword</button>
+
+replace跳转携带params参数
+navigate(`/b/child1/${id}/${title}`,{replace: true});
+
+replace跳转携带search参数
+navigate(`/b/child2?id=${id}&title=${title}`,{replace: true});
+
+replace跳转携带state参数
+navigate("/b/child2", { state: { id, title },replace: true});
+
+函数组件使用生命周期需要用 useEffect
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+// 这里的作用是 componentDidMount 
+export default function News() {
+    const navigate = useNavigate()
+    useEffect(() => {
+        setTimeout(() => {
+            navigate("/home/message")
+        }, 2000)
+    })
+    return (
+        <ul>
+            <li>news001</li>
+            <li>news002</li>
+            <li>news003</li>
+        </ul>
+    )
+}
+
+withRouter（v6版本弃用）直接使用 useNavigate 即可

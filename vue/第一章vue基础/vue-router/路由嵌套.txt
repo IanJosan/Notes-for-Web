@@ -1,0 +1,12 @@
+在现有一级路由下再嵌套二级路由
+二级以后的路由直接写名字无需 / 开头
+用
+一级路由下写二级映射关系
+children:[{
+   path：'ranking'
+   component: Rnking
+
+}]
+
+在跳转时to属性要从根开始写写全
+<router-link to="/find/ranking">排行榜</router-link>

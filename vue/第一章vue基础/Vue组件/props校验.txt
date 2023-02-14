@@ -1,0 +1,35 @@
+props:{
+   data:{
+        type:[String,Array],
+        required:true,
+        default:'默认值'
+   }
+}
+
+如果数据是复杂类型，比如数组，对象，函数。默认值需要通过函数的返回值来提供（工厂函数）
+props:{
+   data:{
+        type:Object,
+        required:true,
+        default:() => {
+              return '默认值'
+       }
+   }
+}
+
+保证独立性，多个组件实例互不影响
+
+---------------------------------------
+5 自定义验证函数
+props:{
+   color:{
+       validator (value) {
+         // return true就是通过校验
+         if(value === 'red'){
+               return true
+          } else {
+               return false 
+           }
+      }
+   }
+}

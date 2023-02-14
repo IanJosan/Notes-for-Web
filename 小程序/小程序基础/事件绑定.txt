@@ -1,0 +1,77 @@
+ 什么是事件
+事件是渲染层到逻辑层的通讯方式。通过事件可以将用户在渲染层产生的行为，反馈到逻辑层进行业务的处理。
+
+2. 小程序中常用的事件
+类型                   绑定方式                                 事件描述
+tap                  bindtap 或 bind:tap                   手指触摸后马上离开，类似于 HTML 中的 click 事件
+input              bindinput 或 bind:input            文本框的输入事件
+change          bindchange 或 bind:change       状态改变时触发
+
+
+3. 事件对象的属性列表
+当事件回调触发的时候，会收到一个事件对象 event，它的详细属性如下表所示：
+属性                           类型            说明
+type                          String          事件类型
+timeStamp               Integer        页面打开到触发事件所经过的毫秒数
+target                       Object        触发事件的组件的一些属性值集合
+currentTarget          Object         当前组件的一些属性值集合
+detail                       Object          额外的信息
+touches                   Array           触摸事件，当前停留在屏幕中的触摸点信息的数组
+changedTouches    Array           触摸事件，当前变化的触摸点信息的数组
+
+4. target 和 currentTarget 的区别
+target 是触发该事件的源头组件，而 currentTarget 则是当前事件所绑定的组件。举例如下：
+点击内部的按钮时，点击事件以冒泡的方式向外扩散，也会触发外层 view 的 tap 事件处理函数。
+此时，对于外层的 view 来说：
+⚫ e.target 指向的是触发事件的源头组件，因此，e.target 是内部的按钮组件
+⚫ e.currentTarget 指向的是当前正在触发事件的那个组件，因此，e.currentTarget 是当前的 view 组件
+
+事件绑定
+<button type="primary" bindtap="btnTapHandler">按钮</button>
+js
+在与data平级写上事件函数
+ btnTapHandler(e) {
+    console.log(e);
+  },
+
+
+6. 在事件处理函数中为 data 中的数据赋值
+通过调用 this.setData(dataObject) 方法，可以给页面 data 中的数据重新赋值，示例如下：
+ Countchange(){
+    this.setData({
+      count:this.data.count + 1
+    })
+  }
+
+
+7. 事件传参
+小程序中的事件传参比较特殊，不能在绑定事件的同时为事件处理函数传递参数。例如，下面的代码将不能正
+常工作：
+因为小程序会把 bindtap 的属性值，统一当作事件名称来处理，相当于要调用一个名称为 btnHandler(123)
+的事件处理函数。
+可以为组件提供 data-* 自定义属性传参，其中 * 代表的是参数的名字，示例代码如下：
+<button type="primary" bindtap="btnTap2" data-info="{{2}}">+2</button>
+最终：
+⚫ info 会被解析为参数的名字
+⚫ 数值 2 会被解析为参数的值
+在事件处理函数中，通过 event.target.dataset.参数名 即可获取到具体参数的值，示例代码如下
+<button type="primary" bindtap="btnTap2" data-info="{{2}}">+2</button>
+btnTap2(e) {
+      console.log(e);
+      this.setData({
+        count:this.data.count + e.target.dataset.info
+      })
+  }
+
+
+8. bindinput 的语法格式
+在小程序中，通过 input 事件来响应文本框的输入事件，语法格式如下：
+① 通过 bindinput，可以为文本框绑定输入事件：
+② 在页面的 .js 文件中定义事件处理函数：
+
+9. 实现文本框和 data 之间的数据同步
+实现步骤：
+① 定义数据
+② 渲染结构
+③ 美化样式
+④ 绑定 input 事件处理函数

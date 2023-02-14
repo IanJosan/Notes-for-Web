@@ -1,0 +1,24 @@
+等dom更新后触发此方法里的函数体执行 
+ btn(){
+            this.count++; // vue监测数据更新, 开启一个DOM更新队列(异步任务)
+            console.log(this.$refs.myP.innerHTML); // 0
+
+            // 原因: Vue更新DOM异步
+            // 解决: this.$nextTick()
+            // 过程: DOM更新完会挨个触发$nextTick里的函数体
+             this.$nextTick(() => {
+                console.log(this.$refs.myP.innerHTML); // 1
+            })
+        }
+
+
+------------------------
+在哪里可以访问到更新后的DOM
+this.$nextTick里的函数体
+updated生命周期钩子函数
+----------------------
+$nextTick函数原地返回promise对象
+$nextTick会在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。在 created 和 mounted 阶段，如果需要-操作-渲染后的视图，可以使用 nextTick 方法。
+------------------------------
+为什么需要
+因为在触发更新时需要等所有更新的方法都执行完毕后才会更新渲染页面，所以需要使用$nextTick(function)方法，来把绑定的事件延迟到所有都更新完毕后执行才有效果。或者放到定时器中不正统

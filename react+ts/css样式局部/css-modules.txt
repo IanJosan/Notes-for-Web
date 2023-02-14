@@ -1,0 +1,26 @@
+1，创建名为 `[name].module.scss` 的样式文件（React脚手架中的约定，与普通 CSS 作区分）
+
+2，引入module.scss或module.css
+import styles from './index.module.scss'
+
+3，通过styles点 的方式添加类名
+<div className={styles.test}></div>
+
+类名最好使用驼峰命名，因为最终类名会生成`styles`的一个属性
+如果没有使用驼峰命名，对于不合法的命名，需要使用[]语法 
+styles['tab-bar']
+
+如果是全局的类名，应该使用`:global(.类名)`的方式，不然会把全局类名给修改掉 
+// 如果被:global包裹的样式，css modules就不会去修改这个类名了
+:global {
+  .ant-pagination-item-active {
+    border-color: red;
+    a {
+      color: red;
+    }
+  }
+}
+或者这样包裹
+:global(类名){
+   样式
+}

@@ -1,0 +1,76 @@
+1. 什么是全局数据共享
+全局数据共享（又叫做：状态管理）是为了解决组件之间数据共享的问题。
+开发中常用的全局数据共享方案有：Vuex、Redux、MobX 等。
+
+2. 小程序中的全局数据共享方案
+在小程序中，可使用 mobx-miniprogram 配合 mobx-miniprogram-bindings 实现全局数据共享。其中：
+⚫ mobx-miniprogram 用来创建 Store 实例对象
+⚫ mobx-miniprogram-bindings 用来把 Store 中的共享数据或方法，绑定到组件或页面中使用
+
+1. 安装 MobX 相关的包
+在项目中运行如下的命令，安装 MobX 相关的包
+
+2. 创建 MobX 的 Store 实例
+import {observable,action} from 'mobx-miniprogram'
+export const store = observable({
+  numA:1,
+  numB:2,
+  get sum() {
+    return this.numA + this.numB
+  },
+  updateNum1:action(function(step) {
+    this.numA += step
+  }),
+  updateNum2:action(function(step) {
+    this.numB += step
+  })
+})
+3. 将 Store 中的成员绑定到页面中
+import {createStoreBindings} from 'mobx-miniprogram-bindings'
+import {store} from '../../store/store'
+ onLoad: function (options) {
+    this.storeBindings = createStoreBindings(this,{
+      store,
+      fields:['numA','numB','sum'],
+      actions:['updateNum1']
+    })
+  },
+ onUnload: function () {
+    this.storeBindings.detroyStoreBindings()
+  },
+
+4. 在页面上使用 Store 中的成员
+<view>{{numA}} + {{numB}} = {{sum}}</view>
+<van-button type="primary" bindtap="btnHandler1" data-step="{{1}}">numA+1</van-button>
+<van-button type="danger" bindtap="btnHandler1" data-step="{{-1}}">numA-1</van-button>
+ btnHandler1(e) {
+    console.log(e);
+    this.updateNum1(e.target.dataset.step)
+  },
+
+5. 将 Store 中的成员绑定到组件中
+import {storeBindingsBehavior} from 'mobx-miniprogram-bindings'
+import {store} from '../../store/store'
+Component({
+  behaviors:[storeBindingsBehavior],
+  storeBindings:{
+    store,
+    fields:{
+      numA:'numA',
+      numB:'numB',
+      sum:'sum'
+    },
+    actions:{
+      updateNum2:'updateNum2'
+    }
+  },
+
+6. 在组件中使用 Store 中的成员
+<view>{{numA}} + {{numB}} = {{sum}}</view>
+<van-button type="primary" bindtap="btnHandler2" data-step="{{1}}">numB+1</van-button>
+<van-button type="danger" bindtap="btnHandler2" data-step="{{-1}}">numB-1</van-button>
+ methods: {
+    btnHandler2(e) {
+      this.updateNum2(e.target.dataset.step)
+    }
+  }

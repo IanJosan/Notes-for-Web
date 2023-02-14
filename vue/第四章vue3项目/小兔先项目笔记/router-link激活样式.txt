@@ -1,0 +1,19 @@
+精准匹配，路由必须前后全部一致才有此类名样式
+ <router-link exact-active-class="active" to="/member">个人中心</router-link>
+class="router-link-exact-active"
+
+模糊匹配，只需要前面的路由对了就行
+<router-link active-class="active" to="/member/order">我的订单</router-link>
+class="router-link-active"
+
+----------------------------------
+自定义类名激活样式
+const router = new VueRouter({
+    routers:[
+              {
+             path:,component:
+           }
+     ],
+      linkActiveClass:'模糊匹配类名',
+      linkExactActiveClass:'精确匹配类名'
+})

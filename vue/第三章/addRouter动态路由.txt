@@ -1,0 +1,15 @@
+路由拦截beforeEach和addRouter
+注意：vue3删除了addRoutes()，只能addRoute()一条一条进行加入,写addRoutes()是无效的。
+
+router.addRoute( 动态添加路由)
+在原路由表中添加 动态路由名称。同时 404 页面也可以在这里添加
+router.addRoute(  [...动态路由,{ path: '*', redirect: '/404'}] )
+
+最后路由守卫放行路由 不是直接next() 而是 next(to.path)
+
+next({...to, replace: true })
+
+退出时需要将动态路由删除，不然第二次会不断添加路由
+--------------------------------
+在判断需要添加动态路由页面js中
+this.$rotuer.addRoutes([路由规则])

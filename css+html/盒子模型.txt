@@ -1,0 +1,14 @@
+第三章盒子模型
+CSS中规定每个盒子分别由：内容区域content；内边距区域padding；边框区域border；外边距区域margin；构成
+border:连写形式用空格隔开
+像素px 线的种类 线的颜色。没有顺序之分 快捷键bd+tab/回车
+solid实线 dashed虚线 dotted点线
+边框线方向设置：  border-方位名称
+padding和border 会把盒子撑大后期需要剪掉  或者量的时候注意
+padding：top left bottom rightpx; 连写用空格隔开从top开始顺时针 没有值的看对面
+margin同padding 两个块级元素同方向的外边距取最大值而不是相加
+减法模式，
+加一行代码就不用自己去加减被撑大的盒子，默认自动值为盒子宽高
+box-sizing:border-box;
+利用通配符选择器清除默认边距
+*{padding:0;   margin:0;}

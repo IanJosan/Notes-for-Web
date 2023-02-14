@@ -1,0 +1,2 @@
+Node.js/浏览器，只认识 JS 代码，不认识 TS 代码。需要先将 TS 代码转化为 JS 代码，然后才能运行
+- 安装命令：npm i -g typescript

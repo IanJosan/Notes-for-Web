@@ -1,0 +1,22 @@
+1. 什么是组件所在页面的生命周期
+有时，自定义组件的行为依赖于页面状态的变化，此时就需要用到组件所在页面的生命周期。
+例如：每当触发页面的 show 生命周期函数的时候，我们希望能够重新生成一个随机的 RGB 颜色值。
+在自定义组件中，组件所在页面的生命周期函数有如下 3 个，分别是：
+生命周期函数   参数                  描述
+show               无                      组件所在的页面被展示时执行
+hide                 无                     组件所在的页面被隐藏时执行
+resize              Object Size       组件所在的页面尺寸变化时执行
+
+2. pageLifetimes 节点
+组件所在页面的生命周期函数，需要定义在 pageLifetimes 节点中，示例代码如下： 
+pageLifetimes:{
+    show() {
+      console.log('show');
+    },
+    hide() {
+      console.log('hide');
+    },
+    resize() {
+      console.log('resize');
+    }
+  }

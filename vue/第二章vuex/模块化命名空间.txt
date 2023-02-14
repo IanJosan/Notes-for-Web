@@ -1,0 +1,24 @@
+命名空间namespaced
+默认情况下模块内部的actions mutations getters 是挂载在全局命名空间下的
+在模块下加 
+namespaced:true就不会挂载到全局了
+user:{
+      namespaced:true,
+      state:{
+        token:'12345'
+      }
+    },
+
+想要调带命名空间的模块
+法一，直接调用带上模块属性名的路径
+this.$store.commit('user/updateToken')
+法二辅助函数也带路径
+...mapMutations(['user/updateToken']),
+text() {
+      this['user/updateToken']()
+    }
+@click=''text''
+法三 引入createNamespacedHelpers
+import {createNamespacedHelpers} from 'vuex'
+const {mapMutations} = createNamespacedHelpers('命名空间模块名')
+之后 ...mapMutations(['updateToken']), 不用加路径了

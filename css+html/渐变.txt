@@ -1,0 +1,11 @@
+渐变背景
+background-image: linear-gradient(
+默认 to top，
+      颜色1，
+      颜色2，
+      颜色3
+）；
+
+方向：
+在关键字 to 后面加上 top、bottom、right、left 中的某一个关键字或多个关键字。
+当然我们可以使用多个关键字，例如 to bottom right ，表示从左上到右下结束。

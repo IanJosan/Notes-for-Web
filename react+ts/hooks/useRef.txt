@@ -1,0 +1,17 @@
+使用场景
+在函数组件中获取真实的dom元素对象或者是类组件对象实例
+ref的作用
+1，操作dom
+2，持久化保持某一个对象（类似闭包的使用，但是每次更新不会丢失）
+
+使用步骤
+1. 导入 useRef 函数
+import { useState, useEffect, useRef } from 'react'
+
+2. 执行 useRef 函数并传入null，返回值为一个对象 内部有一个current属性存放拿到的dom对象（组件实例）
+  const testRef = useRef(null)
+      console.log(testRef.current)
+
+3. 通过ref 绑定 要获取的元素或者组件
+<Function ref={testRef}></Function>
+ <h1 ref={h1Ref}>h1标签</h1>

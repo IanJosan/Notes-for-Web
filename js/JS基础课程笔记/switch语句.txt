@@ -1,0 +1,15 @@
+switch 是针对特定变量值的选项
+switch （表达式） {
+                    case  value1：
+                        执行语句1；
+                              break；
+                    case  value2：
+                      执行语句二；
+                             break；
+…………
+                      default：
+                    执行最后语句
+}
+执行思路 利用表达式和后面的case后面的选项值匹配 如果匹配上就执行该case里面的语句 并退出  如果没有匹配上就执行default里面的语句
+case里面的值要 全等时才可以 值和数据类型都一样
+break 当前case里面没有break时不会退出会继续执行下一个直到出现break

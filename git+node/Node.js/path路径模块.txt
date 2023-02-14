@@ -1,0 +1,26 @@
+path是用来处理路径的模块
+path.join() 用来将多个路径片段拼接成一个完整的路径字符串
+path.basename() 用来从路径字符串中将文件名解析出来
+
+使用前需要先导入path路径
+const path = require('path')
+
+path.join()拼接路径
+const pathStr = path.join('/a','/b/c','../','./d','e')
+console.log(pathStr) //输出\a\b\d\e
+../会抵消掉上一个路径
+
+const pathStr = path.join(__dirname,'./files/1.txt')
+console.log(pathStr) // 输出当前文件所处位置目录
+以后涉及路径拼接问题要使用path.join
+
+获取路径中的文件名
+path.basename(path[,ext])
+path 必选 表示路径的字符串
+ext 可选 表示文件扩展名，返回删除掉扩展名
+返回字符串表示路径中的最后一部分
+
+获取文件扩展名
+path.extname(path)
+返回文件扩展名 .html
+

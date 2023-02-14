@@ -1,0 +1,3 @@
+在vue2.0中v-mode语法糖简写的代码 <Son :value="msg" @input="msg=$event" />
+
+在vue3.0中v-model语法糖有所调整：<Son :modelValue="msg" @update:modelValue="msg=$event" />

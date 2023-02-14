@@ -1,0 +1,2 @@
+git config user.name  指定配置
+git config --list --global 全局配置

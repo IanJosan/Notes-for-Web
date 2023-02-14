@@ -1,0 +1,15 @@
+setState本身不是异步更新数据的
+只是因为react的性能优化机制体现为异步，在react生命周期函数或者作用域下为异步，在原生环境下为同步
+多个setState只会触发一次更新，会被合并覆盖相同的更新
+
+参数一，解决，setState参数可以是一个函数
+this.setState( (state) => {
+  return {
+      count:state.count+1
+   }
+})
+
+此时，多次调用setState函数中参数state是上一个setState的结果，就不会导致覆盖问题
+
+参数二，解决异步问题，第二个参数可以是回调函数
+this.setState({},()=>{解决异步函数})

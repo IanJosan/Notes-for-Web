@@ -1,0 +1,4 @@
+脚手架创建react项目，搭建项目平台
+
+npx create-react-app 项目名字(推荐)
+npm install -g create-react-app全局安装

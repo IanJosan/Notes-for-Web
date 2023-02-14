@@ -1,0 +1,17 @@
+itheima() 自定义类似 Ajax函数，接收一个配置对象作为参数
+method 请求类型
+url 请求的URL地址
+data 请求携带的数据
+success 请求成功之后的回调函数
+
+
+处理data参数，需要把data对象转化为查询字符串的格式，从而提交给服务器
+function resolveData(data) {
+  var arr = []
+  for (var k in data) {
+    var str = k + '=' + data[k]
+    arr.push(str)
+  }
+
+  return arr.join('&')
+}

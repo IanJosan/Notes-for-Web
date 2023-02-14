@@ -1,0 +1,3 @@
+执行 npm i normalize.css 安装重置样式的包
+引入
+import 'normalize.css'

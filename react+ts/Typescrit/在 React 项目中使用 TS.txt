@@ -1,0 +1,5 @@
+创建新项目
+
+-命令：npx create-react-app 项目名 --template typescript
+
+说明：在命令行中，添加 `--template typescript` 表示创建支持 TS 的项目

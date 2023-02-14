@@ -1,0 +1,19 @@
+babel编译器 把高版本的js语法降级处理兼容
+babel-loader包允许使用babel和webpack来转译js
+1，下包
+yarn add babel-loader @babel/core @babel/preset-env -D
+2，在webpack.config.js上配置
+module:{
+ rules:[
+    {
+     test:/\.m?js$/,
+     exclude:/(node_modules|bower_components)/,     忽略文件
+     use:{
+        loader:'babel-loader',
+        options:{
+           presets:['@babel/preset-env'] 
+        }
+      }
+    }
+  ]
+}

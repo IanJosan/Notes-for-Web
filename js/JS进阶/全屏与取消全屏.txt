@@ -1,0 +1,19 @@
+原生dom操作全屏
+document.documentElement.requestFullscreen()进入全屏
+document.exitFullscreen()退出全屏
+
+
+加载插件操作
+npm i screenfull
+ methods: {
+    //   改变全屏
+    changeScreen() {
+      if (!ScreenFull.isEnabled) {
+        // 此时全屏不可用
+        this.$message.warning('此时全屏组件不可用')
+        return
+      }
+      //   如果可用 就可以全屏
+      ScreenFull.toggle()     // 自带全屏与取消
+    }
+  }

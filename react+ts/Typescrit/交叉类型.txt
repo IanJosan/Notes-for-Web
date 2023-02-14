@@ -1,0 +1,21 @@
+&符号，将两个类型都满足，常用于复杂的对象类型
+
+type User = {
+  name:string
+  age:number
+}
+type Demo = {
+  gender:boolean
+}
+type T = User & Demo
+const t:T = {
+  name:'zs',
+  age:1,
+  gender:true
+}
+
+碰到交叉时遇到同样类型的使用Omit
+Omit<K,T>类型让我们可以从另一个对象类型中剔除某些属性，并创建一个新的对象类型：
+
+K：是对象类型名称，T：是剔除K类型中的属性名称
+type T = User & Omit<Demo,'age>

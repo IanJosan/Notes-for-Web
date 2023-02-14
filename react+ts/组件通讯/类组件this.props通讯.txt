@@ -1,0 +1,47 @@
+import ReactDOM from 'react-dom'
+import React, { Component } from 'react'
+import Demo from './Demo'
+import Hello from './Hello'
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <h1>App组件通讯</h1>
+        {/* 通过属性方式给子组件传递数据 */}
+        <Demo name="西瓜" money={100}></Demo>
+        <Hello name="白菜" money={20}></Hello>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+
+
+import { Component } from 'react'
+export default class Hello extends Component {
+  render() {
+    console.log(this.props)
+    const { name, money } = this.props
+    return (
+      <div>
+        <h1>类组件Hello</h1>
+        <div>{name}</div>
+        <div>{money}</div>
+      </div>
+    )
+  }
+}
+------------------------------
+类组件通过子组件内render函数中this.props得到传下来的值
+render() {
+    console.log(this.props)
+    const { name, money } = this.props
+    return (
+      <div>
+        <h1>类组件Hello</h1>
+        <div>{name}</div>
+        <div>{money}</div>
+      </div>
+    )
+  }

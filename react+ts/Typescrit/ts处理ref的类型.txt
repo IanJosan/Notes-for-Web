@@ -1,0 +1,7 @@
+当需要操作dom时会使用ref
+const inputRef = useRef<HTMLInputElement>需要操作inputdom所以加上input的类型推断(null)
+此时只需要在useRef上加上需要操作的dom的类型就可以
+
+在使用ref获取current属性时可能会报null的错误
+是因为还没渲染ref时会是null获取不到，如果确定在使用ref时dom已渲染可以使用非空断言current!
+inputRef.current!.focus()

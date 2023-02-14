@@ -1,0 +1,14 @@
+vuex-持久化
+我们需要安装一个vuex的插件vuex-persistedstate来支持vuex的状态持久化。
+npm i vuex-persistedstate
+引入
+import createPersistedstate from 'vuex-persistedstate'
+
+插件配置
+// 插件
+  plugins: [createPersistedstate({
+    // 本地存储名字
+    key: 'erabbit-client-pc-124-store',
+    // 本地存储的模块
+    paths: ['user', 'cart']
+  })]

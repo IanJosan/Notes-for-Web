@@ -1,0 +1,23 @@
+computed函数，是用来定义计算属性的，计算属性不能修改。
+
+import { computed, ref } from 'vue'
+ const newAge = computed(()=>{
+      // 该函数的返回值就是计算属性的值
+      return age.value + 2
+    })
+计算属性需要return
+
+computed的高级使用
+
+给computed()函数传入对象 获得set,get 方法
+get获取计算属性的值，set监听计算属性改变
+const newAge = computed({
+      // get函数，获取计算属性的值
+      get(){
+        return age.value + 2
+      },
+      // set函数，当你给计算属性设置值的时候触发
+      set (value) {
+        age.value = value - 2
+      }
+    })

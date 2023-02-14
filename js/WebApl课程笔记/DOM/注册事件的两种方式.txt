@@ -1,0 +1,10 @@
+传统注册事件以 on 开头
+具有唯一性 后面的处理函数会覆盖前面的
+
+方法监听注册方式
+addEventListener(type，listen[,useCapture]) 
+里面的事件类型是字符串需要加引号
+同一个元素同一个事件可以添加多个侦听器
+type：事件类型字符串 click mouseover 不用加 on
+listener：事件处理函数 事件发生时 监听函数
+useCapture：可选参数，是一个布尔值 默认为false

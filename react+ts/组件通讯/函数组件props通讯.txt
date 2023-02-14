@@ -1,0 +1,30 @@
+import ReactDOM from 'react-dom'
+import React, { Component } from 'react'
+import Demo from './Demo'
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <h1>App组件通讯</h1>
+        {/* 通过属性方式给子组件传递数据 */}
+        <Demo name="西瓜" money={100}></Demo>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+
+
+// 函数组件props接收数据
+export default function Demo(props) {
+  console.log(props)
+  return (
+    <div>
+      <h1>函数Demo组件</h1>
+    </div>
+  )
+}
+------------------------------
+组件标签上书写通过属性的方式需要传递的值
+函数子组件通过参数props接收传递的对象

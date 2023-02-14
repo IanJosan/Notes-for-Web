@@ -1,0 +1,47 @@
+全部引入，导入所有组件到项目
+1,vant安装
+# Vue 3 项目，安装最新版 Vant
+npm i vant
+# Vue 2 项目，安装 Vant 2
+npm i vant@latest-v2
+2，引入所有vant组件
+方式3，引入所有vant组件
+import Vue from 'vue'
+import Vant from 'vant'
+import 'vant/lib/index.css'  //引入所有样式
+Vue.use(Vant)  //全局注册vant组件
+3，在需要使用的组件页面使用
+
+----------------------------------------
+按需引入
+手动按需引入
+单独引入组件
+单独引入样式
+在此页面注册
+//方式二手动按需引入
+import Button from 'vant/lib/button'
+import 'vant/lib/button/style';
+
+export default {
+  components:{
+    // VanButton:Button
+    [Button.name]:Button
+  }
+}
+-----------------------------------------
+自动按需引入组件
+1，安装插件
+npm i babel-plugin-import -D
+2，babel.config.js  中添加配置，重启服务器
+module.exports = {
+  plugins: [
+    ['import', {
+      libraryName: 'vant',
+      libraryDirectory: 'es',
+      style: true
+    }, 'vant']
+  ]
+};
+3，// 接着你可以在代码中直接引入 Vant 组件
+// 插件会自动将代码转化为方式二中的按需引入形式
+import { Button } from 'vant';

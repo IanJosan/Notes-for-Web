@@ -1,0 +1,29 @@
+context跨级组件通讯
+1，调用React.createContext()创建 Provider(提供数据) Consumer(消费数据)两个组件
+import {creatContext} from 'react
+const { Provider，Consumer } = React.createContext()
+
+Provider，Consumer创建必须是一对，不能多次调用创建
+
+2，使用Provider组件作为父节点
+ render() {
+    return (
+      <Provider>
+        <div>
+          <h1>跨级通讯context</h1>
+          <Father></Father>
+        </div>
+      </Provider>
+    )
+  }
+
+3，设置value属性表示要传递的数据
+<Provider value={this.state.color}>
+
+传递多个数据用对象形式表示不能写多个value
+ value={{ color: this.state.color, changeColor: this.changeColor }}
+
+4，调用Consumer组件接收数据
+ <Consumer>{(value) => <h1>Sun组件--{value}</h1>}</Consumer>
+
+Consumer中写的是一个函数返回一个结构用{}包裹

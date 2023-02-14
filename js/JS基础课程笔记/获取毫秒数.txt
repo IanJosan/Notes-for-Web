@@ -1,0 +1,17 @@
+获取Date 毫秒数 时间戳 是距离1970年1月1日的毫秒数
+1.通过 valueOf() getTime()
+date.valueOf();
+date.getTime();
+2.简单写法
+var date1 = +new Date();
+date1就是返回的毫秒数
+3. H5新增
+Date.now()
+获得总毫秒数
+
+总毫秒数
+得到天数 d = parseInt(总秒数/60/60/24);
+得到小时数 h = parseInt(总秒数/60/60%24);
+得到分数 m = parseInt(总秒数/60%60);
+得到秒数 s = parseInt(总秒数%60);
+一秒等于一千毫秒

@@ -1,0 +1,26 @@
+state是存放公共状态的属性
+state存放区域
+const store = new Vuex.Store({
+     state：{
+        count：0
+    }
+})
+在组件App.vue中可以使用this.$store获取到vuex中的store对象实例，可以通过state属性获取定义的count
+原始使用
+{{$store.state.count}}
+
+计算属性使用
+ computed:{
+    count(){
+      return this.$store.state.count
+    }
+  }
+
+辅助函数使用
+mapState是辅助函数，帮助吧store中的数据映射到组件的-计算属性-中
+1，引入辅助函数
+import {mapState} from 'vuex'
+2，采用数组形式引入state属性
+computed:{
+    ...mapState(['count','age','money']) 
+  }

@@ -1,0 +1,12 @@
+基本步骤：
+
+在main.js中导入createApp函数
+定义App.vue组件，导入main.js
+使用createApp函数基于App.vue组件创建应用实例
+挂载至index.html的#app容器
+
+
+import {createApp} from 'vue'
+import App from './App.vue'
+const app = createApp(App)
+app.mount('#app')

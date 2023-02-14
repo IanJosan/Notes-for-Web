@@ -1,0 +1,13 @@
+JS将异步任务又做了进一步划分，异步任务分为两类
+宏任务macrotask
+异步Ajax请求
+定时器
+文件操作
+其他宏任务
+
+微任务microtask
+promise.then .catch .finally
+process.nextTick
+其他微任务
+
+每一个宏任务执行完成后都会检查是否存在待执行的微任务，如果有则执行所有微任务之后再继续执行下一个宏任务
